@@ -4,6 +4,33 @@
         <span class="backtotop">Back to Top</span>
     </div>
 </footer>
-<!-- TypeKit -->
+<!--
+
 <script src="https://use.typekit.net/{{site.typekitid}}.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+TypeKit -->
+<!--
+ thanks Aleksandr Hovhannisyan for tips on code segment copy
+    https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+ -->
+
+<script>
+
+    const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
+    const copyCodeButtons = document.querySelectorAll('.copy-code-button');
+
+    copyCodeButtons.forEach((copyCodeButton, index) => {
+        const code = codeBlocks[index].innerText;
+        copyCodeButton.addEventListener('click', () => {
+            window.navigator.clipboard.writeText(code);
+            copyCodeButton.classList.add('copied');
+
+            setTimeout(() => {
+                copyCodeButton.classList.remove('copied');
+            }, 2000);
+        });
+    });
+
+
+</script>
