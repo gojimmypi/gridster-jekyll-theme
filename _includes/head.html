@@ -1,4 +1,4 @@
-<meta charset="UTF-8">
+﻿<meta charset="UTF-8">
 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
 <!-- JS -->
 {% if jekyll.environment != "development" %}<script>
@@ -95,3 +95,13 @@
 {% seo %}
 {% feed_meta %}
 {% include favicon.html %}
+
+<!-- Load the user's last selected theme for the lamp -->
+<script>
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme) {
+		document.documentElement.className = savedTheme;
+	} else {
+		localStorage.setItem('theme', 'light');
+	}
+</script>
