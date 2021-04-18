@@ -14,6 +14,17 @@
     padding:5px;
 }
 
+body.dark-theme {
+    color: #eee;
+    background: #121212;
+
+}
+
+head.dark-theme {
+    color: #eee;
+    background: #121212;
+}
+
 #theme-toggle-container {
     display: flex;
 //    height: 4.8rem;

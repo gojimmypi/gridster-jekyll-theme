@@ -62,6 +62,8 @@ TypeKit -->
             this.themeOwner.classList.remove(oldTheme);
             this.themeOwner.classList.add(newTheme);
 
+            document.body.classList.toggle("dark-theme");
+
             localStorage.setItem(this.storageKey, newTheme);
             this.theme = newTheme;
             this.syncAriaLabelWithStorage();
