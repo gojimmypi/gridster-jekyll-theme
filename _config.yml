@@ -74,7 +74,7 @@ kramdown:
   input: GFM
   hard_wrap: false
 exclude: [.git, .gitignore, .sass-cache, package.json, gruntfile.js, node_modules, README.md, jekyllbuild, Gemfile, Gemfile.lock, preview, img, LICENCE, Organizational Overview.*]
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
