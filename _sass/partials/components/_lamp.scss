@@ -1,20 +1,109 @@
-// @import 'mixins';
+//@import 'mixins';
+//@import 'fonts';
 
+.navbar-item {
+    text-align: center;
+}
 #theme-toggle {
     outline-color: var(--color-white);
 }
 
+.lamp-navbar-item {
+    vertical-align: super;
+    background-color: transparent;
+    padding:5px;
+}
+
 #theme-toggle-container {
     display: flex;
-    height: 4.8rem;
+//    height: 4.8rem;
     justify-content: center;
 }
+
+.navbar {
+    position: relative;
+    background-color: var(--navbar-bg-color);
+    box-shadow: var(--navbar-box-shadow);
+    height: 100%;
+    // Mobile only
+    &.opened {
+        .navbar-menu {
+            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #navbar-toggle {
+            display: flex;
+
+            .icon-bar {
+                &:first-child,
+                &:last-child {
+                    position: absolute;
+                    margin: 0;
+                    width: var(--navbar-toggle-size);
+                    height: 5%;
+                }
+
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+.navbar-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#navbar-toggle {
+    --navbar-toggle-size: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    background: transparent;
+    height: var(--navbar-toggle-size);
+    width: var(--navbar-toggle-size);
+    flex-shrink: 0;
+    outline-offset: 0.4rem;
+    //@include font-size(0);
+
+    .icon-bar {
+        display: block;
+        width: 100%;
+        height: 33%;
+        background: var(--navbar-text-color);
+        //@include transition(transform, opacity);
+    }
+
+    &:focus,
+    &:hover {
+        .icon-bar {
+            background-color: var(--color-white);
+        }
+    }
+}
+
  
 .lamp {
     --lamp-color: var(--color-black-60);
     width: 45px;
     height: 45px;
     background-color: transparent;
+    padding-bottom: 5px;
     position: relative;
     transform: scale(0.711);
     transform-style: preserve-3d;
