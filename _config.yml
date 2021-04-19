@@ -1,22 +1,22 @@
 # Site Infos
 title: gojimmypi
-description: "the material experience for jekyll"
+description: "blog"
 domain: gojimmypi.github.io #If you want to force HTTPS, put down the domain without the http: e.g. example.com
 url: https://gojimmypi.github.io #place url
 baseurl: /gridster-jekyll-theme #place folder name if site is served in subfolder
 author: #For jekyll-feed
   name: gojimmypi
-  email: khhkcheung@gmail.com #Also used in nav
+  email: gojimmypi@gmail.com #Also used in nav
   uri: https://gojimmypi.github.io/about/
   twitter: "#" #name only. for jekyll-seo-tag, temporary fix to the incompatibility with site.data.authors
 tumblr: "#"
-pinterest: "#"
+pinterest: "https://fi.pinterest.com/gojimmypi/"
 instagram: "#"
 twitter: # for both nav & jekyll-seo-tag
   username: "gojimmypi" #name only
 # facebook: # for both nav & jekyll-seo-tag
 #   publisher: "#" #full link
-youtube: "#"
+youtube: "https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg"
 # vimeo: "#"
 # soundcloud: "#"
 social: # for jekyll-seo-tag
