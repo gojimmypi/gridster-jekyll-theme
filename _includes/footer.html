@@ -15,8 +15,7 @@ TypeKit -->
     https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
  -->
 
-<script>
-
+<script type="text/javascript">
     const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
     const copyCodeButtons = document.querySelectorAll('.copy-code-button');
 
@@ -31,7 +30,6 @@ TypeKit -->
             }, 2000);
         });
     });
-
 
 
     const themeMap = {
@@ -61,8 +59,7 @@ TypeKit -->
 
             this.themeOwner.classList.remove(oldTheme);
             this.themeOwner.classList.add(newTheme);
-
-            document.body.classList.toggle("dark-theme");
+            ToggleDarkMode();
 
             localStorage.setItem(this.storageKey, newTheme);
             this.theme = newTheme;
@@ -82,4 +79,14 @@ TypeKit -->
         storageKey: 'theme',
         themeOwner: document.documentElement,
     });
+
+
+    $(document).ready(function () {
+        var _TheActiveTheme = localStorage.getItem('theme');
+        // alert(_TheActiveTheme);
+        if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
+            ToggleDarkMode(true)
+        }
+    });
+
 </script>
