@@ -16,7 +16,7 @@
 
         h1{
             color: $title-color !important;
-		    font-weight: bold;
+            font-weight: bold;
             font-size: 24px;
             margin: 0;
             transition: .3s all ease;
@@ -33,10 +33,12 @@
             border-top: $line;
             padding: 20px;
             margin-top: 20px;
+            position: absolute;
+            bottom: 0;
 
             a{
                 margin-right: 20px;
-			    font-family: $sc-font;
+                font-family: $sc-font;
             }
         }
     }
