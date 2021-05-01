@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <span class="myspan">Failed Static Page</span>
+    <script type="text/javascript">
+        const myElements = document.querySelectorAll(".myspan");
+
+        myElements.forEach((myElement, index) => {
+            myElement.innerText = "success!"
+        });
+    </script>
+</body>
+</html>
