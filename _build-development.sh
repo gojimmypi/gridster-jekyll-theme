@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "value=$1"
+
 cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Starting in $(pwd)"
@@ -21,7 +23,12 @@ echo "Using a value of baseurl=$baseurl"
 SITE_DIR="$(pwd)/_site/"
 
 # Optional prompt to delete files in _site directory (yes, I've seen cached files get seemingly stuck there!')
-read -p "Delete files in $SITE_DIR? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] &&  if [ -d "$SITE_DIR" ]; then rm -Rf $SITE_DIR; fi
+if [ "$1" == "--assume-yes" ]; then
+  echo "Removing files in  $SITE_DIR ..."
+  rm -Rf $SITE_DIR  
+else
+  read -p "Delete files in $SITE_DIR? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] &&  if [ -d "$SITE_DIR" ]; then rm -Rf $SITE_DIR; fi
+fi
 
 echo "launching browser for baseurl=$baseurl found in_config.yml"
 python3 -mwebbrowser http://127.0.0.1:4000/$baseurl/
