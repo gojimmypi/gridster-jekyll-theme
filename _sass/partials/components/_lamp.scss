@@ -108,8 +108,9 @@ head.dark-theme {
     }
 }
 
- 
+
 .lamp {
+    cursor: pointer;
     --lamp-color: var(--color-black-60);
     width: 45px;
     height: 45px;
@@ -119,8 +120,6 @@ head.dark-theme {
     transform: scale(0.711);
     transform-style: preserve-3d;
     // @include font-size(0); // this is special... (?) causing error:
-
-
     //Conversion error: Jekyll::Converters::Scss encountered an error while converting 'css/main.scss':
     //                    Undefined variable: "$type-scale". on line 273
     //             Error: Undefined variable: "$type-scale". on line 273
