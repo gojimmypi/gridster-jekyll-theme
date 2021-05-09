@@ -18,18 +18,26 @@ TypeKit -->
 <script type="text/javascript">
     const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
     const copyCodeButtons = document.querySelectorAll('.copy-code-button');
+    if ((codeBlocks.length == 0) && (copyCodeButtons.length > 0)) {
+        {% if jekyll.environment != "development" %}
+        alert("Warning: code block missing. Copy icons disabled.");
+        {% endif %}
+    }
+    else
+    {
+        copyCodeButtons.forEach((copyCodeButton, index) => {
+            const code = codeBlocks[index].innerText;
+            copyCodeButton.addEventListener('click', () => {
+                window.navigator.clipboard.writeText(code);
+                copyCodeButton.classList.add('copied');
 
-    copyCodeButtons.forEach((copyCodeButton, index) => {
-        const code = codeBlocks[index].innerText;
-        copyCodeButton.addEventListener('click', () => {
-            window.navigator.clipboard.writeText(code);
-            copyCodeButton.classList.add('copied');
-
-            setTimeout(() => {
-                copyCodeButton.classList.remove('copied');
-            }, 2000);
+                setTimeout(() => {
+                    copyCodeButton.classList.remove('copied');
+                }, 2000);
+            });
         });
-    });
+
+    }
 
 
     const themeMap = {
@@ -37,10 +45,10 @@ TypeKit -->
         dark: 'light',
     };
 
-    // lamp theme toggle
+    /* lamp theme toggle */
     class ThemeToggle {
         constructor({ toggleSelector, themeOwner, storageKey }) {
-            // this is called once at page load time, not every time the lamp is pressed!
+            /* this is called once at page load time, not every time the lamp is pressed! */
             this.toggleElement = document.querySelector(toggleSelector);
             this.toggleElement.addEventListener('click', () => this.toggle());
             this.themeOwner = themeOwner;
@@ -59,7 +67,8 @@ TypeKit -->
 
             this.themeOwner.classList.remove(oldTheme);
             this.themeOwner.classList.add(newTheme);
-            ToggleDarkMode();
+            const forceDarkMode = (newTheme == 'dark') ? true : false;
+            ToggleDarkMode(forceDarkMode);
 
             localStorage.setItem(this.storageKey, newTheme);
             this.theme = newTheme;
@@ -73,7 +82,7 @@ TypeKit -->
     }
 
 
-    // lamp toggle
+    /* lamp toggle */
     const themeToggle = new ThemeToggle({
         toggleSelector: '#theme-toggle',
         storageKey: 'theme',
@@ -83,7 +92,7 @@ TypeKit -->
 
     $(document).ready(function () {
         var _TheActiveTheme = localStorage.getItem('theme');
-        // alert(_TheActiveTheme);
+        /* alert(_TheActiveTheme); */
         if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
             ToggleDarkMode(true)
         }
