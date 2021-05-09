@@ -1,3 +1,6 @@
+// _dark_mode.js
+// typically included in the footer.
+
 //const savedTheme = localStorage.getItem('theme');
 //// alert(savedTheme);
 //if (savedTheme) {
@@ -19,6 +22,28 @@
 	// alert('Saved theme = ' + savedTheme);
 })();
 
+
+// given a list of elements in [obj], toggle each of their respective darkmode
+function SafeToggleAll(obj, forceDarkMode) {
+	if (!obj || obj === null || obj === undefined) {
+
+	}
+	else {
+		obj.forEach(element => {
+			element.classList.toggle("dark-theme", forceDarkMode);
+		});
+	}
+}
+
+//
+// get a list of elements for a given .ClassName or ElementName
+//
+function ToggleDarkModeItem(name, forceDarkMode) {
+	// reminder: stati, not live NodeList, see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+	const thisElements = document.querySelectorAll(name);
+	SafeToggleAll(thisElements, forceDarkMode);
+}
+
 //
 // ToggleDarkMode; forceDarkMode=true to froce into dark mode
 // 
@@ -27,30 +52,57 @@ function ToggleDarkMode(forceDarkMode) {
 	//forceDarkMode = false;
 	//     }
 
-	document.body.classList.toggle("dark-theme", forceDarkMode);
+	//const userPrefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	//const thisTheme = userPrefersDarkMode ? 'dark' : 'light';
 
-	const divClasses = document.querySelectorAll('logo-container');
-	if (!divClasses || divClasses === null || divClasses === undefined) {
-		// alert("No divClasses found! ");
+	const savedTheme = localStorage.getItem('theme');
+	if (!forceDarkMode && savedTheme == 'dark') {
+		thisTheme = 'light'
 	}
 	else {
-		divClasses.forEach(element => {
-			divClasses.classList.toggle("dark-theme", forceDarkMode);
-		});
-	}
+		thisTheme = 'dark'; // the default when never saved is dark
+    }
+	document.documentElement.style.setProperty("color-scheme", thisTheme);
+	localStorage.setItem('theme', thisTheme);
+
+	document.body.classList.toggle("dark-theme", forceDarkMode);
+
+	ToggleDarkModeItem('code', forceDarkMode);
+	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
+	ToggleDarkModeItem('logo-container', forceDarkMode);
+	ToggleDarkModeItem('.sidebar', forceDarkMode);
+	ToggleDarkModeItem('.authorbox', forceDarkMode);
+
+	//const divClasses = document.querySelectorAll('logo-container');
+	//SafeToggleAll(divClasses, forceDarkMode);
+
+	//if (!divClasses || divClasses === null || divClasses === undefined) {
+	//	// alert("No divClasses found! ");
+	//}
+	//else {
+	//	divClasses.forEach(element => {
+	//		divClasses.classList.toggle("dark-theme", forceDarkMode);
+	//	});
+	//}
 	// set all custom <element> tages to dark mode
 	// since the article element is customer (but does not have a dash in the name), we iterate all <element> tags:
 	// see https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define (not used)
-	const articleClasses = document.querySelectorAll('article');
+	//const articleClasses = document.querySelectorAll('article');
+	//SafeToggleAll(articleClasses, forceDarkMode);
 
-	if (!articleClasses || articleClasses === null || articleClasses === undefined) {
+	ToggleDarkModeItem('article', forceDarkMode);
 
-	}
-	else {
-		articleClasses.forEach(element => {
-			element.classList.toggle("dark-theme", forceDarkMode);
-		});
-	}
+	//if (!articleClasses || articleClasses === null || articleClasses === undefined) {
+
+	//}
+	//else {
+	//	articleClasses.forEach(element => {
+	//		element.classList.toggle("dark-theme", forceDarkMode);
+	//	});
+	//}
+
+	// const sidebarClasses = document.querySelectorAll('sidebar')
+
 
 	// page should be in dark mode now		
 }
