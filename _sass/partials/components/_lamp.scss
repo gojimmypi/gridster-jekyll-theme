@@ -17,11 +17,9 @@
 // see _js/_dark_mode.js
 head.dark-theme,
 .sidebar.dark-theme,
-code.dark-theme,
-//.highlighter-rouge,
 body.dark-theme {
     color: #eee;
-    background: #121212;
+    background: #121212 !important;
 
     a {
         color: antiquewhite;
@@ -34,9 +32,11 @@ body.dark-theme {
     }
 }
 
-/*:root {
-    color-scheme: dark;
-}*/
+code.dark-theme,
+pre.dark-theme {
+    color: #eee;
+    background: #6b6b6b !important;
+}
 
 
 .logo-container {
