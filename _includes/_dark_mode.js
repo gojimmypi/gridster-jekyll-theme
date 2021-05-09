@@ -1,13 +1,10 @@
 // _dark_mode.js
-// typically included in the footer.
+// typically included in the head.html.
 
-//const savedTheme = localStorage.getItem('theme');
-//// alert(savedTheme);
-//if (savedTheme) {
-//	document.documentElement.className = savedTheme;
-//} else {
-//	localStorage.setItem('theme', 'light');
-//}
+
+//
+// runs once at page load time; determines if a theme was saved, and if not, if the user has a preference
+//
 (function () {
 	const savedTheme = localStorage.getItem('theme');
 	// alert(savedTheme);
@@ -22,8 +19,9 @@
 	// alert('Saved theme = ' + savedTheme);
 })();
 
-
+//
 // given a list of elements in [obj], toggle each of their respective darkmode
+//
 function SafeToggleAll(obj, forceDarkMode) {
 	if (!obj || obj === null || obj === undefined) {
 
@@ -68,6 +66,8 @@ function ToggleDarkMode(forceDarkMode) {
 	document.body.classList.toggle("dark-theme", forceDarkMode);
 
 	ToggleDarkModeItem('code', forceDarkMode);
+	ToggleDarkModeItem('pre', forceDarkMode);
+
 	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
 	ToggleDarkModeItem('logo-container', forceDarkMode);
 	ToggleDarkModeItem('.sidebar', forceDarkMode);
