@@ -57,10 +57,6 @@
                 <li class="social">
                     <a href="{{ site.baseurl }}{{ site.rss }}" class="rss"><i class="fa fa-rss fa-lg fa-fw"></i></a>
                 </li>
-                {% endif %} {% if site.author.email %}
-                <li class="social">
-                    <a href="mailto:{{ site.author.email }}" class="noline"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
-                </li>
                 {% endif %} {% if site.tumblr %}
                 <li class="social">
                     <a href="{{ site.tumblr }}" class="tumblr"><i class="fa fa-tumblr fa-lg fa-fw"></i></a>
@@ -81,10 +77,6 @@
                 <li class="social">
                     <a href="{{ site.soundcloud }}" class="soundcloud"><i class="fa fa-soundcloud fa-lg fa-fw"></i></a>
                 </li>
-                {% endif %} {% if site.twitter.username %}
-                <li class="social">
-                    <a href="https://twitter.com/{{ site.twitter.username }}" class="twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
-                </li>
                 {% endif %} {% if site.instagram %}
                 <li class="social">
                     <a href="{{ site.instagram }}" class="instagram"><i class="fa fa-instagram fa-lg fa-fw"></i></a>
@@ -92,6 +84,14 @@
                 {% endif %} {% if site.facebook.publisher %}
                 <li class="social">
                     <a href="{{ site.facebook.publisher }}" class="facebook"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                </li>
+                {% endif %} {% if site.twitter.username %}
+                <li class="social">
+                    <a href="https://twitter.com/{{ site.twitter.username }}" class="twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                </li>
+                {% endif %} {% if site.author.email %}
+                <li class="social">
+                    <a href="mailto:{{ site.author.email }}" class="noline"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %}
             </ul>
