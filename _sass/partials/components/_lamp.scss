@@ -14,16 +14,56 @@
     padding:5px;
 }
 
+// see _js/_dark_mode.js
+head.dark-theme,
+.sidebar.dark-theme,
+code.dark-theme,
+//.highlighter-rouge,
 body.dark-theme {
     color: #eee;
     background: #121212;
 
+    a {
+        color: antiquewhite;
+    }
+
+    a:hover {
+        color: white;
+        text-decoration-color: white;
+        text-decoration: underline;
+    }
 }
 
-head.dark-theme {
-    color: #eee;
-    background: #121212;
+/*:root {
+    color-scheme: dark;
+}*/
+
+
+.logo-container {
+    background: #2b2b2b;
 }
+
+.authorbox.dark-theme,
+article.dark-theme {
+    color: blanchedalmond;
+    background: #2b2b2b;
+
+    a {
+        color: antiquewhite;
+
+        h1 {
+            color: cornflowerblue !important;
+        }
+    }
+
+    a:hover {
+        color: white;
+        text-decoration-color: white;
+        text-decoration: underline;
+    }
+}
+
+
 
 #theme-toggle-container {
     display: flex;
