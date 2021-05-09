@@ -1,5 +1,8 @@
 // social media and search icon container within main menu
 .iconnav {
+    position: absolute; 
+    right:0;
+
     height: inherit;
     background-color: $primary-color;
     border-radius: 10px;
