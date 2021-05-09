@@ -1,8 +1,3 @@
-article.dark-theme {
-    background: black;
-    background-color: black;
-}
-
 article{
     @include shadow(1);
     border-radius: 2px;
