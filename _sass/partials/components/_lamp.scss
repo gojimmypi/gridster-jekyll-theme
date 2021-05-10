@@ -35,7 +35,114 @@ body.dark-theme {
 code.dark-theme,
 pre.dark-theme {
     color: #eee;
-    background: #6b6b6b !important;
+    background: #121212 !important;
+
+    // this next section was generated with:
+    //   rougify style base16.dark > mydarkmode.dark.css
+    // then replaced ".highlight " with a blank and pasted here:
+    .w {
+        color: #d0d0d0;
+        background-color: #151515;
+    }
+
+    .err {
+        color: #151515;
+        background-color: #ac4142;
+    }
+
+    .c, .ch, .cd, .cm, .cpf, .c1, .cs {
+        color: #505050;
+    }
+
+    .cp {
+        color: #f4bf75;
+    }
+
+    .nt {
+        color: #f4bf75;
+    }
+
+    .o, .ow {
+        color: #d0d0d0;
+    }
+
+    .p, .pi {
+        color: #d0d0d0;
+    }
+
+    .gi {
+        color: #90a959;
+    }
+
+    .gd {
+        color: #ac4142;
+    }
+
+    .gh {
+        color: #6a9fb5;
+        background-color: #151515;
+        font-weight: bold;
+    }
+
+    .k, .kn, .kp, .kr, .kv {
+        color: #aa759f;
+    }
+
+    .kc {
+        color: #d28445;
+    }
+
+    .kt {
+        color: #d28445;
+    }
+
+    .kd {
+        color: #d28445;
+    }
+
+    .s, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1 {
+        color: #90a959;
+    }
+
+    .sa {
+        color: #aa759f;
+    }
+
+    .sr {
+        color: #75b5aa;
+    }
+
+    .si {
+        color: #8f5536;
+    }
+
+    .se {
+        color: #8f5536;
+    }
+
+    .nn {
+        color: #f4bf75;
+    }
+
+    .nc {
+        color: #f4bf75;
+    }
+
+    .no {
+        color: #f4bf75;
+    }
+
+    .na {
+        color: #6a9fb5;
+    }
+
+    .m, .mb, .mf, .mh, .mi, .il, .mo, .mx {
+        color: #90a959;
+    }
+
+    .ss {
+        color: #90a959;
+    }
 }
 
 
