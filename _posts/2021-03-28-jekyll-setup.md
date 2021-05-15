@@ -37,7 +37,12 @@ To initialize:
 bundle install
 bundle update github-pages
 bundle exec jekyll serve
+
+# see https://rubygems.org/gems/jekyll-paginate
 gem install rouge
+gem install rake
+gem install rspec
+gem install jekyll-paginate
 ```
 Or better, see the build scripts:
 ```
