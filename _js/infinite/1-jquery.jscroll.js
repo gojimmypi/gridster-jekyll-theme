@@ -26,7 +26,7 @@
             autoTriggerUntil: false,
             loadingHtml: '<small>Loading...</small>',
             padding: 0,
-            nextSelector: 'a:last',
+            nextSelector: 'a:next',
             contentSelector: '',
             pagingSelector: '',
             callback: false
