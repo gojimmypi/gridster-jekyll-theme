@@ -7,37 +7,15 @@ title: "About"
 ---
 
 <div class="authorbox">
-    <p class="bio">
-        {% capture include_about %}
-        {% include about.md %}
-        {% endcapture %}
-        {{ include_about | markdownify }}
-    </p>
+	<p class="bio">
+{% capture include_about %}
+{% include about.md %}
+{% endcapture %}
+{{ include_about | markdownify }}
+	</p>
 </div>
 
 {% for siteauthor in site.data.authors %}
-  size = {{ siteauthor.size }}
-  {% assign the_author_id = siteauthor.id %}
-  siteauthor.id is [{{  siteauthor.id }}]
-  site.data.authors is [{{  site.data.authors }}]
-  the_author_id is [{{  the_author_id }}]
-  {% if  the_author_id == "" or the_author_id == empty or the_author_id == blank  or the_author_id == nil   %}
-    ===
-    Failed to find siteauthor for  [{{  siteauthor.id }}]
-    ===
-  {% else %}
-    the_author_id is not blank and has a value of [{{ the_author_id }}]
-
-  {% endif %}
-{% endfor %}
-
-{% for siteauthor in site.data.authors %}
-  {% if  siteauthor.size == "" or siteauthor.size == empty or siteauthor.size == blank  or siteauthor.size == nil or siteauthor.size < 1  %}
-    WARNING: blank record found in authors.yml (stray ' character? single quotes are row delimiters!)
-    {% assign the_author_id = "" %}
-    {% assign the_author = "missing" %}
-  {% else %}
-    {% assign the_author_id = siteauthor.id  %}
-    {% assign the_author = site.data.authors | where: 'id', siteauthor.id %}
-  {% endif %}
+  {% assign the_author = site.data.authors | where: 'id', siteauthor.id %}
+  {% include author_bio.html %}
 {% endfor %}
