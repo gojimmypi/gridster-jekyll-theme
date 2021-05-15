@@ -19,11 +19,10 @@
   instagram: https://instagram.com/gojimmypi
   # email: someone@something.com
 
-# - don't include a stray single character "-"! 
-# warning: having only one author generates this message:
+# - don't include a stray single character "-"! otherwise:
 #  Liquid Exception: undefined method `[]' for nil:NilClass in author/gojimmypi/index.html
 #             Error: undefined method `[]' for nil:NilClass
 #             Error: Run jekyll build --trace for more information.
-  # id: person2
-  # name: gojimmypi
+# id: person2
+# name: gojimmypi
 
