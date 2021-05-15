@@ -1,33 +1,45 @@
-﻿<meta charset="UTF-8">
-<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+﻿<meta charset="UTF-8" />
+    {% if (jekyll.environment == "development") %}<!-- jekyll.environment: development -->{% else %}<!-- jekyll.environment: production -->{% endif %}
+
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+<!-- meta name="color-scheme" content="dark light" -->
 <!-- JS -->
 
-<script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js" ></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js"></script>
 
-{% if jekyll.environment != "development" %}<script  type="text/javascript">
+{% if jekyll.environment != "development" %}
+<script type="text/javascript">
   var host = "{{ site.domain }}";
   if ((host == window.location.host) && (window.location.protocol != "https:"))
     window.location.protocol = "https";
 </script>{% endif %}
-{% if page.math %}<script type="text/x-mathjax-config">
+
+{% if page.math %}
+<script type="text/x-mathjax-config">
 	{% include _mathjax-cdn-setup.min.js %}
 </script>{% endif %}
-<script  type="text/javascript">
+
+{% if site.usefallback == null or site.usefallback == true %}
+<script type="text/javascript">
 	{% include _fallback.min.js %}
 </script>
-<script  type="text/javascript">
-  fallback.load({
-    main: "{{ site.baseurl | replace: '//', '/' }}/css/main.css",
+
+<script type="text/javascript">
+	fallback.load({
+
+		main: "{{ site.baseurl | replace: '//', '/' }}/css/main.css",
+
 		fontawesome: [
 			{% if jekyll.environment != "development" %}"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
 			"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css",{% endif %}
 			"{{ site.baseurl | replace: '//', '/' }}/css/font-awesome.min.css"
 		],
-    jQuery: [
+
+		jQuery: [
 			{% if jekyll.environment != "development" %}"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js",
       "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js",{% endif %}
 			"{{ site.baseurl | replace: '//', '/' }}/js/jquery-2.2.2.min.js"
-    ],
+        ],
 		Materialize: [
 			{% if jekyll.environment != "development" %}"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js",{% endif %}
 			"{{ site.baseurl | replace: '//', '/' }}/js/materialize.min.js"
@@ -57,12 +69,25 @@
       'cssTransitionSupport': ['Materialize']
     }
   });
+</script>
+{% else %}
+<link rel="stylesheet" href="/gridster-jekyll-theme/css/main.css">
+<link rel="stylesheet" href="/gridster-jekyll-theme/css/font-awesome.min.css">
+<!--script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js"></script -->
 
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/jquery.toc.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/1-jquery.jscroll.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/2-imagelightbox.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/scripts.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/js/materialize.min.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/init.js"></script>
+{% endif %}
 
-{% if page.sidebar_toc %}
-	fallback.ready(function() {
+<script type="text/javascript">
+	{% if page.sidebar_toc %}
+	fallback.ready(function () {
 		$('#post-content').toc({
-      renderIn:'#renderTOC',
+			renderIn: '#renderTOC',
 			showCollapsed: true,
 			minItemsToShowToc: 0
 		});
@@ -87,12 +112,13 @@
 </style>
 {% endif %}
 <!-- Google Analytics. Put the ID in _config.yml -->
-{% if jekyll.environment != "development" %}<script>
+{% if jekyll.environment != "development" %}
+<script>
 </script>{% endif %}
 
 <!-- Load the user's last selected theme for the lamp -->
 <script>
-    {% include _dark_mode.js %}
+	{% include _dark_mode.js %}
 </script>
 
 <link rel="stylesheet" id="color-change">
