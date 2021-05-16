@@ -1,7 +1,7 @@
 # Site Settings. Available in Liquid using the "site." prefix
 title: gojimmypi
 description: "blog"
-domain: gojimmypi.github.io #If you want to force HTTPS, put down the domain without the http: e.g. example.com
+domain: gojimmypi2.github.io #If you want to force HTTPS, put down the domain without the http: e.g. example.com
 url: https://gojimmypi.github.io #place url
 baseurl: /gridster-jekyll-theme #place folder name if site is served in subfolder
 github_baseurl: https://github.com/gojimmypi/gridster-jekyll-theme/ # required for the github-corner links
