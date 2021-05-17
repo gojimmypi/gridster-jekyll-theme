@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	$('.articles').jscroll({
 		contentSelector: 'article, .pagination',
+		padding: 20,
 		nextSelector: '.next',
 		callback: removeWrap,
 	});
