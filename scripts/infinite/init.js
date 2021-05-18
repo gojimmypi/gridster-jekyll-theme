@@ -2,7 +2,7 @@ $(document).ready(function () {
 	$('.articles').jscroll({
 		contentSelector: 'article, .pagination',
 		nextSelector: '.next',
-		padding: 60,
+		padding: 120,
 		callback: removeWrap,
 	});
 });
