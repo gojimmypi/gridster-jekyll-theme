@@ -69,7 +69,7 @@ All by itself, it is just an SVG file inside of an anchor tag. I've wrapped it i
 The source code looks like this:
 
 {% include code_header.html %}
-``` HTML
+```html
 <a href="https://github.com/pklauzinski/jscroll" 
 	target="_blank" 
 	class="github-corner" 
@@ -96,6 +96,7 @@ in of course an entire repo for [github-corners](https://github.com/tholman/gith
 That's just excellent. I really didn't want to spend the morning trying to figure it all out. So Tim's repo, there's a [CSS style](https://github.com/tholman/github-corners/blob/master/css/styles.css)
 that looks like this (and I included on this page) that does the little octo-wave:
 
+{% include code_header.html %}
 ``` css
 <style>
 .github-corner:hover .octo-arm {
@@ -142,6 +143,7 @@ that looks like this (and I included on this page) that does the little octo-wav
 
 The source I found on Tim's page was a bit different from my original ispration from the jscroll site, as it includes the style in the anchor:
 
+{% include code_header.html %}
 ``` html
 <a href="https://your-url" 
     class="github-corner" 
@@ -167,10 +169,12 @@ The source I found on Tim's page was a bit different from my original ispration 
 
 The only thing remaining is positioning and links. [This question](https://stackoverflow.com/questions/13243469/how-can-a-jekyll-page-access-its-filename) is relevant:
 
-    >My goal is to create links from any published jekyll page back to its location on Github.
+> _My goal is to create links from any published jekyll page back to its location on Github._
 
-Key here is the `{{page.path}}` value. Here's what I included on my [github corner include file](https://github.com/gojimmypi/gridster-jekyll-theme/blob/gh-pages/_include/github-corner.html):
+Key here is the `{% raw  %}{{page.path}}{% endraw %}` value. Here's what I included on my [github corner include file](https://github.com/gojimmypi/gridster-jekyll-theme/blob/gh-pages/_include/github-corner.html):
 
+
+{% include code_header.html %}
 ```liquid
 {% raw  %}
 {% assign this_github_root = site.github_baseurl | append: '/' | replace: '//', '/' %}
@@ -182,5 +186,5 @@ Key here is the `{{page.path}}` value. Here's what I included on my [github corn
 {% endraw %}
 ```
 
-Then on the we'll have the `<a href=''` value be the dynamic `{% raw  %}{{ this_github_page }}{% endraw %}` name. 
-(see [How to escape liquid template tags?](https://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags))
+Then on respective link, we'll have the `<a href=''` value be the dynamic `{% raw  %}{{ this_github_page }}{% endraw %}` name. 
+(see [How to escape liquid template tags](https://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags))
