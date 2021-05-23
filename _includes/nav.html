@@ -5,7 +5,7 @@
             <a class="toggle-link noline"><i class="fa fa-close fa-lg fa-fw"></i></a>
             <ul>
                 <li>
-                    <a class="homelink" href="{{ site.baseurl | replace: '//', '/' }}/"><i class="fa fa-home fa-lg fa-fw"></i></a>
+                    <a class="homelink" href="{{ site.baseurl | replace: '//', '/' }}/" title="Home" ><i class="fa fa-home fa-lg fa-fw"></i></a>
                 </li>
                 <li>
                     <a class="dropdown-button" href="#" data-activates='drop-author'>About<i class="fa fa-caret-down fa-fw"></i></a>
@@ -67,7 +67,7 @@
                 </li>
                 {% endif %} {% if site.youtube %}
                 <li class="social">
-                    <a href="{{ site.youtube }}" class="youtube"><i class="fa fa-youtube fa-lg fa-fw"></i></a>
+                    <a href="{{ site.youtube }}" class="youtube" title="View {{ site.author.name  }} YouTube Channel"><i class="fa fa-youtube fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.vimeo %}
                 <li class="social">
@@ -87,11 +87,11 @@
                 </li>
                 {% endif %} {% if site.twitter.username %}
                 <li class="social">
-                    <a href="https://twitter.com/{{ site.twitter.username }}" class="twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                    <a href="https://twitter.com/{{ site.twitter.username }}" class="twitter" title="Visit {{ site.author.name  }} on Twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.author.email %}
                 <li class="social">
-                    <a href="mailto:{{ site.author.email }}" class="noline"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
+                    <a href="mailto:{{ site.author.email }}" class="noline" title="Send an email to {{ site.author.name  }}"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %}
             </ul>
