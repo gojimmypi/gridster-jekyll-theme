@@ -106,3 +106,20 @@ function ToggleDarkMode(forceDarkMode) {
 
 	// page should be in dark mode now		
 }
+
+var _HideForChange = localStorage.getItem('theme');
+if (_HideForChange == null || _HideForChange == "dark") {
+	// while we toggle dark mode, hide the page to avoid blinking / flashing
+	document.documentElement.style.setProperty("visibility", "hidden");
+}
+
+
+//$(window).on('load', function () {
+//	// alert(1);
+//	var _TheActiveTheme = localStorage.getItem('theme');
+//	/* alert(_TheActiveTheme); */
+//	if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
+//		ToggleDarkMode(true)
+//	}
+//	// document.documentElement.style.setProperty("visibility", "visible");
+//});
