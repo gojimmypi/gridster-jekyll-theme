@@ -11,9 +11,9 @@ author: #For jekyll-feed
   email: gojimmypi@gmail.com #Also used in nav
   uri: https://gojimmypi.github.io/about/
   twitter: "#" #name only. for jekyll-seo-tag, temporary fix to the incompatibility with site.data.authors
-tumblr: "#"
+# tumblr: "#"
 pinterest: "https://fi.pinterest.com/gojimmypi/"
-instagram: "#"
+# instagram: "#"
 twitter: # for both nav & jekyll-seo-tag
   username: "gojimmypi" #name only
 # facebook: # for both nav & jekyll-seo-tag
