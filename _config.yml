@@ -85,6 +85,7 @@ plugins:
   - jekyll-archives #gh-pages disabled this. See my README on how to do this manually.
 
 #experiment
+include: ['_tags']
 tags:
   tag:
     output: true
