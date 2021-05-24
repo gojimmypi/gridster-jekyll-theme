@@ -36,6 +36,7 @@ copyright: "2015-2021 gojimmypi" # put your copyright info here excluding the ©
 # see _includes/footer.html  (does not seem to populate with this value?)
 typekitid: "" #Put your TypeKit Kit ID here. mit7aeg is the Gridster template
 # Site Setup
+relative_permalinks: false # see https://stackoverflow.com/questions/18401297/jekyll-not-generating-pages-in-subfolders (trying to fix auto-generated tags)
 permalink: /:categories/:title/
 paginate: 8
 paginate_path: /page/:num/
