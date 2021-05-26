@@ -12,7 +12,7 @@ tags:
 ---
 
 I'm using the defauly Jekyll sytax highlighter that works well, until it doesn't. Reminder that language tags
-are CASE SENSTIIVE!
+are CASE SENSTIVE!
 
 ````md
 ```html
