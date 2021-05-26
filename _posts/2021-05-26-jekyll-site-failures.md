@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll Tag Test"
+title: "Jekyll Site Failures"
 date: '2021-05-26'
 author: gojimmypi
 tags:
@@ -9,7 +9,7 @@ tags:
 - Tag
 ---
 
-Here are some tips in creating a new GitHub Pages virtual directory,
+Here are some tips in creating a new GitHub Pages virtual directory: what didn't work.
 
 First, [Creating a GitHub Pages site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 

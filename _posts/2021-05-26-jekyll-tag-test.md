@@ -17,8 +17,8 @@ and is hosted at [gojimmypi.github.io/](https://gojimmypi.github.io/)
 
 Now, one could simply create a directory in the `gojimmypi.github.io` repo, but here I have notes on creating a _separate repo_ that will be that virtual subdirectory.
 
-I created another comnpletely blank repo called [jekyll-tag-test](https://github.com/gojimmypi/jekyll-tag-test). (no default files, nothing!) 
-See [prior blog](../2021-05-26-jekyll-site_failures/) on some of the problems that could be encountered.
+I created another completely blank repo called [jekyll-tag-test](https://github.com/gojimmypi/jekyll-tag-test). (no default files, _nothing_!) 
+See [prior blog](../jekyll-site_failures/) on some of the problems that could be encountered.
 
 
 {% include code_header.html %}
