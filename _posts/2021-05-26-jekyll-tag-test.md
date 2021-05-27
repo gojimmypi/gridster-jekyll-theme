@@ -75,7 +75,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-The defaul `_config.yml` file looks like this:
+The default `_config.yml` file looks like this:
 
 
 {% include code_header.html %}
@@ -170,5 +170,9 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 ```
+
+Curiously, the locally generated page and the one at GitHub look completely different. It appears that some of the generated files locally
+in the `_site` directory to not get generated at the GitHub web site. I have no idea why. 
+I ended up [asking on the community forum](https://github.community/t/github-page-jekyll-looks-very-different-from-local-from-the-very-beginning/10816/3).
 
 https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
