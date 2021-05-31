@@ -8,11 +8,11 @@ as well as the [WIP demo](https://gojimmypi.github.io/gridster-jekyll-theme/) fr
 
 There were many problems that needed attention, as well as new features added:
 
-- [Syntax Highlighting and Code Segments]({{ site.github_baseurl }}/code-segments-andsyntax-higlighting/)
-- [Pagination and Scrolling]({{ site.github_baseurl }}/jekyll-pagination-and-scrolling/)
-- [GitHub-corners links]({{ site.github_baseurl }}/page-links-to-github-source/)
-- [Dark Mode]({{ site.github_baseurl }}/dark-mode/)
-- [Migration from BlogSpot to GitHub Pages]({{ site.github_baseurl }}/migration-from-blogspot-to-github-pages/)
+- [Syntax Highlighting and Code Segments]({{site.baseurl}}/code-segments-andsyntax-higlighting/)
+- [Pagination and Scrolling]({{site.baseurl}}/jekyll-pagination-and-scrolling/)
+- [GitHub-corners links]({{site.baseurl}}/page-links-to-github-source/)
+- [Dark Mode]({{site.baseurl}}/dark-mode/)
+- [Migration from BlogSpot to GitHub Pages]({{site.baseurl}}/migration-from-blogspot-to-github-pages/)
 
 
 {% assign this_github_root = site.github_baseurl  %}
