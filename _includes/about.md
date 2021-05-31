@@ -1,4 +1,4 @@
-# About
+<h2>About</h2>
 
 Write your about in <_includes/about.md>
 
@@ -29,3 +29,5 @@ this_github_root     = [{{ this_github_root }}]
 this_github_filename = [{{ this_github_filename }}]
 this_github_page     = [{{ this_github_page }}]
 -->
+
+[//]: # (this is a comment)
