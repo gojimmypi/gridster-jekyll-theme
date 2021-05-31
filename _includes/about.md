@@ -1,4 +1,4 @@
-Write your about in <_includes/about.md>
+[//]: # (_includes/about.md)
 
 This website is based on the [ickc fork](https://github.com/ickc/gridster-jekyll-theme) of abandoned
 [DigitalMindCH/gridster-jekyll-theme](https://github.com/DigitalMindCH/gridster-jekyll-theme)
