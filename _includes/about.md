@@ -1,5 +1,3 @@
-[//]: # (_includes/about.md)
-
 This website is based on the [ickc fork](https://github.com/ickc/gridster-jekyll-theme) of abandoned
 [DigitalMindCH/gridster-jekyll-theme](https://github.com/DigitalMindCH/gridster-jekyll-theme)
 listed at [jekyllthemes.io](https://jekyllthemes.io/theme/gridster-jekyll-theme).
