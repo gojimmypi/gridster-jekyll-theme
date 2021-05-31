@@ -1,3 +1,5 @@
+# About
+
 Write your about in <_includes/about.md>
 
 This website is based on the [ickc fork](https://github.com/ickc/gridster-jekyll-theme) of abandoned
@@ -7,7 +9,7 @@ listed at [jekyllthemes.io](https://jekyllthemes.io/theme/gridster-jekyll-theme)
 There's a [live demo of the original](https://gojimmypi.github.io/gridster-jekyll-original/) using a [copy of the code](https://github.com/gojimmypi/gridster-jekyll-original),
 as well as the [WIP demo](https://gojimmypi.github.io/gridster-jekyll-theme/) from the [gojimmypi/gridster-jekyll-theme repo](https://github.com/gojimmypi/gridster-jekyll-theme).
 
-There wxere many problems that needed attention, as well as new features added:
+There were many problems that needed attention, as well as new features added:
 
 - [Syntax Highlighting and Code Segments](./code-segments-andsyntax-higlighting/)
 - [Pagination and Scrolling](./jekyll-pagination-and-scrolling/)
