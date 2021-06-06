@@ -70,6 +70,12 @@ else
   python3 -mwebbrowser http://127.0.0.1:4000/$baseurl/
 fi
 
+# we'll gnerate a full website without serviing it up to allow for a manual copy of site tag files
+echo [optional] bundle exec jekyll build --trace
+bundle exec jekyll build --trace
+
+echo "Fix for tag pages: manually copy from `_site/tag/*` to `./tag/`"
+cp --recursive _site/tag/* ./tag/
+
 echo "bundle exec jekyll serve --profile --incremental --drafts"
 bundle exec jekyll serve --profile --incremental --drafts
-
