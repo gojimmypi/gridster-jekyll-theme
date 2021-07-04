@@ -10,18 +10,20 @@
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 TypeKit -->
-<!--
+{% comment %}
  thanks Aleksandr Hovhannisyan for tips on code segment copy
     https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
- -->
+{% endcomment %}
 
 <script type="text/javascript">
     const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
     const copyCodeButtons = document.querySelectorAll('.copy-code-button');
+
+
     if ((codeBlocks.length == 0) && (copyCodeButtons.length > 0)) {
-        {% if jekyll.environment != "development" %}
-        alert("Warning: code block missing. Copy icons disabled.");
-        {% endif %}
+        {%  if jekyll.environment == "development"  %} 
+        alert("Warning: code block missing. Is your language spec missing or not lower case? Copy icons disabled.");
+        {%   endif   %} 
     }
     else
     {
@@ -91,6 +93,7 @@ TypeKit -->
 
 
     $(document).ready(function () {
+        // move to init ?
         var _TheActiveTheme = localStorage.getItem('theme');
         /* alert(_TheActiveTheme); */
         if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
