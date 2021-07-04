@@ -19,7 +19,18 @@ $(document).ready(function () {
 
     // Responsive Menu
     $(".toggle-link").click(function () {
-        $("#menu").toggleClass("active");
+
+        var _TheActiveTheme = localStorage.getItem('theme');
+        if (_TheActiveTheme == null || _TheActiveTheme == "dark")
+        {
+//            ToggleDarkModeItem('.active', true);
+            $("#menu").toggleClass("active");
+        }
+        else
+        {
+            $("#menu").toggleClass("active");
+        }
+
     });
 
     // Search

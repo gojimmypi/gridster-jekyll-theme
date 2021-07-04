@@ -14,6 +14,15 @@
     padding:5px;
 }
 
+div.dark-theme {
+    background: #2b2b2b !important;
+}
+
+nav.dark-theme {
+    background: #2b2b2b !important;
+}
+
+
 // see _js/_dark_mode.js
 head.dark-theme,
 .sidebar.dark-theme,
@@ -145,9 +154,12 @@ pre.dark-theme {
     }
 }
 
+.snoopy {
+
+}
 
 .logo-container {
-    background: #2b2b2b;
+    background-color: aliceblue;
 }
 
 .authorbox.dark-theme,
