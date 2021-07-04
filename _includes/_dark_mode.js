@@ -76,9 +76,10 @@ function ToggleDarkMode(forceDarkMode) {
 	ToggleDarkModeItem('pre', forceDarkMode);
 
 	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
-	ToggleDarkModeItem('logo-container', forceDarkMode);
+	ToggleDarkModeItem('.logo-container', forceDarkMode);
 	ToggleDarkModeItem('.sidebar', forceDarkMode);
 	ToggleDarkModeItem('.authorbox', forceDarkMode);
+	// ToggleDarkModeItem('.active', forceDarkMode);
 
 	//const divClasses = document.querySelectorAll('logo-container');
 	//SafeToggleAll(divClasses, forceDarkMode);
