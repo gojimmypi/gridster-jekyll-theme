@@ -6,6 +6,8 @@ listed at [jekyllthemes.io](https://jekyllthemes.io/theme/gridster-jekyll-theme)
 There's a [live demo of the original](https://gojimmypi.github.io/gridster-jekyll-original/) using a [copy of the code](https://github.com/gojimmypi/gridster-jekyll-original),
 as well as the [WIP demo](https://gojimmypi.github.io/gridster-jekyll-theme/) from the [gojimmypi/gridster-jekyll-theme repo](https://github.com/gojimmypi/gridster-jekyll-theme).
 
+A copy of the original documentation from the wayback machine can be found [here]({{site.baseurl}}/gridster_doc.html).
+
 There were many problems that needed attention, as well as new features added:
 
 - [Syntax Highlighting and Code Segments]({{site.baseurl}}/code-segments-andsyntax-higlighting/)
