@@ -39,8 +39,8 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Starting in $(pwd)"
 
-# get the base url from the _config.yml file
-baseurl_line=$(grep -R "baseurl" "_config.yml" | tail -n1)
+# get the base url from the _config.yml file  (note we want the explicit line starting with baseurl: as there are now other settings that contina the same text! )
+baseurl_line=$(grep -R "^baseurl:" "_config.yml" | tail -n1)
 
 echo "Found baseurl configuration line in _config.yml file:"
 echo $baseurl_line
@@ -71,11 +71,14 @@ else
 fi
 
 # we'll gnerate a full website without serviing it up to allow for a manual copy of site tag files
-echo [optional] bundle exec jekyll build --trace
+echo "[optional] bundle exec jekyll build --trace"
 bundle exec jekyll build --trace
 
-echo "Fix for tag pages: manually copy from `_site/tag/*` to `./tag/`"
+echo ""
+echo "Fix for tag pages: manually copy from _site/tag/* to ./tag/  (using previously generated files!)"
 cp --recursive _site/tag/* ./tag/
+echo "Copy complete."
+echo ""
 
 echo "bundle exec jekyll serve --profile --incremental --drafts"
 bundle exec jekyll serve --profile --incremental --drafts
