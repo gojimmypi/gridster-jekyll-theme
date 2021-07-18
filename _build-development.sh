@@ -55,6 +55,12 @@ echo "Using a value of baseurl=$baseurl"
 
 SITE_DIR="$(pwd)/_site/"
 
+if [ "$1" == "" ]; then
+  echo ""
+  echo "To skip prompt, add to commandline: --assume-yes"
+  echo ""
+fi
+
 # Optional prompt to delete files in _site directory (yes, I've seen cached files get seemingly stuck there!')
 if [ "$1" == "--assume-yes" ]; then
   echo "Removing files in  $SITE_DIR ..."
@@ -65,6 +71,9 @@ fi
 
 if [ "$1" == "--assume-yes" ]; then
   echo "Skipping browser launch for $1"
+  echo ""
+  echo "View web page at: http://127.0.0.1:4000/$baseurl/"
+  echo ""
 else
   echo "launching browser for baseurl=$baseurl found in_config.yml"
   python3 -mwebbrowser http://127.0.0.1:4000/$baseurl/
