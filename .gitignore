@@ -8,3 +8,4 @@ Gemfile.lock
 MathJax/
 MathJax-third-party-extensions/
 /.vs
+/_posts/.vs
