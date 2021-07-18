@@ -1,12 +1,9 @@
----
----
-
 /*
 	By Osvaldas Valutis, www.osvaldas.info
 	Available for use under the MIT License
 */
 
-; (function ($, window, document, undefined) {
+(function ($, window, document, undefined) {
 	'use strict';
 
 	var cssTransitionSupport = function () {
