@@ -2,10 +2,15 @@
 <html>
 <head>
     <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css">
-    <meta charset="UTF-8" />
     
-		<!-- jekyll.environment: development -->
-		<!-- this page is from [tag/envox/index.html] -->
+<link rel="canonical" href="https://gojimmypi.github.io/tag/envox/">
+<!-- preview link rel="canonical" href="https://gojimmypi.github.io/tag/envox/" -->
+
+
+<meta charset="UTF-8" />
+    
+<!-- jekyll.environment: development -->
+<!-- this page is from [tag/envox/index.html] -->
 	
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
@@ -97,11 +102,18 @@ function ToggleDarkMode(forceDarkMode) {
 	//const thisTheme = userPrefersDarkMode ? 'dark' : 'light';
 
 	const savedTheme = localStorage.getItem('theme');
+	var lightModeIcon = document.getElementById("lightModeIcon");
+	var darkModeIcon = document.getElementById("darkModeIcon");
+
 	if (!forceDarkMode && savedTheme == 'dark') {
-		thisTheme = 'light'
+		thisTheme = 'light';
+		lightModeIcon.style.setProperty("display", "inline");
+		darkModeIcon.style.setProperty("display", "none");
 	}
 	else {
 		thisTheme = 'dark'; // the default when never saved is dark
+		lightModeIcon.style.setProperty("display", "none");
+		darkModeIcon.style.setProperty("display", "inline");
     }
 	document.documentElement.style.setProperty("color-scheme", thisTheme);
 	localStorage.setItem('theme', thisTheme);
@@ -110,11 +122,15 @@ function ToggleDarkMode(forceDarkMode) {
 
 	ToggleDarkModeItem('code', forceDarkMode);
 	ToggleDarkModeItem('pre', forceDarkMode);
+	ToggleDarkModeItem('nav', forceDarkMode);
 
 	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
-	ToggleDarkModeItem('logo-container', forceDarkMode);
+	ToggleDarkModeItem('.color-change', forceDarkMode);
+	ToggleDarkModeItem('.dropdown-content', forceDarkMode);
+	ToggleDarkModeItem('.logo-container', forceDarkMode);
 	ToggleDarkModeItem('.sidebar', forceDarkMode);
-	ToggleDarkModeItem('.authorbox', forceDarkMode);
+	ToggleDarkModeItem('.authorbox', forceDarkMode); // class="authorbox"
+	// ToggleDarkModeItem('.active', forceDarkMode);
 
 	//const divClasses = document.querySelectorAll('logo-container');
 	//SafeToggleAll(divClasses, forceDarkMode);
@@ -171,26 +187,26 @@ if (_HideForChange == null || _HideForChange == "dark") {
 
 <link rel="stylesheet" id="color-change">
 <!-- Site Infos -->
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Envox | gojimmypi</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.3" />
 <meta property="og:title" content="Envox" />
 <meta name="author" content="gojimmypi" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="blog" />
 <meta property="og:description" content="blog" />
-<link rel="canonical" href="http://localhost:4000/gridster-jekyll-theme/tag/envox/" />
-<meta property="og:url" content="http://localhost:4000/gridster-jekyll-theme/tag/envox/" />
+<link rel="canonical" href="https://gojimmypi.github.io/gridster-jekyll-theme/tag/envox/" />
+<meta property="og:url" content="https://gojimmypi.github.io/gridster-jekyll-theme/tag/envox/" />
 <meta property="og:site_name" content="gojimmypi" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Envox" />
 <meta name="twitter:site" content="@gojimmypi" />
 <meta name="twitter:creator" content="@#" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/gridster-jekyll-theme/tag/envox/","@type":"WebPage","author":{"@type":"Person","name":"gojimmypi"},"description":"blog","headline":"Envox","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"gojimmypi"},"description":"blog","headline":"Envox","url":"https://gojimmypi.github.io/gridster-jekyll-theme/tag/envox/"}</script>
 <!-- End Jekyll SEO tag -->
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/gridster-jekyll-theme/feed.xml" title="gojimmypi" />
 <!-- http:/realfavicongenerator.net -->
 <link rel="apple-touch-icon" sizes="57x57" href="/gridster-jekyll-theme/icons/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/gridster-jekyll-theme/icons/apple-touch-icon-60x60.png">
@@ -218,10 +234,10 @@ if (_HideForChange == null || _HideForChange == "dark") {
 
     <body class="index">
 
-       <header class="head">
-			<!-- use logic to toggle sidebar layouts -->
-			
-           <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+            <header class="head">
+                <!-- use logic to toggle sidebar layouts -->
+                
+                <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
 <div class="main-menu">
     <div class="content">
         <nav id="menu">
@@ -263,9 +279,7 @@ if (_HideForChange == null || _HideForChange == "dark") {
                 </li>
                 <li id="theme-toggle-container" class="lamp-navbar-item">
                     <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
-                        <span class="lamp-base"></span>
-                        <span class="lamp-neck"></span>
-                        <span class="lamp-head"></span>
+                        <img id="lightModeIcon" src="/gridster-jekyll-theme/icons/light_mode_black_24dp.svg" style="display:inline;" title="Light Mode; Click to switch to Dark Mode"/><img id="darkModeIcon" src="/gridster-jekyll-theme/icons/dark_mode_white_24dp.svg" style="display:none;"  title="Dark Mode; Click to swtich to Light Mode" />
                     </button>
                 </li>
 
@@ -328,16 +342,18 @@ if (_HideForChange == null || _HideForChange == "dark") {
     
 
 
+
 <!--
 jekyll.environment   = [development]
+site.domain          = [gojimmypi.github.io]
 site.github_baseurl  = [https://github.com/gojimmypi/gridster-jekyll-theme/]
 page.path            = [tag/envox/index.html]
 this_github_root     = [https://github.com/gojimmypi/gridster-jekyll-theme/]
 this_github_filename = [tag/envox/index.html]
-this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/gh-pages/tag/envox/index.html]
+this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/master/tag/envox/index.html]
 -->
 
-<a href="https://github.com/gojimmypi/gridster-jekyll-theme/tree/gh-pages/tag/envox/index.html"
+<a href="https://github.com/gojimmypi/gridster-jekyll-theme/tree/master/tag/envox/index.html"
    title="Click to view source on GitHub"
    class="github-corner"
    aria-label="View source on GitHub">
@@ -407,34 +423,50 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
     </div>
   </div>
 
-        </header>
-        <div id="search">
+            </header>
+            
+            <div class="preview-banner">
+                This is a preview site.
+                <a href="https://gojimmypi.github.io">
+                    Go to the main site (3)
+                </a>
+            </div>
+            
+            <div id="search">
 	<form role="search" method="get" action="/gridster-jekyll-theme/search/" id="searchform">
         <input id="query" name="query" type="search" placeholder="Enter here..."/>
 	</form>
 </div>
-        <div class="margin">
-            <div class="content">
-                <div class="switch">
-                    <div id="grid"><span></span></div>
-                    <div id="classic"><span></span></div>
-                </div>
-                <h1 class="title">Envox</h1>
-                <div class="articles">
-                    
+            <div class="margin">
+                <div class="content">
+                    <div class="switch">
+                        <div id="grid"><span></span></div>
+                        <div id="classic"><span></span></div>
+                    </div>
+                    <h1 class="title">Envox</h1>
+                    <div class="articles">
+                        
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">November 01, 2020</span>
     <a href="/gridster-jekyll-theme/ea3500-openwrt-wifi-to-wifi-sta-routing/">
         <h1>EA3500 OpenWRT WiFi to WiFi STA Routing </h1>
     </a>
     <p class="post-content">
-    
-      Setting up Cisco Linksys EA3500 as WiFi to WiFi (STA mode) to have wired ethernet...
-    
+        
+        Setting up Cisco Linksys EA3500 as WiFi to WiFi (STA mode) to have wired ethernet...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ea3500-openwrt-wifi-to-wifi-sta-routing/">Read More</a>
@@ -443,18 +475,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">October 25, 2020</span>
     <a href="/gridster-jekyll-theme/bridge-eth0-to-wlan0-with-wlankabel/">
         <h1>Raspberry Pi Bridge eth0 to wlan0 with wlan_kabel</h1>
     </a>
     <p class="post-content">
-    
-      I spent a ridiculous amount of time trying to persuade native Raspberry Pi OS to...
-    
+        
+        I spent a ridiculous amount of time trying to persuade native Raspberry Pi OS to...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/bridge-eth0-to-wlan0-with-wlankabel/">Read More</a>
@@ -463,18 +503,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">October 18, 2020</span>
     <a href="/gridster-jekyll-theme/envox-eez-bench-box-3-ground/">
         <h1>Envox EEZ Bench Box 3 Ground Modification - BB3 Safety Upgrade</h1>
     </a>
     <p class="post-content">
-    
-      Over the weekend, I received my EEZ Bench Box 3 that I backed on Crowd...
-    
+        
+        Over the weekend, I received my EEZ Bench Box 3 that I backed on Crowd...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/envox-eez-bench-box-3-ground/">Read More</a>
@@ -482,12 +530,12 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 </article>
 
 
+                    </div>
+                    <!-- use logic to toggle sidebar layouts -->
+                    
                 </div>
-				<!-- use logic to toggle sidebar layouts -->
-				
             </div>
-        </div>
-        <footer>
+            <footer>
     <div class="content">
         <span>&copy; 2015-2021 gojimmypi</span>
         <span class="backtotop">Back to Top</span>
@@ -588,5 +636,5 @@ TypeKit -->
     });
 
 </script>
-    </body>
+        </body>
 </html>

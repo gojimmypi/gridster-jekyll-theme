@@ -2,10 +2,15 @@
 <html>
 <head>
     <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css">
-    <meta charset="UTF-8" />
     
-		<!-- jekyll.environment: development -->
-		<!-- this page is from [tag/ulx3s/index.html] -->
+<link rel="canonical" href="https://gojimmypi.github.io/tag/ulx3s/">
+<!-- preview link rel="canonical" href="https://gojimmypi.github.io/tag/ulx3s/" -->
+
+
+<meta charset="UTF-8" />
+    
+<!-- jekyll.environment: development -->
+<!-- this page is from [tag/ulx3s/index.html] -->
 	
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
@@ -97,11 +102,18 @@ function ToggleDarkMode(forceDarkMode) {
 	//const thisTheme = userPrefersDarkMode ? 'dark' : 'light';
 
 	const savedTheme = localStorage.getItem('theme');
+	var lightModeIcon = document.getElementById("lightModeIcon");
+	var darkModeIcon = document.getElementById("darkModeIcon");
+
 	if (!forceDarkMode && savedTheme == 'dark') {
-		thisTheme = 'light'
+		thisTheme = 'light';
+		lightModeIcon.style.setProperty("display", "inline");
+		darkModeIcon.style.setProperty("display", "none");
 	}
 	else {
 		thisTheme = 'dark'; // the default when never saved is dark
+		lightModeIcon.style.setProperty("display", "none");
+		darkModeIcon.style.setProperty("display", "inline");
     }
 	document.documentElement.style.setProperty("color-scheme", thisTheme);
 	localStorage.setItem('theme', thisTheme);
@@ -110,11 +122,15 @@ function ToggleDarkMode(forceDarkMode) {
 
 	ToggleDarkModeItem('code', forceDarkMode);
 	ToggleDarkModeItem('pre', forceDarkMode);
+	ToggleDarkModeItem('nav', forceDarkMode);
 
 	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
-	ToggleDarkModeItem('logo-container', forceDarkMode);
+	ToggleDarkModeItem('.color-change', forceDarkMode);
+	ToggleDarkModeItem('.dropdown-content', forceDarkMode);
+	ToggleDarkModeItem('.logo-container', forceDarkMode);
 	ToggleDarkModeItem('.sidebar', forceDarkMode);
-	ToggleDarkModeItem('.authorbox', forceDarkMode);
+	ToggleDarkModeItem('.authorbox', forceDarkMode); // class="authorbox"
+	// ToggleDarkModeItem('.active', forceDarkMode);
 
 	//const divClasses = document.querySelectorAll('logo-container');
 	//SafeToggleAll(divClasses, forceDarkMode);
@@ -171,26 +187,26 @@ if (_HideForChange == null || _HideForChange == "dark") {
 
 <link rel="stylesheet" id="color-change">
 <!-- Site Infos -->
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ULX3S | gojimmypi</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.3" />
 <meta property="og:title" content="ULX3S" />
 <meta name="author" content="gojimmypi" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="blog" />
 <meta property="og:description" content="blog" />
-<link rel="canonical" href="http://localhost:4000/gridster-jekyll-theme/tag/ulx3s/" />
-<meta property="og:url" content="http://localhost:4000/gridster-jekyll-theme/tag/ulx3s/" />
+<link rel="canonical" href="https://gojimmypi.github.io/gridster-jekyll-theme/tag/ulx3s/" />
+<meta property="og:url" content="https://gojimmypi.github.io/gridster-jekyll-theme/tag/ulx3s/" />
 <meta property="og:site_name" content="gojimmypi" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="ULX3S" />
 <meta name="twitter:site" content="@gojimmypi" />
 <meta name="twitter:creator" content="@#" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/gridster-jekyll-theme/tag/ulx3s/","@type":"WebPage","author":{"@type":"Person","name":"gojimmypi"},"description":"blog","headline":"ULX3S","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"gojimmypi"},"description":"blog","headline":"ULX3S","url":"https://gojimmypi.github.io/gridster-jekyll-theme/tag/ulx3s/"}</script>
 <!-- End Jekyll SEO tag -->
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/gridster-jekyll-theme/feed.xml" title="gojimmypi" />
 <!-- http:/realfavicongenerator.net -->
 <link rel="apple-touch-icon" sizes="57x57" href="/gridster-jekyll-theme/icons/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/gridster-jekyll-theme/icons/apple-touch-icon-60x60.png">
@@ -218,10 +234,10 @@ if (_HideForChange == null || _HideForChange == "dark") {
 
     <body class="index">
 
-       <header class="head">
-			<!-- use logic to toggle sidebar layouts -->
-			
-           <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+            <header class="head">
+                <!-- use logic to toggle sidebar layouts -->
+                
+                <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
 <div class="main-menu">
     <div class="content">
         <nav id="menu">
@@ -263,9 +279,7 @@ if (_HideForChange == null || _HideForChange == "dark") {
                 </li>
                 <li id="theme-toggle-container" class="lamp-navbar-item">
                     <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
-                        <span class="lamp-base"></span>
-                        <span class="lamp-neck"></span>
-                        <span class="lamp-head"></span>
+                        <img id="lightModeIcon" src="/gridster-jekyll-theme/icons/light_mode_black_24dp.svg" style="display:inline;" title="Light Mode; Click to switch to Dark Mode"/><img id="darkModeIcon" src="/gridster-jekyll-theme/icons/dark_mode_white_24dp.svg" style="display:none;"  title="Dark Mode; Click to swtich to Light Mode" />
                     </button>
                 </li>
 
@@ -328,16 +342,18 @@ if (_HideForChange == null || _HideForChange == "dark") {
     
 
 
+
 <!--
 jekyll.environment   = [development]
+site.domain          = [gojimmypi.github.io]
 site.github_baseurl  = [https://github.com/gojimmypi/gridster-jekyll-theme/]
 page.path            = [tag/ulx3s/index.html]
 this_github_root     = [https://github.com/gojimmypi/gridster-jekyll-theme/]
 this_github_filename = [tag/ulx3s/index.html]
-this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/gh-pages/tag/ulx3s/index.html]
+this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/master/tag/ulx3s/index.html]
 -->
 
-<a href="https://github.com/gojimmypi/gridster-jekyll-theme/tree/gh-pages/tag/ulx3s/index.html"
+<a href="https://github.com/gojimmypi/gridster-jekyll-theme/tree/master/tag/ulx3s/index.html"
    title="Click to view source on GitHub"
    class="github-corner"
    aria-label="View source on GitHub">
@@ -407,34 +423,78 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
     </div>
   </div>
 
-        </header>
-        <div id="search">
+            </header>
+            
+            <div class="preview-banner">
+                This is a preview site.
+                <a href="https://gojimmypi.github.io">
+                    Go to the main site (3)
+                </a>
+            </div>
+            
+            <div id="search">
 	<form role="search" method="get" action="/gridster-jekyll-theme/search/" id="searchform">
         <input id="query" name="query" type="search" placeholder="Enter here..."/>
 	</form>
 </div>
-        <div class="margin">
-            <div class="content">
-                <div class="switch">
-                    <div id="grid"><span></span></div>
-                    <div id="classic"><span></span></div>
-                </div>
-                <h1 class="title">ULX3S</h1>
-                <div class="articles">
-                    
+            <div class="margin">
+                <div class="content">
+                    <div class="switch">
+                        <div id="grid"><span></span></div>
+                        <div id="classic"><span></span></div>
+                    </div>
+                    <h1 class="title">ULX3S</h1>
+                    <div class="articles">
+                        
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
+    
+    
+    <span class="date">June 05, 2021</span>
+    <a href="/gridster-jekyll-theme/ulx3s-fpga-ethernet/">
+        <h1>ULX3S FPGA Ethernet</h1>
+    </a>
+    <p class="post-content">
         
+        These are my notes on sniffing Ethernet packets with the Radiona ULX3S FPGA. I first...
+        
+    </p>
+    <p class="actions">
+        <a href="/gridster-jekyll-theme/ulx3s-fpga-ethernet/">Read More</a>
+    </p>
+</article>
+
+
+    <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
+<article>
+    
+    
     
     <span class="date">March 29, 2020</span>
     <a href="/gridster-jekyll-theme/litex-soft-cpu-on-ulx3s-reloading/">
         <h1>LiteX Soft CPU on the ULX3S - reloading firmware without reflashing the soft CPU</h1>
     </a>
     <p class="post-content">
-    
-      My next post (aka notes to self) on getting a RISC-V compiled app onto the...
-    
+        
+        My next post (aka notes to self) on getting a RISC-V compiled app onto the...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/litex-soft-cpu-on-ulx3s-reloading/">Read More</a>
@@ -443,18 +503,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">March 28, 2020</span>
     <a href="/gridster-jekyll-theme/risc-v-on-ulx3s-with-litex-part-2/">
         <h1>RISC-V on the ULX3S with LiteX - Part 2</h1>
     </a>
     <p class="post-content">
-    
-      First .. the exciting news: With 24 days still left in the Crowd Funding Campaign,...
-    
+        
+        First .. the exciting news: With 24 days still left in the Crowd Funding Campaign,...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/risc-v-on-ulx3s-with-litex-part-2/">Read More</a>
@@ -463,18 +531,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">March 14, 2020</span>
     <a href="/gridster-jekyll-theme/risc-v-on-ulx3s-with-litex/">
         <h1>RISC-V on the ULX3S with LiteX</h1>
     </a>
     <p class="post-content">
-    
-      Today is ULX3S Campaign Launch Day on Crowd Supply !! As I write this, funding...
-    
+        
+        Today is ULX3S Campaign Launch Day on Crowd Supply !! As I write this, funding...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/risc-v-on-ulx3s-with-litex/">Read More</a>
@@ -483,18 +559,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">March 08, 2020</span>
     <a href="/gridster-jekyll-theme/risc-v-circuit-python-on-ulx3s-starting/">
         <h1>RISC-V Circuit Python on ULX3S starting with the Hacker FOMU as an example</h1>
     </a>
     <p class="post-content">
-    
-      Some notes on setting up a soft RISC-V CPU to run Circuit Python. I started...
-    
+        
+        Some notes on setting up a soft RISC-V CPU to run Circuit Python. I started...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/risc-v-circuit-python-on-ulx3s-starting/">Read More</a>
@@ -503,18 +587,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">December 24, 2019</span>
     <a href="/gridster-jekyll-theme/ulx3s-and-icestudio/">
         <h1>ULX3S and IceStudio</h1>
     </a>
     <p class="post-content">
-    
-      Today I learned that IceStudio supports the ULX3S ! I thought I'd first try it...
-    
+        
+        Today I learned that IceStudio supports the ULX3S ! I thought I'd first try it...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ulx3s-and-icestudio/">Read More</a>
@@ -523,18 +615,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">June 01, 2019</span>
     <a href="/gridster-jekyll-theme/ulx3s-and-visual-micro-in-visual-studio/">
         <h1>ULX3S and Visual Micro in Visual Studio 2019</h1>
     </a>
     <p class="post-content">
-    
-      This blog is a walk-though using the Visual Micro Arduino IDE in Visual Studio 2019...
-    
+        
+        This blog is a walk-though using the Visual Micro Arduino IDE in Visual Studio 2019...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ulx3s-and-visual-micro-in-visual-studio/">Read More</a>
@@ -543,18 +643,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">March 31, 2019</span>
     <a href="/gridster-jekyll-theme/ulx3s-sdr-with-alinx-adda/">
         <h1>ULX3S SDR with ALINX AD/DA</h1>
     </a>
     <p class="post-content">
-    
-      Last year, I wrote about the ALINX&nbsp;AD/DA Module that I found on fleabay. Anyone interested...
-    
+        
+        Last year, I wrote about the ALINX&nbsp;AD/DA Module that I found on fleabay. Anyone interested...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ulx3s-sdr-with-alinx-adda/">Read More</a>
@@ -563,18 +671,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">February 17, 2019</span>
     <a href="/gridster-jekyll-theme/notes-on-ulx3s-fpga-yosys-verilog-vhdl/">
         <h1>Notes on ulx3s FPGA: Yosys, Verilog, VHDL, vhdl2vl (Convert VHDL to Verilog)</h1>
     </a>
     <p class="post-content">
-    
-      I want to better understand my new ULX3S, and I was hoping to use FOSS...
-    
+        
+        I want to better understand my new ULX3S, and I was hoping to use FOSS...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/notes-on-ulx3s-fpga-yosys-verilog-vhdl/">Read More</a>
@@ -583,18 +699,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">February 12, 2019</span>
     <a href="/gridster-jekyll-theme/ulx3s-ujprog-on-windows-wsl-or-minggw/">
         <h1>ULX3S - ujprog on Windows WSL or MingGW</h1>
     </a>
     <p class="post-content">
-    
-      I continue to learn about my latest gizmo that arrived all the way from Croatia...
-    
+        
+        I continue to learn about my latest gizmo that arrived all the way from Croatia...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ulx3s-ujprog-on-windows-wsl-or-minggw/">Read More</a>
@@ -603,18 +727,26 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
     <!-- each post has their own little article element. -->
+
+<div class="preview-banner">
+    This is a preview site.
+    <a href="https://gojimmypi.github.io">
+        Go to the main site (0)
+    </a>
+</div>
+
 <article>
     
-        
+    
     
     <span class="date">February 09, 2019</span>
     <a href="/gridster-jekyll-theme/ulx3s-day-1/">
         <h1>ULX3S - Day 1</h1>
     </a>
     <p class="post-content">
-    
-      I first learned about the ULX3S via the Hackaday Article&nbsp;last month. (see also hackster.io) There...
-    
+        
+        I first learned about the ULX3S via the Hackaday Article&nbsp;last month. (see also hackster.io) There...
+        
     </p>
     <p class="actions">
         <a href="/gridster-jekyll-theme/ulx3s-day-1/">Read More</a>
@@ -622,12 +754,12 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 </article>
 
 
+                    </div>
+                    <!-- use logic to toggle sidebar layouts -->
+                    
                 </div>
-				<!-- use logic to toggle sidebar layouts -->
-				
             </div>
-        </div>
-        <footer>
+            <footer>
     <div class="content">
         <span>&copy; 2015-2021 gojimmypi</span>
         <span class="backtotop">Back to Top</span>
@@ -728,5 +860,5 @@ TypeKit -->
     });
 
 </script>
-    </body>
+        </body>
 </html>
