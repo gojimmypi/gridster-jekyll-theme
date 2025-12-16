@@ -19,6 +19,14 @@
             {% endif %}
             {% include nav.html %}
         </header>
+        {% if site.preview_site %}
+        <div class="preview-banner">
+            This is a preview site.
+            <a href="{{ site.canonical_site_url }}">
+                Go to the main site (5)
+            </a>
+        </div>
+        {% endif %}
         {% include search.html %}
         <div class="margin">
             <!-- use logic to toggle sidebar layouts -->
@@ -112,6 +120,6 @@
                 </div>
             </div>
             {% include footer.html %}
-
+        </div>
     </body>
 </html>
