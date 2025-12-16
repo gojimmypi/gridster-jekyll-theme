@@ -34,3 +34,12 @@
         </a>
     </div>
 </div>
+{% if site.preview_site %}
+<div class="preview-banner">
+                This is a preview site.
+                <a href="{{ site.canonical_site_url }}">
+                    Go to the main site
+                </a>
+</div>
+{% endif %}
+
