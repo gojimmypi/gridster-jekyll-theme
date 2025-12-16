@@ -1,4 +1,10 @@
-﻿<meta charset="UTF-8" />
+{% if site.preview_site %}
+<!-- preview link rel="canonical" href="{{ site.canonical_site_url }}{{ page.url }}" -->
+{% else %}
+<!-- not preview link rel="canonical" href="{{ site.canonical_site_url }}{{ page.url }}" -->
+{% endif %}
+
+<meta charset="UTF-8" />
     {% if (jekyll.environment == "development") %}
 		<!-- jekyll.environment: development -->
 		<!-- this page is from [{{ page.path }}] -->
