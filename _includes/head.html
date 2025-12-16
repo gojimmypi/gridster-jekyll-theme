@@ -1,4 +1,5 @@
 {% if site.preview_site %}
+<link rel="canonical" href="{{ site.canonical_site_url }}{{ page.url }}">
 <!-- preview link rel="canonical" href="{{ site.canonical_site_url }}{{ page.url }}" -->
 {% else %}
 <!-- not preview link rel="canonical" href="{{ site.canonical_site_url }}{{ page.url }}" -->
@@ -6,8 +7,8 @@
 
 <meta charset="UTF-8" />
     {% if (jekyll.environment == "development") %}
-		<!-- jekyll.environment: development -->
-		<!-- this page is from [{{ page.path }}] -->
+<!-- jekyll.environment: development -->
+<!-- this page is from [{{ page.path }}] -->
 	{% else %}<!-- jekyll.environment: production -->
 	{% endif %}
 
