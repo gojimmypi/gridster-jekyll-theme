@@ -11,6 +11,8 @@
 
 /* Banner container */
 .preview-banner {
+    position: relative;
+    z-index: 5000; /* higher than overlays */
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     display: block;
@@ -41,9 +43,15 @@
 
 /* Banner link */
 .preview-banner a {
+    display: inline-block;
+    padding: 0.25em 0.5em;
     color: var(--link, inherit) !important;
     text-decoration: underline;
     font-weight: 500;
+    line-height: 1.2;
+    position: relative;
+    z-index: 5001;
+    pointer-events: auto !important;
 }
 
 .preview-banner a:hover,
