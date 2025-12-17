@@ -4,6 +4,14 @@ sidebar: true
 sidebar_type: material
 sidebar_position: left
 ---
+{% if site.preview_site %}
+<div class="preview-banner">
+    This is a preview site.
+    <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_tag_index">
+        Go to the main site (from tag index)
+    </a>
+</div>
+{% endif %}
 
 {% for post in site.tags[page.title] %}
     {% include article_index.html %}

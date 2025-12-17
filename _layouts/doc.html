@@ -20,6 +20,16 @@
             {% include nav.html %}
         </header>
         {% include search.html %}
+
+        {% if site.preview_site %}
+        <div class="preview-banner">
+            This is a preview site.
+            <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_doc">
+                Go to the main site (from doc)
+            </a>
+        </div>
+        {% endif %}
+
         <div class="margin">
             <!-- use logic to toggle sidebar layouts -->
             {% if page.sidebar %}

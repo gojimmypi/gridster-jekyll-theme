@@ -20,14 +20,16 @@
                 {% endif %}
                 {% include nav.html %}
             </header>
+
             {% if site.preview_site %}
             <div class="preview-banner">
                 This is a preview site.
-                <a href="{{ site.canonical_site_url }}{{ page.url }}">
-                    Go to the main site (3)
+                <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview">
+                    Go to the main site (from index)
                 </a>
             </div>
             {% endif %}
+
             {% include search.html %}
             <div class="margin">
                 <div class="content">
