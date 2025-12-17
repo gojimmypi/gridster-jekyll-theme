@@ -1,12 +1,4 @@
 <!-- each post has their own little article element. -->
-{% if site.preview_site %}
-<div class="preview-banner">
-    This is a preview site.
-    <a href="{{ site.canonical_site_url }}{{ page.url }}">
-        Go to the main site (0)
-    </a>
-</div>
-{% endif %}
 <article>
     {% if post.homedisplay == "iframe" %}
     {% if post.type == "vimeo" %}
@@ -57,6 +49,16 @@
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
         <h1>{{ post.title }}</h1>
     </a>
+
+    {% if site.preview_site %}
+    <div class="preview-banner">
+        This is a preview site.
+        <a href="{{ site.canonical_site_url }}{{ page.url }}">
+            Go to the main site (0)
+        </a>
+    </div>
+    {% endif %}
+
     <p class="post-content">
         {% if post.content contains site.excerpt_separator %}
         {{ post.content | split:site.excerpt_separator | first }}
