@@ -2,16 +2,17 @@
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <!-- /_layouts/doc.html page.layout = {{ page.layout }} -->
     {% include head.html %}
 </head>
 <!-- use logic to toggle sidebar layouts -->
 {% if page.sidebar %}
-<body class="has-{{page.sidebar_type}}-sidebar-{{page.sidebar_position}}">
-    {% else %}
+    <body class="has-{{page.sidebar_type}}-sidebar-{{page.sidebar_position}}">
+{% else %}
     <body>
-        {% endif %}
+{% endif %}
         <header class="head">
             <!-- use logic to toggle sidebar layouts -->
             {% if page.sidebar == false or page.sidebar_type == "classic" %}
@@ -19,16 +20,17 @@
             {% endif %}
             {% include nav.html %}
         </header>
-        {% include search.html %}
-
-        {% if site.preview_site %}
+        {% if page.search != false %}
+            {% include search.html %}
+        {% endif %}
+        {%- if site.preview_site -%}
         <div class="preview-banner">
             This is a preview site.
             <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_doc">
                 Go to the main site (from doc)
             </a>
         </div>
-        {% endif %}
+        {%- endif -%}
 
         <div class="margin">
             <!-- use logic to toggle sidebar layouts -->
@@ -58,6 +60,6 @@
                 </div>
             </div>
             {% include footer.html %}
-
+        </div>
     </body>
 </html>
