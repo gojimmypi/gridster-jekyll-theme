@@ -7,14 +7,7 @@ sidebar_position: left
 {% assign the_author = site.data.authors | where: 'id', page.author %}
 {% include author_bio.html %}
 
-{%- if site.preview_site -%}
-<div class="preview-banner">
-    This is a preview site.
-    <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_author_index">
-        Go to the main site (from author index)
-    </a>
-</div>
-{%- endif -%}
+{%- include preview_banner.html -%}
 
 {% for post in site.posts %}
     {% if post.author contains page.author %}

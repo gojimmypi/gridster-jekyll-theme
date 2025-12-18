@@ -1,0 +1,282 @@
+/* _sass/partials/components/header_search.scss */
+@charset "utf-8";
+
+/*
+    Header search (table layout in header.html)
+
+    Goal:
+    - Remove extra vertical whitespace above/below the whole block
+    - Do NOT change the layout strategy (still table-based)
+    - Keep results behavior (dropdown overlay, full width)
+    - Keep changes scoped to this component
+*/
+
+/* Container surface */
+.logo-container.header-search {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+    padding: 6px 8px;
+    line-height: 1.2;
+}
+
+    /* Hard-scope table defaults (theme CSS often adds padding/line-height) */
+    .logo-container.header-search table,
+    .logo-container.header-search tr,
+    .logo-container.header-search td {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.2 !important;
+        vertical-align: top !important;
+    }
+
+    /* Logo anchor: do not contribute extra line box height */
+    .logo-container.header-search a.header-search__logo {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        transition: none;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding: 4px 6px;
+        margin: 0;
+        border-radius: 12px;
+        line-height: 0;
+    }
+
+        /* Kill any paddinghack pseudo-elements on `.logo` inside this header block */
+        .logo-container.header-search a.header-search__logo::before,
+        .logo-container.header-search a.header-search__logo::after {
+            content: none;
+            display: none;
+        }
+
+    .logo-container.header-search img.jimmy_logo {
+        height: 125px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+    }
+
+    /* Blurb: tighten but keep readable */
+    .logo-container.header-search .header-search__blurb {
+        margin: 0;
+        padding: 0;
+        line-height: 1.25;
+    }
+
+    .logo-container.header-search > table > tbody > tr > td:first-child {
+        padding-right: 14px !important;
+    }
+
+
+    /* HR default margins are usually the biggest "mystery gap" */
+    .logo-container.header-search .header-search__blurb hr {
+        margin: 6px 0;
+    }
+
+/* Search cell (dropdown anchors here) */
+.header-search__search {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.header-search__label {
+    margin: 0 8px 0 0;
+    white-space: nowrap;
+    color: var(--hs-label);
+}
+
+.header-search__input {
+    width: 70%;
+    max-width: 520px;
+    padding: 9px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--hs-text);
+    caret-color: var(--hs-text);
+}
+
+.header-search__input:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   Header search: inline focus icon
+   ------------------------------------------------------------ */
+
+#headerSearchContainer .header-search__search {
+    gap: 6px;
+}
+
+/* Icon button next to input */
+#headerSearchContainer .header-search__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border: 0;
+    background: transparent;
+    color: var(--hs-muted);
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#headerSearchContainer .header-search__icon:hover {
+    color: var(--hs-text);
+    background: var(--nav-hover);
+}
+
+#headerSearchContainer .header-search__icon:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Prevent SVG from affecting line height */
+#headerSearchContainer .header-search__icon svg {
+    display: block;
+}
+
+
+/*
+    Overlay behavior:
+    - Backdrop hides the page behind results
+    - Results dropdown spans full width of the header container
+*/
+
+/* Backdrop to hide page content while results are open */
+.header-search__backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 9990;
+}
+
+#headerSearchContainer.search-open .header-search__backdrop {
+    display: block;
+}
+
+/* Results dropdown container (full width, above backdrop) */
+.header-search__results-wrap {
+    display: none;
+    position: absolute;
+    top: calc(100% - 6px); /* just uder "Search posts:" text */
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: none;
+    z-index: 10000;
+}
+
+#headerSearchContainer.search-open .header-search__results-wrap {
+    display: block;
+}
+
+.header-search__status:empty {
+    display: none;
+}
+
+.header-search__status {
+    margin: 0 0 6px 0;
+    font-size: 0.9em;
+    opacity: 0.85;
+    color: var(--hs-text);
+}
+
+.header-search__results {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    max-height: 320px;
+    overflow: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.header-search__results li {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+}
+
+.header-search__results li:first-child {
+    border-top: 0;
+}
+
+.header-search__results li a {
+    display: block;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--hs-title);
+}
+
+.header-search__results li a:hover {
+    background: var(--nav-hover);
+}
+
+.header-search__results li.is-active a {
+    background: var(--nav-hover);
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
+}
+
+.header-search__result-date {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.9em;
+    color: var(--hs-muted);
+}
+
+/* ------------------------------------------------------------
+   Header search: center line + reduce input width
+   (additive only, no existing rules modified)
+   ------------------------------------------------------------ */
+
+/* Center the label + input as a unit within the table cell */
+#headerSearchContainer .header-search__search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* Make the search box less wide */
+#headerSearchContainer .header-search__input {
+    width: 255px;
+    max-width: 100%;
+}
+
+/* Force results and status to left-align text */
+#headerSearchContainer .header-search__results-wrap,
+#headerSearchContainer .header-search__status,
+#headerSearchContainer .header-search__results {
+    text-align: left;
+}
+
+/* Keep the header search UI above the dark backdrop */
+#headerSearchContainer .header-search__search {
+    position: relative;
+    z-index: 10001;
+}
+
+/* Keep dropdown above both */
+#headerSearchContainer .header-search__results-wrap {
+    z-index: 10002;
+}
+
+/* Backdrop stays below the search UI but above the page */
+#headerSearchContainer .header-search__backdrop {
+    z-index: 10000;
+}

@@ -1,191 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css">
-    
-<link rel="canonical" href="https://gojimmypi.github.io/tag/spi/">
-<!-- preview link rel="canonical" href="https://gojimmypi.github.io/tag/spi/" -->
+    <!-- /_layouts/index.html page.layout = tag_index -->
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css?v=1766073674">
+    <!-- file: /_includes/head.html -->
 
-
-<meta charset="UTF-8" />
-    
 <!-- jekyll.environment: development -->
 <!-- this page is from [tag/spi/index.html] -->
-	
 
-<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+
+
+<!-- analytics.ahrefs.com is not enabled -->
+
+
+<!-- Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="/gridster-jekyll-theme/manifest.json">
+
+<!-- helper to avoid page-load flash -->
+<style>
+    html.theme-preload * {
+        transition: none !important;
+    }
+</style>
+
+<script>
+    (function () {
+        var key = "theme";
+        var saved = null;
+
+        try {
+            saved = localStorage.getItem(key);
+        } catch (e) {
+            saved = null;
+        }
+
+        var theme = "dark";
+
+        if (saved === "dark" || saved === "light") {
+            theme = saved;
+        } else if (window.matchMedia) {
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        var root = document.documentElement;
+
+        root.classList.add("theme-preload");
+
+        /* One source of truth for CSS */
+        root.setAttribute("data-theme", theme);
+
+        /* Back-compat for existing JS/CSS that expects html.dark or html.light */
+        root.classList.remove("dark");
+        root.classList.remove("light");
+        root.classList.add(theme);
+
+        /* Let browser UI follow */
+        root.style.setProperty("color-scheme", theme);
+    })();
+</script>
+
+<!-- /helper to avoid page-load flash -->
+<meta content="width=device-width, initial-scale=1" name="viewport" />
 <!-- meta name="color-scheme" content="dark light" -->
 <!-- JS -->
+<!-- see https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/?utm_source=lighthouse&utm_medium=devtools -->
+<meta name="theme-color" content="#333333" />
 
-<script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js"></script>
-
-
-
-
+<script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
 
 
-<link rel="stylesheet" href="/gridster-jekyll-theme/css/main.css">
-<link rel="stylesheet" href="/gridster-jekyll-theme/css/font-awesome.min.css">
-<!--script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js"></script -->
-
-<script type="text/javascript" src="/gridster-jekyll-theme/scripts/jquery.toc.js"></script>
-<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/1-jquery.jscroll.js"></script>
-<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/2-imagelightbox.js"></script>
-<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/scripts.js"></script>
-<script type="text/javascript" src="/gridster-jekyll-theme/js/materialize.min.js"></script>
-<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/init.js?forceversion=2"></script>
 
 
-<script type="text/javascript">
-	
-</script>
+
+
+<link rel="stylesheet" href="/css/main.css?v=1766073674">
+
+<!--script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script moved to above -->
+
+<script type="text/javascript" src="/scripts/jquery.toc.js"></script>
+<script type="text/javascript" src="/scripts/infinite/1-jquery.jscroll.js"></script>
+<script type="text/javascript" src="/scripts/global/2-imagelightbox.js"></script>
+<script type="text/javascript" src="/scripts/global/scripts.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<script type="text/javascript" src="/scripts/infinite/init.js?forceversion=2"></script>
+
+
+
+
 
 
 <!-- Google Analytics. Put the ID in _config.yml -->
 
 
 <!-- Load the user's last selected theme for the lamp -->
-<script>
-	// _dark_mode.js
+<script type="text/javascript">
+    // _dark_mode.js
 // typically included in the head.html.
 
-
-//
-// runs once at page load time; determines if a theme was saved, and if not, if the user has a preference
-//
 (function () {
-	const savedTheme = localStorage.getItem('theme');
-	// alert(savedTheme);
-	if (savedTheme) {
-		document.documentElement.className = savedTheme;
-	} else {
-		const userPrefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		const preferredTheme = userPrefersDarkMode ? 'dark' : 'light';
-		document.documentElement.className = preferredTheme;
-		localStorage.setItem('theme', preferredTheme);
-	}
-	// alert('Saved theme = ' + savedTheme);
+    var key = "theme";
+    var savedTheme = null;
+    var theme = "dark";
+
+    try {
+        savedTheme = localStorage.getItem(key);
+    } catch (e) {
+        savedTheme = null;
+    }
+    // alert('Saved theme = ' + savedTheme);
+    if (savedTheme === "dark" || savedTheme === "light") {
+        theme = savedTheme;
+    } else if (window.matchMedia) {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+            localStorage.setItem(key, theme);
+        } catch (e2) {
+        }
+    }
+
+    document.documentElement.className = theme;
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.setProperty("color-scheme", theme);
 })();
 
-//
-// given a list of elements in [obj], toggle each of their respective darkmode
-//
 function SafeToggleAll(obj, forceDarkMode) {
-	if (!obj || obj === null || obj === undefined) {
+    if (!obj || obj === null || obj === undefined) {
+        return;
+    }
 
-	}
-	else {
-		obj.forEach(element => {
-			element.classList.toggle("dark-theme", forceDarkMode);
-		});
-	}
+    obj.forEach(function (element) {
+        element.classList.toggle("dark-theme", forceDarkMode);
+    });
 }
-
 //
 // get a list of elements for a given .ClassName or ElementName
 //
 function ToggleDarkModeItem(name, forceDarkMode) {
-	// reminder: stati, not live NodeList, see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
-	const thisElements = document.querySelectorAll(name);
-	SafeToggleAll(thisElements, forceDarkMode);
+    var thisElements = document.querySelectorAll(name);
+    SafeToggleAll(thisElements, forceDarkMode);
 }
-
 //
 // ToggleDarkMode; forceDarkMode=true to froce into dark mode
-// 
+//
 function ToggleDarkMode(forceDarkMode) {
-	//     if (forceDarkMode === null || forceDarkMode === undefined) {
-	//forceDarkMode = false;
-	//     }
+    var thisTheme = "dark";
 
-	//const userPrefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-	//const thisTheme = userPrefersDarkMode ? 'dark' : 'light';
-
-	const savedTheme = localStorage.getItem('theme');
-	var lightModeIcon = document.getElementById("lightModeIcon");
-	var darkModeIcon = document.getElementById("darkModeIcon");
-
-	if (!forceDarkMode && savedTheme == 'dark') {
-		thisTheme = 'light';
-		lightModeIcon.style.setProperty("display", "inline");
-		darkModeIcon.style.setProperty("display", "none");
-	}
-	else {
-		thisTheme = 'dark'; // the default when never saved is dark
-		lightModeIcon.style.setProperty("display", "none");
-		darkModeIcon.style.setProperty("display", "inline");
+    if (forceDarkMode == null) {
+        forceDarkMode = true;
     }
-	document.documentElement.style.setProperty("color-scheme", thisTheme);
-	localStorage.setItem('theme', thisTheme);
 
-	document.body.classList.toggle("dark-theme", forceDarkMode);
+    if (forceDarkMode) {
+        thisTheme = "dark";
+    } else {
+        thisTheme = "light";
+    }
 
-	ToggleDarkModeItem('code', forceDarkMode);
-	ToggleDarkModeItem('pre', forceDarkMode);
-	ToggleDarkModeItem('nav', forceDarkMode);
+    var lightModeIcon = document.getElementById("lightModeIcon");
+    var darkModeIcon = document.getElementById("darkModeIcon");
 
-	//ToggleDarkModeItem('.highlighter-rouge', forceDarkMode);
-	ToggleDarkModeItem('.color-change', forceDarkMode);
-	ToggleDarkModeItem('.dropdown-content', forceDarkMode);
-	ToggleDarkModeItem('.logo-container', forceDarkMode);
-	ToggleDarkModeItem('.sidebar', forceDarkMode);
-	ToggleDarkModeItem('.authorbox', forceDarkMode); // class="authorbox"
-	// ToggleDarkModeItem('.active', forceDarkMode);
+    if (lightModeIcon && darkModeIcon) {
+        if (forceDarkMode) {
+            lightModeIcon.style.setProperty("display", "none");
+            darkModeIcon.style.setProperty("display", "inline");
+        } else {
+            lightModeIcon.style.setProperty("display", "inline");
+            darkModeIcon.style.setProperty("display", "none");
+        }
+    }
 
-	//const divClasses = document.querySelectorAll('logo-container');
-	//SafeToggleAll(divClasses, forceDarkMode);
+    document.documentElement.setAttribute("data-theme", thisTheme);
+    document.documentElement.style.setProperty("color-scheme", thisTheme);
 
-	//if (!divClasses || divClasses === null || divClasses === undefined) {
-	//	// alert("No divClasses found! ");
-	//}
-	//else {
-	//	divClasses.forEach(element => {
-	//		divClasses.classList.toggle("dark-theme", forceDarkMode);
-	//	});
-	//}
-	// set all custom <element> tages to dark mode
-	// since the article element is customer (but does not have a dash in the name), we iterate all <element> tags:
-	// see https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define (not used)
-	//const articleClasses = document.querySelectorAll('article');
-	//SafeToggleAll(articleClasses, forceDarkMode);
+    try {
+        localStorage.setItem("theme", thisTheme);
+    } catch (e) {
+    }
 
-	ToggleDarkModeItem('article', forceDarkMode);
+    document.body.classList.toggle("dark-theme", forceDarkMode);
 
-	//if (!articleClasses || articleClasses === null || articleClasses === undefined) {
+    ToggleDarkModeItem("code", forceDarkMode);
+    ToggleDarkModeItem("pre", forceDarkMode);
+    ToggleDarkModeItem("nav", forceDarkMode);
+    ToggleDarkModeItem("table", forceDarkMode);
+    ToggleDarkModeItem(".color-change", forceDarkMode);
+    ToggleDarkModeItem(".dropdown-content", forceDarkMode);
+    ToggleDarkModeItem(".logo-container", forceDarkMode);
+    ToggleDarkModeItem(".sidebar", forceDarkMode);
+    ToggleDarkModeItem(".authorbox", forceDarkMode);
+    ToggleDarkModeItem("article", forceDarkMode);
 
-	//}
-	//else {
-	//	articleClasses.forEach(element => {
-	//		element.classList.toggle("dark-theme", forceDarkMode);
-	//	});
-	//}
-
-	// const sidebarClasses = document.querySelectorAll('sidebar')
-
-
-	// page should be in dark mode now		
+    /* Critical: never leave the page hidden after a toggle */
+    document.documentElement.style.setProperty("visibility", "visible");
 }
 
-var _HideForChange = localStorage.getItem('theme');
-if (_HideForChange == null || _HideForChange == "dark") {
-	// while we toggle dark mode, hide the page to avoid blinking / flashing
-	document.documentElement.style.setProperty("visibility", "hidden");
-}
+/* Hide only until DOMContentLoaded to prevent a flash, then always show */
+(function () {
+    var hideForChange = null;
 
+    try {
+        hideForChange = localStorage.getItem("theme");
+    } catch (e) {
+        hideForChange = null;
+    }
 
-//$(window).on('load', function () {
-//	// alert(1);
-//	var _TheActiveTheme = localStorage.getItem('theme');
-//	/* alert(_TheActiveTheme); */
-//	if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
-//		ToggleDarkMode(true)
-//	}
-//	// document.documentElement.style.setProperty("visibility", "visible");
-//});
+    if (hideForChange == null || hideForChange === "dark") {
+        document.documentElement.style.setProperty("visibility", "hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.documentElement.style.setProperty("visibility", "visible");
+    });
+})();
 
 </script>
 
 <link rel="stylesheet" id="color-change">
+
 <!-- Site Infos -->
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>SPI | gojimmypi</title>
@@ -222,11 +256,9 @@ if (_HideForChange == null || _HideForChange == "dark") {
 <link rel="icon" type="image/png" href="/gridster-jekyll-theme/icons/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/gridster-jekyll-theme/icons/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/gridster-jekyll-theme/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/gridster-jekyll-theme/manifest.json">
 <link rel="mask-icon" href="/gridster-jekyll-theme/safari-pinned-tab.svg" color="#c5cae9">
 <meta name="msapplication-TileColor" content="#C5CAE9">
 <meta name="msapplication-TileImage" content="/gridster-jekyll-theme/mstile-144x144.png">
-<meta name="theme-color" content="#c5cae9">
 
 
 </head>
@@ -234,70 +266,88 @@ if (_HideForChange == null || _HideForChange == "dark") {
 
     <body class="index">
 
-            <header class="head">
-                <!-- use logic to toggle sidebar layouts -->
-                
-                <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+        <header class="head">
+            <!-- use logic to toggle sidebar layouts -->
+            <div class="preview-banner">
+                This is a preview site.
+                <a href="https://gojimmypi.github.io/tag/spi/?refer=preview">
+                    Go to the main site (from index)
+                </a>
+            </div><!-- _includes/nav.html -->
 <div class="main-menu">
     <div class="content">
+
+        <!-- First, the burger button on the right (toggle for full menu)  -->
+        <a href="#menu" class="toggle-link noline" aria-label="Open menu">
+            <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="2"></rect>
+                <rect x="3" y="11" width="18" height="2"></rect>
+                <rect x="3" y="16" width="18" height="2"></rect>
+            </svg>
+        </a>
+
+        <!-- If there is enough room, then entire horizontal menu -->
         <nav id="menu">
-            <a class="toggle-link noline"><i class="fa fa-close fa-lg fa-fw"></i></a>
+            <a href="#" class="toggle-link noline" aria-label="Close menu">
+                <!-- a little X to close the menu: -->
+                <svg class="icon-close" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6l-12 12"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+            </a>
+
             <ul>
                 <li>
-                    <a class="homelink" href="/gridster-jekyll-theme/" title="Home" ><i class="fa fa-home fa-lg fa-fw"></i></a>
-                </li>
-                <li>
-                    <a class="dropdown-button" href="#" data-activates='drop-author'>About<i class="fa fa-caret-down fa-fw"></i></a>
-                </li>
-                <li>
-                    <a class="dropdown-button" href="#" data-activates='drop-archive'>Archive<i class="fa fa-caret-down fa-fw"></i></a>
-                </li>
-                                <li><a class="dropdown-button" href="#" data-activates='drop-example'>Page Layouts<i class="fa fa-caret-down fa-fw"></i></a>
-                </li>
-                <ul id="drop-example" class="dropdown-content">
-	                <li>
-	                    <a href="/gridster-jekyll-theme/markdown">Markdown</a>
-	                </li>
-                    <li>
-                        <a href="/gridster-jekyll-theme/page-full">page-full</a>
-                    </li>
-                    <li>
-                        <a href="/gridster-jekyll-theme/page-classic-sidebar-right">page classic sidebar right</a>
-                    </li>
-                    <li>
-                        <a href="/gridster-jekyll-theme/page-classic-sidebar-left">page classic sidebar left</a>
-                    </li>
-                    <li>
-                        <a href="/gridster-jekyll-theme/page-material-sidebar-right">page material sidebar right</a>
-                    </li>
-                    <li>
-                        <a href="/gridster-jekyll-theme/page-material-sidebar-left">page material sidebar left</a>
-                    </li>
-                </ul>
-                <li>
-                    <a href="#colorswitch" class="modal-trigger">Change Colors <i class="fa fa-cog"></i></a>
-                </li>
-                <li id="theme-toggle-container" class="lamp-navbar-item">
-                    <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
-                        <img id="lightModeIcon" src="/gridster-jekyll-theme/icons/light_mode_black_24dp.svg" style="display:inline;" title="Light Mode; Click to switch to Dark Mode"/><img id="darkModeIcon" src="/gridster-jekyll-theme/icons/dark_mode_white_24dp.svg" style="display:none;"  title="Dark Mode; Click to swtich to Light Mode" />
-                    </button>
+                    <!-- Home -->
+                    <a class="homelink"
+                       href="/gridster-jekyll-theme/"
+                       title="Home"
+                       aria-label="Home">
+                        <svg class="icon-home" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                            <path d="M3 11.5L12 4l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-9.5z"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </li>
 
-            </ul>
-            <ul id="drop-author" class="dropdown-content">
                 <li>
-                    <a href="/gridster-jekyll-theme/about">About</a>
+                    <!-- About -->
+                    <a href="/gridster-jekyll-theme/about"
+                       title="About"
+                       aria-label="About">
+                        <!-- Info-circle (common About icon) -->
+                        <svg class="icon-about" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2" />
+                            <line x1="12" y1="10" x2="12" y2="16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round" />
+                            <circle cx="12" cy="7" r="1" fill="currentColor" />
+                        </svg>
+                    </a>
                 </li>
-                
-                <li>
-                    <a href="/gridster-jekyll-theme/author/gojimmypi">gojimmypi</a>
+
+                <li id="theme-toggle-container" class="lamp-navbar-item">
+                    <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
+                        <img id="lightModeIcon"
+                             src="/gridster-jekyll-theme/icons/light_mode_black_24dp.svg"
+                             style="display: inline; height: 39px; width: 39px"
+                             title="Light Mode; Click to switch to Dark Mode" />
+                        <img id="darkModeIcon"
+                             src="/gridster-jekyll-theme/icons/dark_mode_white_24dp.svg"
+                             style="display: none; height: 39px; width: 39px"
+                             title="Dark Mode; Click to switch to Light Mode" />
+                    </button>
                 </li>
-                
             </ul>
+
             <ul id="drop-archive" class="dropdown-content">
-                <li>
-                    <a href="/gridster-jekyll-theme/categories">Categories</a>
-                </li>
                 <li>
                     <a href="/gridster-jekyll-theme/tags">Tags</a>
                 </li>
@@ -306,39 +356,38 @@ if (_HideForChange == null || _HideForChange == "dark") {
                 </li>
             </ul>
         </nav>
+
+        <!-- on the right, social media links. -->
         <nav class="iconnav">
+            <!-- see /_sass/partials/components/_iconnav.scss for formatting -->
             <ul>
-                <li class="sicon">
-                    <a href='#search'><i class="fa fa-search fa-lg fa-fw"></i></a>
-                </li>
                 
                 <li class="social">
-                    <a href="/gridster-jekyll-theme/feed.xml" class="rss"><i class="fa fa-rss fa-lg fa-fw"></i></a>
+                    <!-- nothing -->
                 </li>
                   
                 <li class="social">
-                    <a href="https://fi.pinterest.com/gojimmypi/" class="pinterest"><i class="fa fa-pinterest fa-lg fa-fw"></i></a>
+                    <a name="nav_pinterest" id="nav_pinterest" href="https://fi.pinterest.com/gojimmypi/" class="pinterest"><i title="pinterest" class="fa fa-pinterest fa-lg fa-fw"></i></a>
                 </li>
                  
                 <li class="social">
-                    <a href="https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg" class="youtube" title="View gojimmypi YouTube Channel"><i class="fa fa-youtube fa-lg fa-fw"></i></a>
+                    <a name="nav_youtube" id="nav_youtube" href="https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg" class="youtube" title="View gojimmypi YouTube Channel"><img src="/icons/youtube.svg" style="height:34px;width:34px;" /></a>
                 </li>
                      
                 <li class="social">
-                    <a href="https://twitter.com/gojimmypi" class="twitter" title="Visit gojimmypi on Twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                    <a name="nav_twitter" id="nav_twitter" href="https://twitter.com/gojimmypi" class="twitter" title="Visit gojimmypi on Twitter"><img src="/icons/twitter.svg" style="height:34px;width:34px;" /></i></a>
                 </li>
-                 
+                  
                 <li class="social">
-                    <a href="mailto:gojimmypi@gmail.com" class="noline" title="Send an email to gojimmypi"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
+                    <a name="nav_mailto" id="nav_mailto" href="mailto:gojimmypi@gmail.com" class="noline" title="Send an email to gojimmypi"><img src="/icons/mail.svg" style="height:34px;width:34px;" /></i></a>
                 </li>
                 
             </ul>
         </nav>
 
-        <a href='#menu' class="toggle-link noline">
-            <i class="fa fa-navicon"></i>
-        </a>
     </div>
+
+    <!-- on every page in upper right corner: the octocat link to source code -->
     
 
 
@@ -406,48 +455,40 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 </div>
 
 
-
-
 <div id="colorswitch" class="modal color-change">
     <div class="modal-content">
-      <h1>Change Color Palette</h1>
-      <p>
-      <img id="indigo" alt="color palette preview indigo" src="/gridster-jekyll-theme/media/indigo.svg">
-      <img id="brown" alt="color palette preview brown" src="/gridster-jekyll-theme/media/brown.svg">
-      <img id="green" alt="color palette preview green" src="/gridster-jekyll-theme/media/green.svg">
-      <img id="teal" alt="color palette preview teal" src="/gridster-jekyll-theme/media/teal.svg">
-      </p>
+        <h2>Change Color Palette</h2>
+        <p>
+            <img id="indigo" alt="color palette preview indigo" src="/gridster-jekyll-theme/media/indigo.svg">
+            <img id="brown" alt="color palette preview brown" src="/gridster-jekyll-theme/media/brown.svg">
+            <img id="green" alt="color palette preview green" src="/gridster-jekyll-theme/media/green.svg">
+            <img id="teal" alt="color palette preview teal" src="/gridster-jekyll-theme/media/teal.svg">
+        </p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
-  </div>
-
-            </header>
-
-            
-            <div class="preview-banner">
-                This is a preview site.
-                <a href="https://gojimmypi.github.io/tag/spi/?refer=preview">
-                    Go to the main site (from index)
-                </a>
-            </div>
-            
-
-            <div id="search">
-	<form role="search" method="get" action="/gridster-jekyll-theme/search/" id="searchform">
-        <input id="query" name="query" type="search" placeholder="Enter here..."/>
-	</form>
 </div>
-            <div class="margin">
-                <div class="content">
-                    <div class="switch">
-                        <div id="grid"><span></span></div>
-                        <div id="classic"><span></span></div>
-                    </div>
-                    <h1 class="title">SPI</h1>
-                    <div class="articles">
-                        
+
+        </header>
+        
+            <!-- /_includes/search.html page.layout = tag_index -->
+<div id="search">
+    <form role="search" method="get" action="/gridster-jekyll-theme/search/" id="searchform">
+        <input id="query" name="query" type="search" placeholder="Enter here..." />
+    </form>
+</div>
+
+        
+        <div class="margin">
+            <div class="content">
+                <div class="switch">
+                    <div id="grid"><span></span></div>
+                    <div id="classic"><span></span></div>
+                </div>
+                <h1 class="title">SPI</h1>
+                <div class="articles">
+                    
 <div class="preview-banner">
     This is a preview site.
     <a href="https://gojimmypi.github.io/tag/spi/?refer=preview_tag_index">
@@ -457,83 +498,75 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 
 
 
-    <!-- each post has their own little article element. -->
+    <!-- /_includes/article_index.html - each post has their own little article element. -->
 <article>
     
-    
-    
-    <span class="date">September 02, 2018</span>
-    <a href="/gridster-jekyll-theme/spidriver/">
-        <h1>SPIdriver</h1>
-    </a>
 
-    
-    <div class="preview-banner">
-        This is a preview site.
-        <a href="https://gojimmypi.github.io/tag/spi/?refer=preview_article_index">
-            Go to the main site (from article index)
-        </a>
-    </div>
-    
+    <span class="date">September 02, 2018</span>
+
+    <a href="/gridster-jekyll-theme/spidriver/">
+        <h2>SPIdriver</h2>
+    </a>
 
     <p class="post-content">
         
-        I recently backed an interesting SPIdriver project on Crowd Supply . For as little as...
+
         
+
+        I recently backed an interesting SPIdriver project on Crowd Supply. For as little as $27...
     </p>
+
     <p class="actions">
         <a href="/gridster-jekyll-theme/spidriver/">Read More</a>
     </p>
 </article>
 
 
-    <!-- each post has their own little article element. -->
+    <!-- /_includes/article_index.html - each post has their own little article element. -->
 <article>
     
-    
-    
-    <span class="date">March 10, 2018</span>
-    <a href="/gridster-jekyll-theme/single-step-debugging-atmega328-arduino-uno/">
-        <h1>Single-Step Debugging the Uno ATMEGA328 (aka Arduino Uno) for the M5Stack LoRa</h1>
-    </a>
 
-    
-    <div class="preview-banner">
-        This is a preview site.
-        <a href="https://gojimmypi.github.io/tag/spi/?refer=preview_article_index">
-            Go to the main site (from article index)
-        </a>
-    </div>
-    
+    <span class="date">March 10, 2018</span>
+
+    <a href="/gridster-jekyll-theme/single-step-debugging-atmega328-arduino-uno/">
+        <h2>Single-Step Debugging the Uno ATMEGA328 (aka Arduino Uno) for the M5Stack LoRa</h2>
+    </a>
 
     <p class="post-content">
         
-        Today I revisit my old friend, the Microchip Atmel ATMEGA328P (aka Arduino Uno), although this...
+
         
+
+        Today I revisit my old friend, the Microchip Atmel ATMEGA328P (aka Arduino Uno), although this...
     </p>
+
     <p class="actions">
         <a href="/gridster-jekyll-theme/single-step-debugging-atmega328-arduino-uno/">Read More</a>
     </p>
 </article>
 
 
-                    </div>
-                    <!-- use logic to toggle sidebar layouts -->
-                    
                 </div>
+                <!-- use logic to toggle sidebar layouts -->
+                
             </div>
-            <footer>
-    <div class="content">
-        <span>&copy; 2015-2021 gojimmypi</span>
-        <span class="backtotop">Back to Top</span>
-    </div>
+        </div>
+        <footer>
+    <table width="100%">
+        <tr>
+            <td align="left">
+                <span>&copy; 2015-2021 gojimmypi</span>
+            </td>
+            <td align="center">
+                <span><a href="/gridster-jekyll-theme/archive/"> Archive </a></span>
+            </td>
+            <td align="right">
+                <span><a class="backtotop" href="#top">Back to Top</a></span>
+            </td>
+        </tr>
+    </table>
 </footer>
-<!--
 
-<script src="https://use.typekit.net/.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-TypeKit -->
 
 
 <script type="text/javascript">
@@ -542,16 +575,25 @@ TypeKit -->
 
 
     if ((codeBlocks.length == 0) && (copyCodeButtons.length > 0)) {
-         
+        
         alert("Warning: code block missing. Is your language spec missing or not lower case? Copy icons disabled.");
-         
+        
     }
-    else
-    {
+    else {
         copyCodeButtons.forEach((copyCodeButton, index) => {
             const code = codeBlocks[index].innerText;
+            // some older pages use HTML with a blank innerText, non-blank textContent
+            const codeAlt = codeBlocks[index].textContent;
+
             copyCodeButton.addEventListener('click', () => {
-                window.navigator.clipboard.writeText(code);
+                if (code == "" || code == null) {
+                    // use text from innerText
+                    window.navigator.clipboard.writeText(codeAlt);
+                }
+                else {
+                    // use text from textContent
+                    window.navigator.clipboard.writeText(code);
+                }
                 copyCodeButton.classList.add('copied');
 
                 setTimeout(() => {
@@ -590,6 +632,10 @@ TypeKit -->
 
             this.themeOwner.classList.remove(oldTheme);
             this.themeOwner.classList.add(newTheme);
+
+            /* Keep CSS selectors in sync with the current theme */
+            this.themeOwner.setAttribute("data-theme", newTheme);
+
             const forceDarkMode = (newTheme == 'dark') ? true : false;
             ToggleDarkMode(forceDarkMode);
 
@@ -600,7 +646,7 @@ TypeKit -->
 
         syncAriaLabelWithStorage() {
             const nextTheme = themeMap[this.currentTheme];
-            this.toggleElement.setAttribute('aria-label', `Switch to ${nextTheme} mode theme`);
+            this.toggleElement.setAttribute("aria-label", "Switch to " + nextTheme + " mode theme");
         }
     }
 
@@ -623,5 +669,14 @@ TypeKit -->
     });
 
 </script>
-        </body>
+
+<!-- helper to avoid page-load flash -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.documentElement.classList.remove("theme-preload");
+        document.documentElement.style.setProperty("visibility", "visible");
+    });
+</script>
+
+    </body>
 </html>

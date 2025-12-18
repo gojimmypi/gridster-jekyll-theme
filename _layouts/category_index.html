@@ -5,14 +5,7 @@ sidebar_type: material
 sidebar_position: left
 ---
 
-{%- if site.preview_site -%}
-<div class="preview-banner">
-    This is a preview site.
-    <a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_category_index">
-        Go to the main site (from category index)
-    </a>
-</div>
-{%- endif -%}
+{%- include preview_banner.html -%}
 
 {% for post in site.categories[page.title] %}
     {% include article_index.html %}

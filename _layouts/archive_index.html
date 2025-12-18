@@ -6,14 +6,7 @@ sidebar_position: left
 ---
 {% capture page_date %}{{ page.date | date: "%Y" }}{% endcapture %}
 
-{%- if site.preview_site -%}
-<div class="preview-banner">
-	This is a preview site.
-	<a href="{{ site.canonical_site_url }}{{ page.url }}?refer=preview_achive_index">
-		Go to the main site (from archive index)
-	</a>
-</div>
-{%- endif -%}
+{%- include preview_banner.html -%}
 
 <h1 class="title">Posts from {{ page_date }}</h1>
 {% for post in site.posts %}

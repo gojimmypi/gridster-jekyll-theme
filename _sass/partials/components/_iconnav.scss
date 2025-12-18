@@ -1,11 +1,15 @@
+// file: /_sass/partials/components/_iconnav.scss
 // social media and search icon container within main menu
-.iconnav {
-    position: absolute; 
-    right:0;
 
-    height: inherit;
+.iconnav {
+    position: static;
+    right: auto;
     background-color: $primary-color;
     border-radius: 10px;
+    height: auto;
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
     // hide some of the icons once there is not enough space
     @media screen and (max-width: 368px) {
         .tumblr,
@@ -18,14 +22,65 @@
 
     ul {
         list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
 
         li {
             list-style: none;
-            display: inline-block;
+            display: flex;
+            align-items: center;
 
             a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 padding: 0 3px;
+                line-height: 1;
+                border-radius: 8px;
+                color: inherit;
+
+                &:hover {
+                    filter: brightness(1.08);
+                }
+
+                &:active {
+                    filter: brightness(0.96);
+                }
+
+                &:focus-visible {
+                    outline: 2px solid var(--focus-ring);
+                    outline-offset: 2px;
+                }
+            }
+
+            &:last-child {
+                margin-right: 8px; // distance of last icon to right inset frame
             }
         }
+    }
+    /*
+        Desktop-only: inner pill styling for each icon link,
+        matching the visual language used on the #menu items.
+        Does not affect the mobile slide-out menu.
+    */
+    @media screen and (min-width: ($mainnav-collapse + 1px)) {
+        ul li {
+            margin-left: 4px;
+        }
+
+            ul li a {
+                padding: 4px 6px;
+                background: linear-gradient( to bottom, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.18) );
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20), inset 0 -6px 10px rgba(0, 0, 0, 0.22);
+                transition: background 0.2s ease, box-shadow 0.2s ease;
+            }
+
+                ul li a:hover,
+                ul li a:focus {
+                    background: linear-gradient( to bottom, rgba(255, 255, 255, 0.26), rgba(0, 0, 0, 0.26) );
+                    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -6px 12px rgba(0, 0, 0, 0.28);
+                }
     }
 }

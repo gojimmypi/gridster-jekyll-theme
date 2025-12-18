@@ -1,126 +1,267 @@
-﻿@charset "utf-8";
+﻿// file: _sass/base/_base_style.scss
 
-*{
+@charset "utf-8";
+
+/* ------------------------------------------------------------------
+   Centralized theme tokens (light/dark)
+   ------------------------------------------------------------------ */
+
+:root {
+    /* core */
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #444444;
+    /* surfaces */
+    --surface: #f0f1f3;
+    --surface-2: #ffffff;
+    /* borders */
+    --border: rgba(0, 0, 0, 0.12);
+    /* links */
+    --link: #0b63ce;
+    --link-hover: #084a9c;
+    /* code (LIGHT MODE) */
+    --code-bg: #f6f8fa;
+    --code-fg: #24292f;
+    --code-accent: #00aeef;
+    --code-shadow: rgba(0, 0, 0, 0.20);
+    --code-linenum-border: rgba(27, 31, 36, 0.15);
+    --inline-code-bg: #f6f8fa;
+    --inline-code-fg: #24292f;
+    --inline-code-border: rgba(27, 31, 36, 0.15);
+    /* focus */
+    --focus-ring: rgba(11, 99, 206, 0.55);
+    /* nav */
+    --nav-pill-bg: rgba(0, 0, 0, 0.04);
+    --nav-pill-border: rgba(0, 0, 0, 0.14);
+    --nav-hover: rgba(0, 0, 0, 0.06);
+    --nav-active: rgba(0, 0, 0, 0.10);
+    /* Added for search */
+    --hs-label: var(--link, var(--accent, inherit));
+    --hs-title: var(--link, var(--accent, inherit));
+    --hs-text: var(--text, var(--fg, inherit));
+    --hs-muted: var(--muted, rgba(160, 160, 160, 0.9));
+    --hs-input-bg: var(--surface);
+    --hs-input-border: var(--border);
+    --hs-panel-bg: var(--surface);
+    --hs-panel-border: var(--border);
+    --hs-hover: var(--nav-hover);
+    --hs-focus: var(--focus-ring);
+}
+
+/* DARK MODE overrides */
+html[data-theme="dark"],
+html.dark,
+body.dark-theme {
+    --bg: #0f1115;
+    --text: #e7eaf0;
+    --muted: #a6adbb;
+    --surface: #2b2b2b;
+    --surface-2: #151515;
+    --border: rgba(255, 255, 255, 0.14);
+    --link: #6ab0ff;
+    --link-hover: #9acbff;
+    /* code (DARK MODE) */
+    --code-bg: #0b0f14;
+    --code-fg: #e7eaf0;
+    --code-accent: #22c3ff;
+    --code-shadow: rgba(0, 0, 0, 0.70);
+    --code-linenum-border: rgba(255, 255, 255, 0.18);
+    --inline-code-bg: #0b0f14;
+    --inline-code-fg: #e7eaf0;
+    --inline-code-border: rgba(255, 255, 255, 0.10);
+    --focus-ring: rgba(106, 176, 255, 0.55);
+    --nav-pill-bg: rgba(255, 255, 255, 0.06);
+    --nav-pill-border: rgba(255, 255, 255, 0.16);
+    --nav-hover: rgba(255, 255, 255, 0.08);
+    --nav-active: rgba(255, 255, 255, 0.12);
+}
+
+/* Apply tokens globally */
+html,
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+html {
+    color-scheme: light dark;
+}
+
+    html.theme-preload * {
+        transition: none !important;
+    }
+
+/* ------------------------------------------------------------------ */
+
+* {
     box-sizing: border-box;
 }
 
-html{
-    font: {
-        family: $main-font;
-        size: $root-font-size;
-        weight: $main-font-weight;
-    }
+html {
+    font-family: $main-font;
+    font-size: $root-font-size;
+    font-weight: $main-font-weight;
 }
 
-body{
-    @extend html;
+body {
     line-height: $basic-line-height;
-
-    @if $background-color-setting == yes{
-        background-color: $background-color;
-    }
 }
 
-// Headings
-h1, h2, h3, h4, h5, h6{
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
     line-height: 1;
-	margin-bottom: $heading-margin;
+    margin-bottom: $heading-margin;
 
-    @if $headings-text-transform != none{
+    @if $headings-text-transform != none {
         text-transform: $headings-text-transform;
     }
 
-    @if $headings-font != $main-font{
+    @if $headings-font != $main-font {
         font-family: $headings-font;
     }
 
-    @if $headings-font-weight != $main-font-weight{
+    @if $headings-font-weight != $main-font-weight {
         font-weight: $headings-font-weight;
     }
 }
 
-// Links
-a{
+/* Links */
+a {
+    color: var(--link);
+
     @if $link-transition == yes {
         transition: .3s all;
     }
 
-    @if $link-line-default == no{
+    @if $link-line-default == no {
         text-decoration: none;
     }
-    @else{
+    @else {
         text-decoration: underline;
     }
 
-    color: $link-color;
+    &:hover {
+        color: var(--link-hover);
 
-    &:hover{
-        cursor: pointer;
-        color: $link-hover-color;
-
-        @if $link-line-default == yes and $link-line-hover == no{
+        @if $link-line-default == yes and $link-line-hover == no {
             text-decoration: none;
         }
-        @if $link-line-default == no and $link-line-hover == yes{
+
+        @if $link-line-default == no and $link-line-hover == yes {
             text-decoration: underline;
         }
     }
 }
 
-// Defaults
-
-img{
+/* Media defaults */
+img {
     max-width: 100%;
     height: auto;
 }
 
-iframe{
+iframe {
     width: 100%;
-    // height: auto;
 }
+
+/* ------------------------------------------------------------------
+   CODE (Rouge)
+   ------------------------------------------------------------------ */
 
 code {
     font-family: $code-font;
-    display: inline-block;
 }
 
-kbd,
+/* Inline code ONLY (never blocks) */
+html body :not(pre) > code,
+html body :not(pre) > code.highlighter-rouge,
+html body :not(pre) > code[class*="language-"] {
+    background: var(--inline-code-bg);
+    color: var(--inline-code-fg);
+    border: 1px solid var(--inline-code-border);
+    border-radius: 6px;
+    padding: 0.12em 0.35em;
+    line-height: 1.2;
+    white-space: break-spaces;
+}
+
+/* Block code surface */
+pre,
+.highlight,
+.highlighter-rouge {
+    background: var(--code-bg);
+    color: var(--code-fg);
+}
+
 pre {
-    @extend code;
-    overflow-x: scroll;
-    overflow-y: scroll;
-    // preformatted code segment decorations
-    margin-top: 0px !important; // ensure no space above code sample (typically copy button) 
-    padding: 10px 16px;
-    border-radius: 2px;
-    border-top: 4px solid #00aeef;
-    -moz-box-shadow: inset 0 0 10px #000;
-    box-shadow: inset 0 0 10px #000;
+    margin: 10px 0;
+    padding: 12px 16px;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-radius: 6px;
+    border-top: 4px solid var(--code-accent);
+    box-shadow: inset 0 0 10px var(--code-shadow);
 }
 
+    /* Ensure <pre><code> does not get inline styling */
+    pre > code,
+    .highlight pre > code,
+    .highlighter-rouge pre > code {
+        background: transparent;
+        color: inherit;
+        border: 0;
+        padding: 0;
+    }
 
-pre span {
-    counter-increment: line;
+/* ------------------------------------------------------------------
+   Rouge line numbers (ONE number per line)
+   Requires Rouge table output
+   ------------------------------------------------------------------ */
+
+.highlight table.rouge-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
 }
 
-pre span:before {
-/*    counter-reset: line;
-    content: counter(line);
-*/    display: inline-block;
-    border-right: 1px solid #ddd;
-    padding: 0 .5em;
-    margin-right: .5em;
+.highlight td.rouge-gutter,
+.highlight td.rouge-code {
+    vertical-align: top;
 }
 
-@if $paragraph-gap == yes{
+.highlight td.rouge-gutter {
+    user-select: none;
+    padding: 12px 10px 12px 12px;
+    text-align: right;
+    color: var(--muted);
+    border-right: 1px solid var(--code-linenum-border);
+    white-space: nowrap;
+}
+
+.highlight td.rouge-code {
+    padding: 12px 16px;
+}
+
+    /* Remove nested pre styling inside table cells */
+    .highlight td.rouge-gutter pre,
+    .highlight td.rouge-code pre {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+    }
+
+/* ------------------------------------------------------------------ */
+
+@if $paragraph-gap == yes {
     p {
         margin-bottom: $paragraph-gap-size;
     }
 }
 
 // Container
-@if $container-settings == yes{
-    .#{$container-class-name}{
+@if $container-settings == yes {
+    .#{$container-class-name} {
         max-width: $container-max-width;
         width: $container-width;
         background: $container-background-color;
@@ -128,71 +269,47 @@ pre span:before {
     }
 }
 
-// Extended Defaults
+// Extended defaults (NON-code only)
 @if $extended-defaults == yes {
     input,
     textarea {
-        position: relative;
-        border: 1px solid white;
-        transition: 0.3 all ease;
         padding: 9px 13px;
-        box-sizing: border-box;
-        border-color: darken(white, 10%);
+        border: 1px solid darken(white, 10%);
+        transition: 0.3s ease;
 
         &:focus {
             border-color: darken(white, 15%);
         }
     }
 
-    cite {
-        font-style: italic;
-        font-size: 1em;
-    }
-
+    cite,
     address,
     var {
         font-style: italic;
     }
 
-    pre {
-        background: rgba(black, 0.02);
-        padding: 10px;
-        margin: 10px 0;
-        width: 100%;
-        box-sizing: border-box;
-        overflow-x: auto;
+    q:before {
+        content: "\201C";
     }
 
-    q {
-        display: inline;
-
-        &:before {
-            content: "“";
-        }
-
-        &:after {
-            content: "”";
-        }
+    q:after {
+        content: "\201D";
     }
 }
 
 // Blockquotes
 @if $include-blockquote-style == yes {
     blockquote {
-        width: calc(100% - 10px);
-        box-sizing: border-box;
         padding: 10px 20px;
-        border-left: $blockquote-border;
         margin: 15px 0 0 10px;
+        border-left: $blockquote-border;
         font-size: 1.1em;
     }
 }
 
-// Defintion List
+// Definition List
 @if $include-definition-list-style == yes {
     dl {
-        width: 100%;
-        text-align: left;
         @include flexbox(row, wrap, space-between, stretch);
 
         dt {
@@ -200,79 +317,16 @@ pre span:before {
             width: 20%;
             min-width: 130px;
             border-bottom: $definition-list-border;
-            padding: 3px 0;
 
             &:after {
                 content: ":";
             }
-
-            &:last-of-type {
-                border-bottom: $noborder;
-            }
         }
 
         dd {
-            padding: 3px 0;
             width: 80%;
             max-width: calc(100% - 130px);
             border-bottom: $definition-list-border;
-
-            &:last-of-type {
-                border-bottom: $noborder;
-            }
         }
-    }
-}
-
-// WordPress default classes
-@if $inlcude-WordPress-kit == yes {
-    .alignnone {
-        float: none;
-        margin: 0;
-    }
-
-    .aligncenter,
-    div.aligncenter {
-        display: block;
-        margin: 0 auto;
-    }
-
-    .alignright {
-        float:right;
-        margin: 10px 15px !important;
-    }
-
-    .alignleft {
-        float: left;
-        margin: 10px 15px !important;
-    }
-
-    .gallery-caption {
-        font-size: 0.9em;
-    }
-
-    .bypostauthor {
-        > div {
-            p {
-                font-weight: bold;
-            }
-        }
-    }
-
-    .wp-caption {
-        border: 1px solid rgba($almost-black, 0.05);
-        text-align: center;
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .wp-caption p.wp-caption-text {
-        font-size: 0.9em;
-    }
-
-    .sticky {
-        position: fixed;
     }
 }
