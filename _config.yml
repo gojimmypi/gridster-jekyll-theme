@@ -3,7 +3,7 @@
 # Site Settings. Available in Liquid using the "site." prefix
 title: gojimmypi
 preview_site: true
-canonical_site_url: https://gojimmypi.github.io
+canonical_site_url: https://gojimmypi.github.io # preview links will redirect here
 ahrefs_analytics: true # optionally enable ahrefs, see _includes/head.html
 google_analytics: true
 description: "blog"

@@ -11,7 +11,7 @@
         {%- if page.is_tag_index -%}
         <!-- preview skipped for tag_index -->
         {%- else -%}
-        <a href="{{ page.url | absolute_url | replace: site.url, site.canonical_site_url | append: "?refer=preview_test_layout" }}">
+        <a href="{{ site.canonical_site_url | append: page.url | append: "?refer=preview_test_layout" }}">
             Go to the main site (from test layout)
         </a>
         {%- endif -%}
