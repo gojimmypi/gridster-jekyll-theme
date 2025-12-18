@@ -1,43 +1,78 @@
-<!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+<!-- _includes/nav.html -->
 <div class="main-menu">
     <div class="content">
+
+        <!-- First, the burger button on the right (toggle for full menu)  -->
+        <a href="#menu" class="toggle-link noline" aria-label="Open menu">
+            <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="2"></rect>
+                <rect x="3" y="11" width="18" height="2"></rect>
+                <rect x="3" y="16" width="18" height="2"></rect>
+            </svg>
+        </a>
+
+        <!-- If there is enough room, then entire horizontal menu -->
         <nav id="menu">
-            <a class="toggle-link noline"><i class="fa fa-close fa-lg fa-fw"></i></a>
+            <a href="#" class="toggle-link noline" aria-label="Close menu">
+                <!-- a little X to close the menu: -->
+                <svg class="icon-close" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6l-12 12"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+            </a>
+
             <ul>
                 <li>
-                    <a class="homelink" href="{{ site.baseurl | replace: '//', '/' }}/" title="Home" ><i class="fa fa-home fa-lg fa-fw"></i></a>
-                </li>
-                <li>
-                    <a class="dropdown-button" href="#" data-activates='drop-author'>About<i class="fa fa-caret-down fa-fw"></i></a>
-                </li>
-                <li>
-                    <a class="dropdown-button" href="#" data-activates='drop-archive'>Archive<i class="fa fa-caret-down fa-fw"></i></a>
-                </li>
-                {% include nav_pages.html %}
-                <li>
-                    <a href="#colorswitch" class="modal-trigger">Change Colors <i class="fa fa-cog"></i></a>
-                </li>
-                <li id="theme-toggle-container" class="lamp-navbar-item">
-                    <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
-                        <img id="lightModeIcon" src="{{ site.baseurl | replace: '//', '/' }}/icons/light_mode_black_24dp.svg" style="display:inline;" title="Light Mode; Click to switch to Dark Mode"/><img id="darkModeIcon" src="{{ site.baseurl | replace: '//', '/' }}/icons/dark_mode_white_24dp.svg" style="display:none;"  title="Dark Mode; Click to swtich to Light Mode" />
-                    </button>
+                    <!-- Home -->
+                    <a class="homelink"
+                       href="{{ site.baseurl | replace: '//', '/' }}/"
+                       title="Home"
+                       aria-label="Home">
+                        <svg class="icon-home" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                            <path d="M3 11.5L12 4l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-9.5z"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linejoin="round" />
+                        </svg>
+                    </a>
                 </li>
 
-            </ul>
-            <ul id="drop-author" class="dropdown-content">
                 <li>
-                    <a href="{{ site.authors_dir | prepend: site.baseurl | replace: '//', '/' }}">About</a>
+                    <!-- About -->
+                    <a href="{{ site.authors_dir | prepend: site.baseurl | replace: '//', '/' }}"
+                       title="About"
+                       aria-label="About">
+                        <!-- Info-circle (common About icon) -->
+                        <svg class="icon-about" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2" />
+                            <line x1="12" y1="10" x2="12" y2="16"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round" />
+                            <circle cx="12" cy="7" r="1" fill="currentColor" />
+                        </svg>
+                    </a>
                 </li>
-                {% for siteauthor in site.data.authors %}
-                <li>
-                    <a href="{{ site.baseurl }}{{ site.author_dir }}/{{ siteauthor.id }}">{{ siteauthor.name }}</a>
+
+                <li id="theme-toggle-container" class="lamp-navbar-item">
+                    <button id="theme-toggle" class="lamp" aria-label="Toggle theme" type="button">
+                        <img id="lightModeIcon"
+                             src="{{ site.baseurl | replace: '//', '/' }}/icons/light_mode_black_24dp.svg"
+                             style="display: inline; height: 39px; width: 39px"
+                             title="Light Mode; Click to switch to Dark Mode" />
+                        <img id="darkModeIcon"
+                             src="{{ site.baseurl | replace: '//', '/' }}/icons/dark_mode_white_24dp.svg"
+                             style="display: none; height: 39px; width: 39px"
+                             title="Dark Mode; Click to switch to Light Mode" />
+                    </button>
                 </li>
-                {% endfor %}
             </ul>
+
             <ul id="drop-archive" class="dropdown-content">
-                <li>
-                    <a href="{{ site.categories_dir | prepend: site.baseurl | replace: '//', '/' }}">Categories</a>
-                </li>
                 <li>
                     <a href="{{ site.tags_dir | prepend: site.baseurl | replace: '//', '/' }}">Tags</a>
                 </li>
@@ -46,76 +81,77 @@
                 </li>
             </ul>
         </nav>
+
+        <!-- on the right, social media links. -->
         <nav class="iconnav">
+            <!-- see /_sass/partials/components/_iconnav.scss for formatting -->
             <ul>
-                <li class="sicon">
-                    <a href='#search'><i class="fa fa-search fa-lg fa-fw"></i></a>
-                </li>
                 {% if site.rss %}
                 <li class="social">
-                    <a href="{{ site.baseurl }}{{ site.rss }}" class="rss"><i class="fa fa-rss fa-lg fa-fw"></i></a>
+                    <!-- nothing -->
                 </li>
                 {% endif %} {% if site.tumblr %}
                 <li class="social">
-                    <a href="{{ site.tumblr }}" class="tumblr"><i class="fa fa-tumblr fa-lg fa-fw"></i></a>
+                    <a name="nav_tumblr" id="nav_tumblr" href="{{ site.tumblr }}" class="tumblr"><i class="fa fa-tumblr fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.pinterest %}
                 <li class="social">
-                    <a href="{{ site.pinterest }}" class="pinterest"><i class="fa fa-pinterest fa-lg fa-fw"></i></a>
+                    <a name="nav_pinterest" id="nav_pinterest" href="{{ site.pinterest }}" class="pinterest"><i title="pinterest" class="fa fa-pinterest fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.youtube %}
                 <li class="social">
-                    <a href="{{ site.youtube }}" class="youtube" title="View {{ site.author.name  }} YouTube Channel"><i class="fa fa-youtube fa-lg fa-fw"></i></a>
+                    <a name="nav_youtube" id="nav_youtube" href="{{ site.youtube }}" class="youtube" title="View {{ site.author.name  }} YouTube Channel"><img src="/icons/youtube.svg" style="height:34px;width:34px;" /></a>
                 </li>
                 {% endif %} {% if site.vimeo %}
                 <li class="social">
-                    <a href="{{ site.vimeo }}" class="vimeo"><i class="fa fa-vimeo-square fa-lg fa-fw"></i></a>
+                    <a name="nav_vimeo" id="nav_vimeo" href="{{ site.vimeo }}" class="vimeo"><i class="fa fa-vimeo-square fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.soundcloud %}
                 <li class="social">
-                    <a href="{{ site.soundcloud }}" class="soundcloud"><i class="fa fa-soundcloud fa-lg fa-fw"></i></a>
+                    <a name="nav_soundcloud" id="nav_soundcloud" href="{{ site.soundcloud }}" class="soundcloud"><i class="fa fa-soundcloud fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.instagram %}
                 <li class="social">
-                    <a href="{{ site.instagram }}" class="instagram"><i class="fa fa-instagram fa-lg fa-fw"></i></a>
+                    <a name="nav_instagram" id="nav_instagram" href="{{ site.instagram }}" class="instagram"><i class="fa fa-instagram fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.facebook.publisher %}
                 <li class="social">
-                    <a href="{{ site.facebook.publisher }}" class="facebook"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                    <a name="nav_facebook" id="nav_facebook" href="{{ site.facebook.publisher }}" class="facebook"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                 </li>
                 {% endif %} {% if site.twitter.username %}
                 <li class="social">
-                    <a href="https://twitter.com/{{ site.twitter.username }}" class="twitter" title="Visit {{ site.author.name  }} on Twitter"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                    <a name="nav_twitter" id="nav_twitter" href="https://twitter.com/{{ site.twitter.username }}" class="twitter" title="Visit {{ site.author.name  }} on Twitter"><img src="/icons/twitter.svg" style="height:34px;width:34px;" /></i></a>
+                </li>
+                {% endif %} {% if site.mastodon.username %}
+                <li class="social">
+                    <a name="nav_mastodon" id="nav_mastodon" href="https://hackaday.social/@{{ site.mastodon.username }}" class="mastodon" title="Visit {{ site.author.name  }} on Mastodon"><img src="/icons/mastodon.svg" style="height:34px;width:34px;" /></a>
                 </li>
                 {% endif %} {% if site.author.email %}
                 <li class="social">
-                    <a href="mailto:{{ site.author.email }}" class="noline" title="Send an email to {{ site.author.name  }}"><i class="fa fa-envelope fa-lg fa-fw"></i></a>
+                    <a name="nav_mailto" id="nav_mailto" href="mailto:{{ site.author.email }}" class="noline" title="Send an email to {{ site.author.name  }}"><img src="/icons/mail.svg" style="height:34px;width:34px;" /></i></a>
                 </li>
                 {% endif %}
             </ul>
         </nav>
 
-        <a href='#menu' class="toggle-link noline">
-            <i class="fa fa-navicon"></i>
-        </a>
     </div>
+
+    <!-- on every page in upper right corner: the octocat link to source code -->
     {% include github-corner.html %}
 </div>
 
 
-
-
 <div id="colorswitch" class="modal color-change">
     <div class="modal-content">
-      <h1>Change Color Palette</h1>
-      <p>
-      <img id="indigo" alt="color palette preview indigo" src="{{ site.baseurl }}{{ site.media_folder }}/indigo.svg">
-      <img id="brown" alt="color palette preview brown" src="{{ site.baseurl }}{{ site.media_folder }}/brown.svg">
-      <img id="green" alt="color palette preview green" src="{{ site.baseurl }}{{ site.media_folder }}/green.svg">
-      <img id="teal" alt="color palette preview teal" src="{{ site.baseurl }}{{ site.media_folder }}/teal.svg">
-      </p>
+        <h2>Change Color Palette</h2>
+        <p>
+            <img id="indigo" alt="color palette preview indigo" src="{{ site.baseurl | replace: '//', '/'  }}{{ site.media_folder }}/indigo.svg">
+            <img id="brown" alt="color palette preview brown" src="{{ site.baseurl | replace: '//', '/'  }}{{ site.media_folder }}/brown.svg">
+            <img id="green" alt="color palette preview green" src="{{ site.baseurl | replace: '//', '/'  }}{{ site.media_folder }}/green.svg">
+            <img id="teal" alt="color palette preview teal" src="{{ site.baseurl | replace: '//', '/'  }}{{ site.media_folder }}/teal.svg">
+        </p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
-  </div>
+</div>

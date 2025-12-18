@@ -1,15 +1,19 @@
 <footer>
-    <div class="content">
-        <span>&copy; {{site.copyright}}</span>
-        <span class="backtotop">Back to Top</span>
-    </div>
+    <table width="100%">
+        <tr>
+            <td align="left">
+                <span>&copy; {{ site.copyright }}</span>
+            </td>
+            <td align="center">
+                <span><a href="{{ site.archive_dir | prepend: site.baseurl | append: '/' | replace: '//', '/' }}"> Archive </a></span>
+            </td>
+            <td align="right">
+                <span><a class="backtotop" href="#top">Back to Top</a></span>
+            </td>
+        </tr>
+    </table>
 </footer>
-<!--
 
-<script src="https://use.typekit.net/{{site.typekitid}}.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-TypeKit -->
 {% comment %}
  thanks Aleksandr Hovhannisyan for tips on code segment copy
     https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
@@ -21,16 +25,25 @@ TypeKit -->
 
 
     if ((codeBlocks.length == 0) && (copyCodeButtons.length > 0)) {
-        {%  if jekyll.environment == "development"  %} 
+        {%  if jekyll.environment == "development" %}
         alert("Warning: code block missing. Is your language spec missing or not lower case? Copy icons disabled.");
-        {%   endif   %} 
+        {% endif %}
     }
-    else
-    {
+    else {
         copyCodeButtons.forEach((copyCodeButton, index) => {
             const code = codeBlocks[index].innerText;
+            // some older pages use HTML with a blank innerText, non-blank textContent
+            const codeAlt = codeBlocks[index].textContent;
+
             copyCodeButton.addEventListener('click', () => {
-                window.navigator.clipboard.writeText(code);
+                if (code == "" || code == null) {
+                    // use text from innerText
+                    window.navigator.clipboard.writeText(codeAlt);
+                }
+                else {
+                    // use text from textContent
+                    window.navigator.clipboard.writeText(code);
+                }
                 copyCodeButton.classList.add('copied');
 
                 setTimeout(() => {
@@ -69,6 +82,10 @@ TypeKit -->
 
             this.themeOwner.classList.remove(oldTheme);
             this.themeOwner.classList.add(newTheme);
+
+            /* Keep CSS selectors in sync with the current theme */
+            this.themeOwner.setAttribute("data-theme", newTheme);
+
             const forceDarkMode = (newTheme == 'dark') ? true : false;
             ToggleDarkMode(forceDarkMode);
 
@@ -79,7 +96,7 @@ TypeKit -->
 
         syncAriaLabelWithStorage() {
             const nextTheme = themeMap[this.currentTheme];
-            this.toggleElement.setAttribute('aria-label', `Switch to ${nextTheme} mode theme`);
+            this.toggleElement.setAttribute("aria-label", "Switch to " + nextTheme + " mode theme");
         }
     }
 
@@ -101,4 +118,12 @@ TypeKit -->
         }
     });
 
+</script>
+
+<!-- helper to avoid page-load flash -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.documentElement.classList.remove("theme-preload");
+        document.documentElement.style.setProperty("visibility", "visible");
+    });
 </script>
