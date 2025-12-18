@@ -1,3 +1,5 @@
+# Updates: this file is loaded only once when running  ./_build-development.sh
+#
 # Site Settings. Available in Liquid using the "site." prefix
 title: gojimmypi
 preview_site: true
@@ -10,6 +12,7 @@ url: https://gojimmypi.github.io #place url
 baseurl: /gridster-jekyll-theme #place folder name if site is served in subfolder, NO trailing slash! (pair of double quotes if root)
 github_baseurl: https://github.com/gojimmypi/gridster-jekyll-theme/ # required for the github-corner links
 usefallback: false
+
 author: #For jekyll-feed
   name: gojimmypi
   email: gojimmypi@gmail.com #Also used in nav
@@ -19,6 +22,8 @@ author: #For jekyll-feed
 pinterest: "https://fi.pinterest.com/gojimmypi/"
 # instagram: "#"
 twitter: # for both nav & jekyll-seo-tag
+  username: "gojimmypi" #name only
+mastodon: # for both nav & jekyll-seo-tag
   username: "gojimmypi" #name only
 # facebook: # for both nav & jekyll-seo-tag
 #   publisher: "#" #full link
@@ -32,7 +37,7 @@ social: # for jekyll-seo-tag
 # gojimmypi uses \google2135ab0ce8568db2.html
 # google_site_verification: "FdDTVMkMmUJFE1F3mACjcq7jWt3mwyEpb3E09WMctTA" # gojimmypi verified FdDT...
 # Site Setup Infos
-copyright: "2015-2021 gojimmypi" # put your copyright info here excluding the © sign. It will appears in the footer
+copyright: "2015-2025 gojimmypi" # put your copyright info here excluding the (c) sign. It will appears in the footer
 # disqus: gojimmypi # disqus id in the form of <<id>>.disqus.com... ID only!
 # analytics: "UA-33794695-2" # Google Analytics ID; UA-33794695-2 from Gridster
 # cse: "004435532597611518746:uxyjmivw31u" #Google Custom Search Engine id ("cx" variables) Gridster  is 004435532597611518746:uxyjmivw31u
@@ -99,6 +104,7 @@ plugins:
 
 #experiment
 include: ['_site/tag/']
+
 #  permalink: "/tag/"
 tags:
   tag:
@@ -106,6 +112,7 @@ tags:
     permalink: /tag/:name/
 
 # Jekyll-archives plugin setup
+# Required to build tag locally; requires manual copy and publish
 jekyll-archives:
   enabled:
     - categories
