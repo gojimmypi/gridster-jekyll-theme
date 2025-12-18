@@ -13,6 +13,8 @@ baseurl: /gridster-jekyll-theme #place folder name if site is served in subfolde
 github_baseurl: https://github.com/gojimmypi/gridster-jekyll-theme/ # required for the github-corner links
 usefallback: false
 
+page_debug: true
+
 author: #For jekyll-feed
   name: gojimmypi
   email: gojimmypi@gmail.com #Also used in nav
