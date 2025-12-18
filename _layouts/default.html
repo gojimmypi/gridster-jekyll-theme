@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- _layouts/default.html -->
+    <title>{% if page.title != blank %}{{ page.title }}{% else %}Title missing{% endif %}</title>
+
+    <!-- link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+    <div class="container">
+        {% if content != blank %}
+            {{ content }}
+        {% else %}
+            <a id="top"></a>
+            No content!
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+        {% endif %}
+
+
+    </div><!-- /.container -->
+    <footer>
+        <ul>
+            <li><a href="https://github.com/gojimmypi">github.com/gojimmypi</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

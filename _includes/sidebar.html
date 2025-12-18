@@ -61,9 +61,9 @@
         <li>
             <a href="{{ site.author_dir | append: '/' | append: author.id | relative_url }}">
                 {%- if author.name -%}
-                {{ author.name }}
+                    {{ author.name }}
                 {%- else -%}
-                {{ author.id }}
+                    {{ author.id }}
                 {%- endif -%}
             </a>
         </li>

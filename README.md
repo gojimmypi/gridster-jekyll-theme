@@ -1,102 +1,62 @@
-![gridster preview](/img/gridster_preview.jpg)
+# gojimmypi.github.io
 
-## Multimedia
-If we had to choose one word to describe Gridster that would be it. Gridster is a theme that focusses on multimedia. It contains different post types to create video posts, audio posts, image post or gallery posts with ease. We created a ton of Variables, that make customization super easy.
+https://gojimmypi.github.io/gridster-jekyll-theme/video/youtube/
 
-This theme is powerful and it comes with a few extras. It also comes with a lot of different layouts for you and in pretty material design.
 
-## Features
-The theme comes with a grunt file, which means that working with it is super easy. We have Tasks that compile, concatenate, minify and even deploy to your site.
+[https://gojimmypi.github.io](https://gojimmypi.github.io/)
 
-### Extensive Documentation
-We don't believe in delivering Code without explanation. So we wrote an extensive Documentation for Twister that goes over every single step from installing all of the dependencies to explaining how to customize, create posts and publish. We even tell you how you can host Twister with Plugins on GitHub pages.
+See issues:
 
-Check the [Docs](http://gridster.digitalmind.ch/documentation/) out.
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fgojimmypi.github.io%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
 
-### Feedback, Wishes, Problems
-If you run into any trouble or have a request please do so by opening up an issue on the theme's GitHub page.
-If you just want to give us a general feedback feel free to [contact us!](http://digitalmind.ch/contact/)
 
-# Folk Summary #
 
-This is modified to work without Plugin, i.e. Jekyll runs on GitHub Pages' server. You don't have to install *anything*. Tags, categories and authors features will be affected without plugins. There are 2 ways to remedy it:
+See [Setting up a GitHub Pages site with Jekyll](https://docs.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll)
+Although Jekyll is not officially supported for Windows, there's WSL.
 
-## Automatic Tags and Categories Pages ##
 
-Optional summary pages:
+Tutorial: [jmcglone](http://jmcglone.com/guides/github-pages/)
 
-- For tags: at `tag/index.html`
-- For categories: at `category/index.html`
+hosted by [pages.github.com/](https://pages.github.com/)
 
-If you use this you do not need the followings. However author is missing.
+## gojimmypi on the web:
 
-## Manually Add Tags, Categories, Authors ##
+* marketplace.visualstudio.com [Verilog Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=gojimmypi.gojimmypi-verilog-language-extension)
+* marketplace.visualstudio.com [GCode Language Extension](https://marketplace.visualstudio.com/items?itemName=gojimmypi.gojimmypi-gcode-language-extension)
+* [crowdsupply.com/people/gojimmypi](https://www.crowdsupply.com/people/gojimmypi)
+* [esp32.com forum](https://esp32.com/memberlist.php?mode=viewprofile&u=24751)
+* [github.com/gojimmypi](https://github.com/gojimmypi)
+* [instagram.com/gojimmypi](https://www.instagram.com/gojimmypi/)
+* [Mastodon hackaday.social/@gojimmypi](https://hackaday.social/@gojimmypi)
+* [oshpark.com/profiles/gojimmypi](https://oshpark.com/profiles/gojimmypi)
+* [stackoverflow/users/5432351/gojimmypi](https://stackoverflow.com/users/5432351/gojimmypi)
+* [SysProgs VisualGDB](https://sysprogs.com/w/forums/users/gojimmypi/)
+* [tiktok.com/@gojimmypi](https://www.tiktok.com/@gojimmypi)
+* [Bluesky gojimmypi.bsky.social](https://bsky.app/profile/gojimmypi.bsky.social)
+* [wolfSSL Forum](https://www.wolfssl.com/forums/user4414.html)
+* [X/Twitter.com/gojimmypi](https://x.com/gojimmypi)
 
-If you absolutely need what the original templates look like, you need to create a new page for each new tag/category as follows:
+See also [/docs/about.markdown](./docs/about.markdown) at https://gojimmypi.github.io/about/
 
-### Tags ###
+## Site feedback & TODO list
 
-For each tag, using the tag `gallery` as an example,
+There are pros and cons of this web site architecture.
 
-In `tag/gallery/`, put `index.md` with the following code:
+At the moment, most seem to be cons. The original example used a bunch of cute add-ins, that over
+time have turned out to be more of a liability.
 
-```
----
-layout: tag_index
-tag: gallery
-title: "Posts Tagged: gallery"
----
-```
+Things I like:
 
-Replace all `gallery` with the tag of interest.
+* Create a new post & have all the infrastructure updated automatically: tags, contents, etc.
+* My implementation of the "infinite scroll" that pops new items into view as needed
+* My implementation of the "light/dark" mode button
+* Left panel contents by keyword automatically generated.
+* Jump directly to GitHub source from each page via octocat in upper right.
 
-### Categories ###
+Things that need attention:
 
-For each category, using the category `standard` as an example,
-
-In `category/standard/`, put `index.md` with the following code:
-
-```
----
-layout: category_index
-category: standard
-title: "Category: standard"
----
-```
-
-Replace all `standard` with the category of interest.
-
-### Authors ###
-
-For each author, using the author `someone` as an example,
-
-In `author/someone/`, put `index.md` with the following code:
-
-```
----
-layout: author_index
-author: someone
-title: "Posted by someone"
----
-```
-
-Replace all `someone` with the author of interest.
-
-## Layout Simplified ##
-
-Index, Page, Post layouts are simplified. Instead of something like
-
-```yml
-layout: index-sidebar-material-left
-```
-
-It becomes
-
-```yml
-layout: index
-sidebar: true
-sidebar_type: material
-sidebar_position: left
-```
-
-The YAML front matter becomes longer, but the organization around the different layouts are greatly simplified. There's no more 5 variants of each of them. So in case of changing the layout, you need not to manually synchronizing between all of them.
+* The fonts used are complex and can be improved.
+* Some of the bloat features need to be removed, e.g. [Ruby Sass has reached end-of-life and should no longer be used](https://twitter.com/gojimmypi/status/1670903518700638209?s=20) (is this a GitHub feature that has since been updated?).
+* The "categories" is not working properly.
+* Year number summary links are 404: (e.g. https://gojimmypi.github.io/archive/2022/ )
+*
