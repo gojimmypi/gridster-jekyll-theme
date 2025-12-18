@@ -3,7 +3,8 @@
 <head>
     <!-- /_layouts/index.html page.layout = tag_index -->
     <meta charset="UTF-8" />
-    <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css?v=1766073674">
+    <link rel="stylesheet" id="switch-style" href="/gridster-jekyll-theme/css/grid.css?v=1766101429">
+
     <!-- file: /_includes/head.html -->
 
 <!-- jekyll.environment: development -->
@@ -11,7 +12,30 @@
 
 
 
-<!-- analytics.ahrefs.com is not enabled -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="RwCY/0yQXz6mj2UhcKhjTQ" async></script>
+
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    /* Default consent state (must run before GA loads) */
+    gtag("consent", "default", {
+        "analytics_storage": "denied",
+        "ad_storage": "denied",
+        "ad_user_data": "denied",
+        "ad_personalization": "denied",
+        "wait_for_update": 500
+    });
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPK5SGT19T"></script>
+<script>
+    gtag("js", new Date());
+    gtag("config", "G-LPK5SGT19T");
+</script>
 
 
 <!-- Fonts: Inter -->
@@ -70,23 +94,23 @@
 <!-- see https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/?utm_source=lighthouse&utm_medium=devtools -->
 <meta name="theme-color" content="#333333" />
 
-<script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/js/jquery-2.2.2.min.js"></script>
 
 
 
 
 
 
-<link rel="stylesheet" href="/css/main.css?v=1766073674">
+<link rel="stylesheet" href="/gridster-jekyll-theme/css/main.css?v=1766101429">
 
 <!--script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script moved to above -->
 
-<script type="text/javascript" src="/scripts/jquery.toc.js"></script>
-<script type="text/javascript" src="/scripts/infinite/1-jquery.jscroll.js"></script>
-<script type="text/javascript" src="/scripts/global/2-imagelightbox.js"></script>
-<script type="text/javascript" src="/scripts/global/scripts.js"></script>
-<script type="text/javascript" src="/js/materialize.min.js"></script>
-<script type="text/javascript" src="/scripts/infinite/init.js?forceversion=2"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/jquery.toc.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/1-jquery.jscroll.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/2-imagelightbox.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/global/scripts.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/js/materialize.min.js"></script>
+<script type="text/javascript" src="/gridster-jekyll-theme/scripts/infinite/init.js?forceversion=2"></script>
 
 
 
@@ -268,12 +292,11 @@ function ToggleDarkMode(forceDarkMode) {
 
         <header class="head">
             <!-- use logic to toggle sidebar layouts -->
-            <div class="preview-banner">
-                This is a preview site.
-                <a href="https://gojimmypi.github.io/tag/visualgdb/?refer=preview">
-                    Go to the main site (from index)
-                </a>
-            </div><!-- _includes/nav.html -->
+            <!-- /includes/preview_banner.html -->
+<!-- is_tag_index= --><div class="preview-banner">
+    This is a preview site.<span><a href="https://gojimmypi.github.io/gridster-jekyll-theme/tag/visualgdb/?refer=preview_test_layout">
+            Go to the main site (from test layout)
+        </a></span></div><!-- _includes/nav.html -->
 <div class="main-menu">
     <div class="content">
 
@@ -371,15 +394,27 @@ function ToggleDarkMode(forceDarkMode) {
                 </li>
                  
                 <li class="social">
-                    <a name="nav_youtube" id="nav_youtube" href="https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg" class="youtube" title="View gojimmypi YouTube Channel"><img src="/icons/youtube.svg" style="height:34px;width:34px;" /></a>
+                    <a name="nav_youtube" id="nav_youtube" href="https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg" class="youtube" title="View gojimmypi YouTube Channel">
+                        <img src="/gridster-jekyll-theme/icons/youtube.svg" style="height:34px;width:34px;" alt="youtube icon"/>
+                    </a>
                 </li>
                      
                 <li class="social">
-                    <a name="nav_twitter" id="nav_twitter" href="https://twitter.com/gojimmypi" class="twitter" title="Visit gojimmypi on Twitter"><img src="/icons/twitter.svg" style="height:34px;width:34px;" /></i></a>
+                    <a name="nav_twitter" id="nav_twitter" href="https://twitter.com/gojimmypi" class="twitter" title="Visit gojimmypi on Twitter">
+                        <img src="/gridster-jekyll-theme/icons/twitter.svg" style="height:34px;width:34px;" alt="Twitter icon" />
+                    </a>
                 </li>
-                  
+                 
                 <li class="social">
-                    <a name="nav_mailto" id="nav_mailto" href="mailto:gojimmypi@gmail.com" class="noline" title="Send an email to gojimmypi"><img src="/icons/mail.svg" style="height:34px;width:34px;" /></i></a>
+                    <a name="nav_mastodon" id="nav_mastodon" href="https://hackaday.social/@gojimmypi" class="mastodon" title="Visit gojimmypi on Mastodon">
+                        <img src="/gridster-jekyll-theme/icons/mastodon.svg" style="height:34px;width:34px;" alt="Mastodon icon" />
+                    </a>
+                </li>
+                 
+                <li class="social">
+                    <a name="nav_mailto" id="nav_mailto" href="mailto:gojimmypi@gmail.com" class="noline" title="Send an email to gojimmypi">
+                        <img src="/gridster-jekyll-theme/icons/mail.svg" style="height:34px;width:34px;" alt="mail icon" />
+                    </a>
                 </li>
                 
             </ul>
@@ -459,10 +494,10 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
     <div class="modal-content">
         <h2>Change Color Palette</h2>
         <p>
-            <img id="indigo" alt="color palette preview indigo" src="/gridster-jekyll-theme/media/indigo.svg">
-            <img id="brown" alt="color palette preview brown" src="/gridster-jekyll-theme/media/brown.svg">
-            <img id="green" alt="color palette preview green" src="/gridster-jekyll-theme/media/green.svg">
-            <img id="teal" alt="color palette preview teal" src="/gridster-jekyll-theme/media/teal.svg">
+            <img id="indigo" alt="color palette preview indigo" src="/gridster-jekyll-theme/media/indigo.svg" />
+            <img id="brown"  alt="color palette preview brown"  src="/gridster-jekyll-theme/media/brown.svg" />
+            <img id="green"  alt="color palette preview green"  src="/gridster-jekyll-theme/media/green.svg" />
+            <img id="teal"   alt="color palette preview teal"   src="/gridster-jekyll-theme/media/teal.svg" />
         </p>
     </div>
     <div class="modal-footer">
@@ -489,13 +524,28 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
                 <h1 class="title">VisualGDB</h1>
                 <div class="articles">
                     
-<div class="preview-banner">
-    This is a preview site.
-    <a href="https://gojimmypi.github.io/tag/visualgdb/?refer=preview_tag_index">
-        Go to the main site (from tag index)
-    </a>
-</div>
+    <!-- /_includes/article_index.html - each post has their own little article element. -->
+<article>
+    
 
+    <span class="date">February 27, 2025</span>
+
+    <a href="/gridster-jekyll-theme/VisualGDB-Toolchains-and-Registry-Settings/">
+        <h2>VisualGDB Notes for Toolchain and Registry Settings</h2>
+    </a>
+
+    <p class="post-content">
+        
+
+        
+
+        Here are some tips and reminders of where to find ESP32 toolchains for the Sysprogs...
+    </p>
+
+    <p class="actions">
+        <a href="/gridster-jekyll-theme/VisualGDB-Toolchains-and-Registry-Settings/">Read More</a>
+    </p>
+</article>
 
 
     <!-- /_includes/article_index.html - each post has their own little article element. -->
@@ -594,6 +644,7 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
 </article>
 
 
+
                 </div>
                 <!-- use logic to toggle sidebar layouts -->
                 
@@ -603,10 +654,12 @@ this_github_page     = [https://github.com/gojimmypi/gridster-jekyll-theme/tree/
     <table width="100%">
         <tr>
             <td align="left">
-                <span>&copy; 2015-2021 gojimmypi</span>
+                <span>&copy; 2015-2025 gojimmypi</span>
             </td>
             <td align="center">
-                <span><a href="/gridster-jekyll-theme/archive/"> Archive </a></span>
+                <span>
+                    <a href="/gridster-jekyll-theme/archive"> Archive </a>
+                </span>
             </td>
             <td align="right">
                 <span><a class="backtotop" href="#top">Back to Top</a></span>
