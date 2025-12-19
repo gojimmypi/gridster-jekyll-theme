@@ -7,9 +7,10 @@
             </td>
             <td align="center">
                 <span>
-                    <a href="{{ site.archive_dir | append: '/' | relative_url }}">Archive</a>
+                    <a href="{{ site.archive_dir | append: '/' | relative_url }}" title="View the archive of all posts">Archive</a>
                 </span>
             </td>
+            {%- if site.debug -%}
             <td align="center" class="footer-badges">
                 <a href="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml">
                     <img alt="GitHub Actions status"
@@ -22,6 +23,24 @@
                          src="https://img.shields.io/github/deployments/gojimmypi/gridster-jekyll-theme/github-pages?label=github-pages" />
                 </a>
             </td>
+            <td align="center" class="footer-badges">
+                {%- if site.preview_site -%}
+                <span>
+                    {%- if site.canonical_site_url and site.canonical_site_url != "" -%}
+                    <a href="{{ site.canonical_site_url | append: page.url | append: "?refer=preview_test_layout" }}" title="View the main site">
+                        Go to the main site (from test layout)
+                    </a>
+                    {%- endif -%}
+                </span>
+                {%- else -%}
+                <span>
+                    <a href="{{ site.url }}/gridster-jekyll-theme{{ page.url }}?refer=main_footer_to_preview" title="View the preview site">
+                        Go to preview
+                    </a>
+                </span>
+                {%- endif -%}
+            </td>
+            {%- endif -%}
             <td align="right">
                 <span><a class="backtotop" href="#top">Back to Top</a></span>
             </td>
