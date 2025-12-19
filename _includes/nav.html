@@ -40,9 +40,8 @@
 
                 <li>
                     <!-- About -->
-                    <a href="{{ site.authors_dir | relative_url | append: '/' }}">
-                       title="About"
-                       aria-label="About">
+                    {% assign about_url = site.authors_dir | append: "/" | relative_url %}
+                    <a href="{{ about_url }}" title="About" aria-label="About">
                         <!-- Info-circle (common About icon) -->
                         <svg class="icon-about" viewBox="0 0 24 24" width="42" height="42" aria-hidden="true">
                             <circle cx="12" cy="12" r="9"
