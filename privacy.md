@@ -3,6 +3,8 @@ layout: page
 title: Privacy at gojimmypi.gihub.io
 ---
 
+Privacy information.
+
 ## No Assumed Privacy
 
 Generally on the internet, there's no privacy these days. Sad, I know.
@@ -32,7 +34,7 @@ Recently I started also using [ahrefs](https://ahrefs.com/). See the `ahrefs_ana
 
 See also
 
-- GitHub: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
-- Microsoft: https://www.microsoft.com/en-us/privacy/privacystatement
-- Google https://policies.google.com/privacy?hl=en-US
-- ahrefs: https://ahrefs.com/legal/privacy-policy
+- GitHub: [https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+- Microsoft: [https://www.microsoft.com/en-us/privacy/privacystatement](https://www.microsoft.com/en-us/privacy/privacystatement)
+- Google [https://policies.google.com/privacy](https://policies.google.com/privacy)
+- ahrefs: [https://ahrefs.com/legal/privacy-policy](https://ahrefs.com/legal/privacy-policy)
