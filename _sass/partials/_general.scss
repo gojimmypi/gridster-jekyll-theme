@@ -125,3 +125,33 @@ body {
         }
     }
 }
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-fg);
+    border-top: 1px solid var(--footer-border);
+}
+
+footer a,
+footer a:visited {
+    color: var(--footer-link);
+    text-decoration: none;
+}
+
+footer a:active,
+footer a:focus-visible,
+footer a:hover,
+footer a:focus {
+    color: var(--footer-link-hover);
+    text-decoration: underline;
+}
+
+footer a svg {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+footer table a,
+footer table a:visited {
+    color: var(--footer-link);
+}
