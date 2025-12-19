@@ -12,13 +12,13 @@
             </td>
             {%- if site.page_debug -%}
             <td align="center" class="footer-badges">
-                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml">
+                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml" title="View GitHub archive sub status">
                     <img alt="GitHub Actions status"
                          src="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml/badge.svg?branch=gh-pages" />
                 </a>
             </td>
             <td align="center" class="footer-badges">
-                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/deployments">
+                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/deployments" title="View GitHub deployment status">
                     <img alt="GitHub Pages deployment status"
                          src="https://img.shields.io/github/deployments/gojimmypi/gridster-jekyll-theme/github-pages?label=github-pages" />
                 </a>
@@ -27,8 +27,8 @@
                 {%- if site.preview_site -%}
                 <span>
                     {%- if site.canonical_site_url and site.canonical_site_url != "" -%}
-                    <a href="{{ site.canonical_site_url | append: page.url | append: "?refer=preview_test_layout" }}" title="View the main site">
-                        Go to the main site (from test layout)
+                    <a href="{{ site.canonical_site_url | append: page.url | append: "?refer=preview_test_layout" }}" title="View the main site (from test layout)">
+                        Go to main site
                     </a>
                     {%- endif -%}
                 </span>
