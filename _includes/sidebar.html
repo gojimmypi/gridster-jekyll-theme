@@ -59,7 +59,8 @@
     <ul class="author-list">
         {%- for author in site.data.authors -%}
         <li>
-            <a href="{{ site.author_dir | append: '/' | append: author.id | relative_url }}">
+            {%- assign author_path = site.author_dir | append: "/" | append: author.id | append: "/" -%}
+            <a href="{{ author_path | relative_url }}">
                 {%- if author.name -%}
                     {{ author.name }}
                 {%- else -%}
