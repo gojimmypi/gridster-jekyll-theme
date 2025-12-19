@@ -42,7 +42,7 @@
             </td>
             {%- endif -%}
             <td align="right">
-                <span><a class="backtotop" href="#top">Back to Top</a></span>
+                <span><a class="backtotop" href="#top" title="Scroll back to the top of the page">Back to top</a></span>
             </td>
         </tr>
     </table>
@@ -59,9 +59,9 @@
 
 
     if ((codeBlocks.length == 0) && (copyCodeButtons.length > 0)) {
-        {%  if jekyll.environment == "development" %}
+        {%-  if jekyll.environment == "development" -%}
         alert("Warning: code block missing. Is your language spec missing or not lower case? Copy icons disabled.");
-        {% endif %}
+        {%- endif -%}
     }
     else {
         copyCodeButtons.forEach((copyCodeButton, index) => {
