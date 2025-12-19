@@ -126,11 +126,6 @@ body {
     }
 }
 
-footer {
-    background: var(--footer-bg);
-    color: var(--footer-fg);
-    border-top: 1px solid var(--footer-border);
-}
 
 footer a,
 footer a:visited {
@@ -154,4 +149,19 @@ footer a svg {
 footer table a,
 footer table a:visited {
     color: var(--footer-link);
+}
+
+footer,
+footer table,
+footer tbody,
+footer tr,
+footer td {
+    background: var(--footer-bg);
+    color: var(--footer-fg);
+}
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-fg);
+    border-top: 1px solid var(--footer-border);
 }
