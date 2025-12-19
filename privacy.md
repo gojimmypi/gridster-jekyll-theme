@@ -17,7 +17,7 @@ Views are my own, not representative of any other company or organization, and m
 
 ## Open Source
 
-This entire site is open source, hosted as [GitHub Pages](pages.github.com) at https://github.com/gojimmypi/gojimmypi.github.io
+This entire site is open source, hosted as [GitHub Pages](https://pages.github.com) at https://github.com/gojimmypi/gojimmypi.github.io
 with a preview rendered in the `gridster-jekyll-theme` subdirectory from https://github.com/gojimmypi/gridster-jekyll-theme/
 
 I suspect both Microsoft and GitHub have their own internal tracking.
