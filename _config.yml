@@ -104,8 +104,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives #gh-pages disabled this. See my README on how to do this manually.
 
-#experiment
-include: ['_site/tag/']
+# experiment (probably not a good idea()
+# include: ['_site/tag/']
 
 #  permalink: "/tag/"
 tags:
