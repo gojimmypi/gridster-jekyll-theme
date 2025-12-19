@@ -1,3 +1,4 @@
+<!-- /_includes/footer.html -->
 <footer>
     <table width="100%">
         <tr>
@@ -10,9 +11,13 @@
                 </span>
             </td>
             <td align="center">
-                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/actions?query=workflow%3Apages-build-deployment">
+                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml">
                     <img alt="GitHub Actions status"
-                         src="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/pages-build-deployment/badge.svg?branch=gh-pages" />
+                         src="https://github.com/gojimmypi/gridster-jekyll-theme/actions/workflows/check-archive-stubs.yml/badge.svg?branch=gh-pages" />
+                </a>
+                <a href="https://github.com/gojimmypi/gridster-jekyll-theme/deployments">
+                    <img alt="GitHub Pages deployment status"
+                         src="https://img.shields.io/github/deployments/gojimmypi/gridster-jekyll-theme/github-pages?label=github-pages" />
                 </a>
             </td>
             <td align="right">
@@ -22,10 +27,10 @@
     </table>
 </footer>
 
-{% comment %}
+{%- comment -%}
  thanks Aleksandr Hovhannisyan for tips on code segment copy
     https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
-{% endcomment %}
+{%- endcomment -%}
 
 <script type="text/javascript">
     const codeBlocks = document.querySelectorAll('.code-header + .highlighter-rouge');
