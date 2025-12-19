@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Privacy at gojimmypi.gihub.io
+permalink: /privacy/
 ---
 
 Privacy information.
