@@ -1,4 +1,7 @@
-# Privacy at gojimmypi.gihub.io
+---
+layout: page
+title: Privacy at gojimmypi.gihub.io
+---
 
 ## No Assumed Privacy
 
