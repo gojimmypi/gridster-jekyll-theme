@@ -219,5 +219,30 @@ fallback.load({
 <link rel="stylesheet" id="color-change">
 
 <!-- Site Infos -->
-{% seo %}
+
+
+{%- assign has_title = false -%}
+{%- if page.title and page.title != blank -%}
+    {%- assign has_title = true -%}
+{%- endif -%}
+
+{%- assign has_desc = false -%}
+{%- if page.description and page.description != blank -%}
+    {%- assign has_desc = true -%}
+{%- endif -%}
+
+{%- if has_title and has_desc -%}
+    {%- seo title=true description=false -%}
+    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 155 }}">
+{%- elsif has_title and has_desc == false -%}
+    {%- seo -%}
+{%- elsif has_title == false and has_desc -%}
+    {%- seo title=false description=false -%}
+    <title>{{ site.name | default: site.title | default: "Untitled" }}</title>
+    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 155 }}">
+{%- else -%}
+    {%- seo title=false -%}
+    <title>{{ site.name | default: site.title | default: "Untitled" }}</title>
+{%- endif -%}
+
 {% include favicon.html %}
