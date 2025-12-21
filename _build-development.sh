@@ -1,7 +1,32 @@
 #!/usr/bin/env bash
 echo "$1"
 
+
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+./header_check.sh ./_posts
+status=$?
+
+if [ "$status" -ne 0 ]; then
+    echo "Header check failed"
+    exit "$status"
+fi
+
+echo "Header check passed"
+
+
 ./gen_year_archives.sh
+status=$?
+
+if [ "$status" -ne 0 ]; then
+    echo "year archive failed"
+    exit "$status"
+fi
+
+echo "year archive passed"
+
 
 # for GH Pages / GitHub Pages and Jekyll install, see:
 # https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
