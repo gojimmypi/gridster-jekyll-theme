@@ -20,22 +20,6 @@ $(document).ready(function () {
         return false;
     });
 
-    // Responsive Menu
-    $(".toggle-link").click(function () {
-
-        var _TheActiveTheme = localStorage.getItem('theme');
-        if (_TheActiveTheme == null || _TheActiveTheme == "dark")
-        {
-//            ToggleDarkModeItem('.active', true);
-            $("#menu").toggleClass("active");
-        }
-        else
-        {
-            $("#menu").toggleClass("active");
-        }
-
-    });
-
     // Search
     $('a[href="#search"]').click(function () {
         $('#search').addClass('open');
