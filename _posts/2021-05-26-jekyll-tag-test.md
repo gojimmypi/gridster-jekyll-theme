@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Jekyll Tag Test"
+description: "Here are some tips in creating a new GitHub Pages Jekyll virtual directory First, see [Creating a GitHub Pages site with Jekyll](https://docs.github.com/en"
 date: '2021-05-26'
 author: gojimmypi
 tags:

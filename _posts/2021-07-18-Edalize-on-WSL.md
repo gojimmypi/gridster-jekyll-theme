@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Edalize on WSL"
+description: "(draft - WIP) I've been wanting to learn more about some of the [EDA](https://en.wikipedia.org/wiki/Electronic_design_automation) tools avialable, in"
 date: '2021-07-17'
 author: gojimmypi
 tags:

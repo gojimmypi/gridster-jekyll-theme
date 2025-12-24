@@ -1,30 +1,49 @@
+/* file: /scripts/infinite/init.js */
+
 $(document).ready(function () {
-	$('.articles').jscroll({
-		contentSelector: 'article, .pagination',
-		nextSelector: '.next',
-		padding: 10,
-		callback: removeWrap,
-	});
+    var isMobile;
+    var activeTheme;
 
-	var _TheActiveTheme = localStorage.getItem('theme');
-	/* alert(_TheActiveTheme); */
-	if (_TheActiveTheme == null || _TheActiveTheme == "dark") {
-		ToggleDarkMode(true)
-	}
+    isMobile = $(window).width() <= 768;
 
-	// TODO find a way to override 0.3seconf transition delay at startup
-	setTimeout(function () {
-		document.documentElement.style.setProperty("visibility", "visible");
-	}, 320); // a complete hack, but the default transition is 0.3sec, so we wait to avoid the blink :/
+    if (!window.jQuery || !jQuery.fn || !jQuery.fn.jscroll) {
+        return;
+    }
+
+    if ($(".articles").length === 0) {
+        return;
+    }
+
+    $(".articles").jscroll({
+        debug: false,
+        contentSelector: "article, .pagination",
+        nextSelector: ".pagination a.next, a.next.btn",
+        padding: isMobile ? 1200 : 250,
+        callback: removeWrap
+    });
+
+    activeTheme = localStorage.getItem("theme");
+    if (activeTheme == null || activeTheme == "dark") {
+        ToggleDarkMode(true);
+    }
 });
 
 function removeWrap() {
-	var thisTheme = document.documentElement.style.getPropertyValue("color-scheme");
-	const thisElements = $('.jscroll-added article');
-	var forceDarkMode = (thisTheme == 'dark');
-	for (i = 0; i < thisElements.length; i++) {
-		thisElements[i].classList.toggle("dark-theme", forceDarkMode);
-	}
+    var activeTheme;
+    var forceDarkMode;
+    var $newArticles;
 
-	$('.jscroll-added article').unwrap();
+    activeTheme = localStorage.getItem("theme");
+    forceDarkMode = (activeTheme == null || activeTheme == "dark");
+
+    $newArticles = $(".jscroll-added article");
+
+    $newArticles.each(function () {
+        this.classList.toggle("dark-theme", forceDarkMode);
+    });
+
+    /* Do not unwrap. It breaks jscroll. */
+
+    /* If we are still near the bottom (common on mobile), re-check immediately */
+    $(window).trigger("scroll.jscroll");
 }

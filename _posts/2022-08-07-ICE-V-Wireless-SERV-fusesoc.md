@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "SERV and FuseSoC for the ICE-V Wireless FPGA"
+description: "Setting up the ICE-V Wireless ESP32-C3 RISC-V + iCE40 FPGA development board with the Award Winning SERV RISC-V Core. ![ICEV-Wireless.png](../images/ICEV-W"
 date: '2022-08-07'
 author: gojimmypi
 tags:

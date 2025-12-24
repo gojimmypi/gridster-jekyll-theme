@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Jekyll Gridster Migration Notes"
+description: "The [gojimmypi gridster-jekyll-theme demo site](https://gojimmypi.github.io/gridster-jekyll-theme) is a submodule created from a [the gojimmypi"
 date: 2021-03-28
 ---
 

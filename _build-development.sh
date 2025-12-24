@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
+
+
+# Optional update:
+#   bundle update github-pages
+#   bundle install
+#   bundle exec github-pages versions
+
+
+reset
+
 echo "$1"
 
 ./gen_year_archives.sh
+ ./find_missing_description.sh _posts
 
 # for GH Pages / GitHub Pages and Jekyll install, see:
 # https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
@@ -101,6 +112,10 @@ else
   fi
 fi
 
+
+echo "bundle exec jekyll clean"
+bundle exec jekyll clean
+
 # we'll gnerate a full website without serving it up to allow for a manual copy of site tag files
 echo "[optional] bundle exec jekyll build --trace"
 bundle exec jekyll build --trace
@@ -113,6 +128,9 @@ mkdir -p ./tag
 cp --recursive ./_site/tag/* ./tag
 echo "Copy complete."
 echo ""
+
+echo "Ensure all tag files use LF line endings"
+dos2unix tag/**/*.html > /dev/null 2>&1
 
 echo "running: bundle exec jekyll serve --profile --incremental --drafts"
 bundle exec jekyll serve --profile --incremental --drafts

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Hackaday Supercon 2022"
+description: "Hackaday Supercon is back!! Here's a little Badge SAO idea: Wireless SSH Access! ![HackadaySuperconChallenge](../images/HackadaySupercon2022/HackadaySuperc"
 date: '2022-10-29'
 author: gojimmypi
 tags:

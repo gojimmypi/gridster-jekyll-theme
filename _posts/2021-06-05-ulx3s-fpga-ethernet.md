@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ULX3S FPGA Ethernet"
+description: "These are my notes on sniffing Ethernet packets with the Radiona ULX3S FPGA. I first learned of [emard's ethernet example](https://github.com/emard/ulx3s-m"
 date: '2021-06-05'
 author: gojimmypi
 tags:

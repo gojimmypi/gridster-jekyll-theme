@@ -10,40 +10,8 @@ function SetThemeBackground(theme) {
     }
 }
 
-/* Initial theme application (runs immediately) */
-(function () {
-    var key = "theme";
-    var savedTheme = null;
-    var theme = "dark";
-
-    try {
-        savedTheme = localStorage.getItem(key);
-    } catch (e) {
-        savedTheme = null;
-    }
-
-    if (savedTheme === "dark" || savedTheme === "light") {
-        theme = savedTheme;
-    } else if (window.matchMedia) {
-        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        try {
-            localStorage.setItem(key, theme);
-        } catch (e2) {
-        }
-    }
-
-    SetThemeBackground(theme);
-
-    document.documentElement.classList.remove("dark");
-    document.documentElement.classList.remove("light");
-    document.documentElement.classList.add(theme);
-
-    document.documentElement.setAttribute("data-theme", theme);
-    document.documentElement.style.setProperty("color-scheme", theme);
-})();
-
 function SafeToggleAll(obj, forceDarkMode) {
-    if (!obj) {
+    if (!obj || obj === null || obj === undefined) {
         return;
     }
 
@@ -61,10 +29,24 @@ function ToggleDarkModeItem(name, forceDarkMode) {
 }
 
 //
+var currentMode = "empty_currentMode";
 // ToggleDarkMode; forceDarkMode=true to force into dark mode
 // Called when the lamp icon is clicked
 
 function ToggleDarkMode(forceDarkMode) {
+    var getTheme = "empty_getTheme";
+    try {
+        localStorage.getItem("theme", getTheme);
+    }
+    catch (e) {
+
+    }
+
+    /* did we already set the desired theme? */
+    if (getTheme == currentMode) {
+        return;
+    }
+
     var thisTheme = forceDarkMode ? "dark" : "light";
 
     var lightModeIcon = document.getElementById("lightModeIcon");
@@ -72,25 +54,43 @@ function ToggleDarkMode(forceDarkMode) {
 
     if (lightModeIcon && darkModeIcon) {
         if (forceDarkMode) {
+            currentMode = "dark";
             lightModeIcon.style.setProperty("display", "none");
             darkModeIcon.style.setProperty("display", "inline");
-        } else {
+        }
+        else {
+            currentMode = "light";
             lightModeIcon.style.setProperty("display", "inline");
             darkModeIcon.style.setProperty("display", "none");
         }
     }
+    else {
+        /* missing!*/
+    }
 
     SetThemeBackground(thisTheme);
+
+    /* Keep html class in sync with initial load logic */
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add(thisTheme);
 
     document.documentElement.setAttribute("data-theme", thisTheme);
     document.documentElement.style.setProperty("color-scheme", thisTheme);
 
     try {
         localStorage.setItem("theme", thisTheme);
-    } catch (e) {
+    }
+    catch (e) {
+
     }
 
     document.body.classList.toggle("dark-theme", forceDarkMode);
+
+    /* Optional: ensure body background matches after toggle */
+    if (document.body) {
+        document.body.style.backgroundColor = forceDarkMode ? "#111111" : "#ffffff";
+    }
 
     ToggleDarkModeItem("code", forceDarkMode);
     ToggleDarkModeItem("pre", forceDarkMode);

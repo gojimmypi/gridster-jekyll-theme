@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Fixing FTDI 2232HL Dual Interface / Single Device."
+description: "The FTDI 2232, such as the one found on the [Espressif ESP32-Ethernet-Kit V1.2](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/es"
 date: '2022-07-16'
 author: gojimmypi
 tags:

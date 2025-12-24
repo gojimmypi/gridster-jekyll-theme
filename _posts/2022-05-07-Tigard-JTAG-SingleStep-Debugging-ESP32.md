@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "JTAG Single Step Debugging ESP32 with Tigard"
+description: "Here are some notes on single-step JTAG debugging the Espressif ESP32 using the [Tigard from Crowd Supply](https://www.crowdsupply.com/securinghw/tigard)"
 date: '2022-05-07'
 author: gojimmypi
 tags:

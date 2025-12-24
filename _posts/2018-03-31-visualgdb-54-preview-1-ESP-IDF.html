@@ -1,6 +1,7 @@
 ---
 layout: post
 title: VisualGDB 5.4 Preview 1 with support for Advanced ESP-IDF
+description: "Recently there was an exciting announcement from the clever folks at sysprogs : Support for the Espressif ESP32 is finally coming to VisualGDB !!"
 date: '2018-03-31T15:58:00.000-07:00'
 author: gojimmypi
 tags:
@@ -46,7 +47,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/GDB_Add_Comp1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="180" data-original-width="496" height="145" src="../images/s400/GDB_Add_Comp1.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="180" data-original-width="496" height="145" src="../images/s400/GDB_Add_Comp1.PNG" width="400">
         </a>
     </div>
     <br />
@@ -60,7 +61,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/GDB_MyComponent.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="213" data-original-width="766" height="110" src="../images/s400/GDB_MyComponent.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="213" data-original-width="766" height="110" src="../images/s400/GDB_MyComponent.PNG" width="400">
         </a>
     </div>
     <br />
@@ -70,7 +71,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/Add_Existing.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="511" data-original-width="1015" height="201" src="../images/s400/Add_Existing.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="511" data-original-width="1015" height="201" src="../images/s400/Add_Existing.PNG" width="400">
         </a>
     </div>
     <br />
@@ -83,7 +84,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/pre-processor_ESP32.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="372" data-original-width="761" height="195" src="../images/s400/pre-processor_ESP32.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="372" data-original-width="761" height="195" src="../images/s400/pre-processor_ESP32.PNG" width="400">
         </a>
     </div>
     <br />
@@ -99,7 +100,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/pins_arduino.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="635" data-original-width="1361" height="149" src="../images/s320/pins_arduino.PNG" width="320">
+            <img alt="illustration image" border="0" data-original-height="635" data-original-width="1361" height="149" src="../images/s320/pins_arduino.PNG" width="320">
         </a>
     </div>
 
@@ -112,7 +113,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/include_directories.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="400" data-original-width="760" height="210" src="../images/s400/include_directories.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="400" data-original-width="760" height="210" src="../images/s400/include_directories.PNG" width="400">
         </a>
     </div>
     <br />
@@ -122,7 +123,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/Explorer_pins_arduino.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="252" data-original-width="882" height="113" src="../images/s400/Explorer_pins_arduino.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="252" data-original-width="882" height="113" src="../images/s400/Explorer_pins_arduino.PNG" width="400">
         </a>
     </div>
     <br />
@@ -142,7 +143,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 </div>
 
 <div>
-    <code class="highlight"></code><br />
+    
 
     {% include code_header.html %}
 
@@ -151,7 +152,7 @@ Recently there was an exciting announcement from the clever folks at <a href="ht
 USERPROFILE=C:\Users\gojimmypi</code></pre>
     <br />
     Why? Well Arduino-style libraries are typically installed in:
-    <code class="highlight"></code><br />
+    
     <br />
 
     {% include code_header.html %}
@@ -159,10 +160,10 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
 <pre class="language highlighter-rouge">
 <code class="highlight">
 ($USERPROFILE)\Documents\Arduino</code></pre>
-    <code class="highlight"></code><br />
+    
     <br />
     In my case, libraries such as:
-    <code class="highlight"></code><br />
+    
 
     {% include code_header.html %}
 
@@ -178,7 +179,7 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
 
 <div class="separator" style="clear: both; text-align: left;">
     <a href="../images/s1600/VisualGDB_Build_Vars.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-        <img border="0" data-original-height="334" data-original-width="754" height="175" src="../images/s400/VisualGDB_Build_Vars.PNG" width="400">
+        <img alt="illustration image" border="0" data-original-height="334" data-original-width="754" height="175" src="../images/s400/VisualGDB_Build_Vars.PNG" width="400">
     </a>
 </div>
 <br />
@@ -189,7 +190,7 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/Vgdb-rt-xck.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="141" data-original-width="373" height="150" src="../images/s400/Vgdb-rt-xck.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="141" data-original-width="373" height="150" src="../images/s400/Vgdb-rt-xck.PNG" width="400">
         </a>
     </div>
 
@@ -221,7 +222,7 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
 
     <div class="separator" style="clear: both; text-align: center;">
         <a href="../images/s1600/GDB_rt-click-comp.PNG" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="147" data-original-width="385" height="152" src="../images/s400/GDB_rt-click-comp.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="147" data-original-width="385" height="152" src="../images/s400/GDB_rt-click-comp.PNG" width="400">
         </a>
     </div>
 
@@ -260,7 +261,7 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
     <br />
     Over the course of time, my Windows 10 drivers were changed, resulting in the dreaded message:
     <br />
-    <code class="highlight"></code><br />
+    
 
     {% include code_header.html %}
 
@@ -269,7 +270,7 @@ USERPROFILE=C:\Users\gojimmypi</code></pre>
 Error: libusb_open() failed with LIBUSB_ERROR_ACCESS
 Error: no device found
 Error: unable to open ftdi device with vid 0403, pid 6010, description '*', serial '*' at bus location '*'</code></pre>
-    <code class="highlight"></code><br />
+    
     <br />
 
 </div>
@@ -281,7 +282,7 @@ Error: unable to open ftdi device with vid 0403, pid 6010, description '*', seri
 
     <div class="separator" style="clear: both; text-align: left;">
         <a href="../images/s1600/DEVC-libusbk.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-            <img border="0" data-original-height="261" data-original-width="581" height="178" src="../images/s400/DEVC-libusbk.PNG" width="400">
+            <img alt="illustration image" border="0" data-original-height="261" data-original-width="581" height="178" src="../images/s400/DEVC-libusbk.PNG" width="400">
         </a>
     </div>
     <br />
@@ -295,7 +296,7 @@ Error: unable to open ftdi device with vid 0403, pid 6010, description '*', seri
     That specifically looks like this:
     <br />
     <br />
-    <code class="highlight"></code><br />
+    
 
     {% include code_header.html %}
 
@@ -312,7 +313,7 @@ ftdi_channel 0
 # just TCK TDI TDO TMS, no reset
 ftdi_layout_init 0x0008 0x000b
 reset_config none</code></pre>
-    <code class="highlight"></code><br />
+    
     <br />
     <br />
 

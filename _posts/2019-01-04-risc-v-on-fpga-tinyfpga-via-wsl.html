@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RISC-V on FPGA (the tinyFPGA) via WSL - Part 2
+description: "In my previous blog , I wrote about the problems I encountered with programming the tinyFPGA BX in the Windows Subsystem for Linux (WSL). Now that I have"
 date: '2019-01-04T04:55:00.000-08:00'
 author: gojimmypi
 tags:
@@ -21,7 +22,7 @@ In my <a href="{{ site.baseurl }}{% post_url 2019-01-02-tinyfpga-bx-using-tinypr
 <code class="highlight">-r</code>
  option for arachne-pnr. Be sure to have plenty of disk space (and patience, or a really fast computer) <br />
 <div class="separator" style="clear: both; text-align: center;">
-<a href="../images/s1600/tinyFPGA_RISC-V.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="674" data-original-width="978" height="275" src="../images/s400/tinyFPGA_RISC-V.PNG" width="400"></a></div>
+<a href="../images/s1600/tinyFPGA_RISC-V.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="illustration image" border="0" data-original-height="674" data-original-width="978" height="275" src="../images/s400/tinyFPGA_RISC-V.PNG" width="400"></a></div>
 <br />Now, this is something well outside of my skill set and comfort zone: A soft CPU on an 
 <a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array">FPGA</a>! Fortunately, Luke posted this awesome&nbsp;<a href="https://discourse.tinyfpga.com/t/riscv-example-project-on-tinyfpga-bx/451">RISC-V example project on TinyFPGA BX</a>&nbsp;on the <a href="https://discourse.tinyfpga.com/">tinyFPGA discourse forum</a>
 &nbsp;that seemed to be fairly straightforward. The target environment was a "real" Linux machine, I chose WSL, instead.<br />
@@ -141,7 +142,7 @@ If you prefer to not do this on a global scale, simply remove the <code class="h
 <a href="https://twitter.com/gojimmypi/status/1080881753974341632?s=20">toolchain did not compile</a>
 &nbsp;- instead ending in a simple "recipe for 'build-tools' failed". Early on in the process, this error was encountered:<br />
 checking for the correct version of gmp.h... no
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -162,7 +163,7 @@ make[2]: *** [stamps/build-gcc-newlib-stage1] Error 1
 make[2]: *** Waiting for unfinished jobs....</code></pre>
 <br />
 It is unfortunate that the build attempt continued, as it takes an incredibly long time on my machine. Eventually it returned with: 
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -227,7 +228,7 @@ gojimmypi@MYHOST : ~/workspace/picorv32
 0 $ riscv32-unknown-elf-gcc
 riscv32-unknown-elf-gcc: command not found</code></pre>
 Fortunately this was a simple matter of the command not being in the path. I started a fresh WSL instance to be sure, and indeed it was not added to my path. So I manually edited<a href="https://github.com/tinyfpga/TinyFPGA-BX/blob/master/examples/picosoc/Makefile"> Luke's Makefile</a> to explicitly name the path. I searched from it in DOS, and found several of them in each of these directories (just as described in the <a href="https://github.com/cliffordwolf/picorv32/blob/master/README.md#building-a-pure-rv32i-toolchain">instructions</a>
-): <code class="highlight"></code><br />
+): 
 
 {% include code_header.html %}
 
@@ -240,7 +241,7 @@ Fortunately this was a simple matter of the command not being in the path. I sta
 01/03/2019  11:47 PM    &lt;DIR&gt;          riscv32imc
                0 File(s)              0 bytes</code></pre>
 In particular, look at those creation dates! The full monty compile took quite a long time on my system. Together, the 4 of them take up over 3GB of disk space in the <code class="highlight">/opt</code>
- directory! I'm not sure how accurate that is - as when going to the parent directory in Windows: <code class="highlight"></code><br />
+ directory! I'm not sure how accurate that is - as when going to the parent directory in Windows: 
 
 {% include code_header.html %}
 
@@ -252,7 +253,7 @@ The <code class="highlight">.\LocalState\rootfs</code> directory is less than 2 
 Here's what the rootfs directory looks like in Windows File Explorer (rick-click, properties)
 <br />
 <div class="separator" style="clear: both; text-align: center;">
-<a href="../images/s1600/WSL_Space_in_Explorer.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="461" data-original-width="835" height="218" src="../images/s400/WSL_Space_in_Explorer.PNG" width="400"></a></div>
+<a href="../images/s1600/WSL_Space_in_Explorer.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="illustration image" border="0" data-original-height="461" data-original-width="835" height="218" src="../images/s400/WSL_Space_in_Explorer.PNG" width="400"></a></div>
 <br />
 However when running this command (note that I piped it to a file, which is much faster than sending 65MB to the screen):
 <br />
@@ -322,7 +323,7 @@ gojimmypi@MYHOST : ~/workspace/picorv32
 205K    ./tests
 20G     .</code></pre>
 One more thing for future reference: I was not starting with a clean WSL. I don't know if anything I had previously installed was also a missing requirement. Using <code class="highlight"> history | grep "sudo apt-get install"</code>
-, I found that I had previously manually installed these items: <code class="highlight"></code><br />
+, I found that I had previously manually installed these items: 
 
 {% include code_header.html %}
 
@@ -373,7 +374,7 @@ sudo apt-get install gdb \
                      libmpfr-dev \
                      libmpc-dev </code></pre>
 Back to calling the compiler: here are the lines I edited in the <a href="https://github.com/tinyfpga/TinyFPGA-BX/blob/master/examples/picosoc/Makefile">Makefile</a>
- to explicitly call the RISC-V compiler I wanted: <code class="highlight"></code><br />
+ to explicitly call the RISC-V compiler I wanted: 
 
 {% include code_header.html %}
 
@@ -693,7 +694,7 @@ clean:
 <br />As RISC-V is new to me, so is the suffix information. For reference, the values are found in the 
 <a href="https://content.riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf">The RISC-V Instruction Set Manual</a>
 , specifically Table 22.1 summarizing the standardized subset names:<br />
-<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="../images/s1600/RISC-V_Subset_Naming_Convention.PNG" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="468" data-original-width="355" height="400" src="../images/s400/RISC-V_Subset_Naming_Convention.PNG" width="303"></a></td></tr><tr><td class="tr-caption" style="text-align: center;">RISC-V : Standard ISA Subset Naming Convention&nbsp;</td></tr></tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="../images/s1600/RISC-V_Subset_Naming_Convention.PNG" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="illustration image" border="0" data-original-height="468" data-original-width="355" height="400" src="../images/s400/RISC-V_Subset_Naming_Convention.PNG" width="303"></a></td></tr><tr><td class="tr-caption" style="text-align: center;">RISC-V : Standard ISA Subset Naming Convention&nbsp;</td></tr></tbody></table>
 Indeed once the icestorm and RISC-V toolchains are installed, Luke's (deceptively simple) command does it all:<br />
 
 {% include code_header.html %}

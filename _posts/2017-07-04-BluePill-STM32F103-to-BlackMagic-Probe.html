@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Converting a Blue Pill STM32F103 board to a Black Magic Probe
+description: "Recently, I learned about the really awesome Black Magic Probe - an interesting JTAG and SWD adapter that essentially has its own, built-in OpenOCD"
 date: '2017-07-04T12:00:00.000-07:00'
 author: gojimmypi
 tags:
@@ -35,10 +36,8 @@ Recently, I learned about the really awesome <a href="https://1bitsquared.com/pr
 <br />
 To get started, ensure the tool chain is installed:
 <br />
-<code class="highlight"></code><br />
 
 {% include code_header.html %}
-
 <pre class="language highlighter-rouge">
 <code class="highlight">
 sudo apt-get update
@@ -64,7 +63,7 @@ cd srcmake clean &amp;&amp; make PROBE_HOST=stlink</code></pre>
 <br />
 when all looks good, see if you can talk to your board:
 <br />
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -76,7 +75,7 @@ cd ~/workspace/blackmagic/src/
 python ~/workspace/stm32loader/stm32loader.py -p /dev/ttyUSB0</code></pre>
 <br />
 it should return a result like this: 
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -96,7 +95,7 @@ cd ~/workspace/blackmagic/src/
 python ~/workspace/stm32loader/stm32loader.py -p /dev/ttyUSB0 -e -w -v blackmagic_dfu.bin</code></pre>
 <br />
 The first time I tried, there was an error (also not the jumper setting needed for BOOT0=1: 
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -141,7 +140,7 @@ Read 256 bytes at 0x8000100
 Read 256 bytes at 0x8001900
 Read 256 bytes at 0x8001A00
 Verification OK</code></pre>
-DFU loader done! Be sure to move jumpers back to default of "0" and press reset again. The instructions that I followed indicated that the USB device should be disconnected and reconnected. Not much interesting or different there upon re-insertion. Device is still a cp2104 on /dev/ttyUSB0  <code class="highlight"></code><br />
+DFU loader done! Be sure to move jumpers back to default of "0" and press reset again. The instructions that I followed indicated that the USB device should be disconnected and reconnected. Not much interesting or different there upon re-insertion. Device is still a cp2104 on /dev/ttyUSB0  
 
 {% include code_header.html %}
 
@@ -155,7 +154,7 @@ DFU loader done! Be sure to move jumpers back to default of "0" and press reset 
 [927124.418786] usb 2-2.1: SerialNumber: 012345678
 [927124.424936] cp210x 2-2.1:1.0: cp210x converter detected
 [927124.433135] usb 2-2.1: cp210x converter now attached to ttyUSB0 </code></pre>
-The first time I ran dfu-util: <code class="highlight"></code><br />
+The first time I ran dfu-util: 
 
 {% include code_header.html %}
 
@@ -163,7 +162,7 @@ The first time I ran dfu-util: <code class="highlight"></code><br />
 <code class="highlight">
 dfu-util -d 1d50:6018,:6017 -s 0x08002000:leave -D blackmagic.bin</code></pre>
 <code class="highlight"></code>
-I received an error: <code class="highlight"></code><br />
+I received an error: 
 
 {% include code_header.html %}
 
@@ -187,12 +186,12 @@ The reason for the error? I missed the MOST IMPORTANT PART:
 Disconnect everything and use the USB to connect.</b><br />
 <br />
 The Black Magic probe uses the micro USB connector, NOT the Serial TTL! (oops) Sure enough, the device is now listed in Device Manager:
-<code class="highlight"></code><br />
+
 <br />
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/Black_Magic.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="74" data-original-width="465" height="100" src="../images/s640/Black_Magic.PNG" width="640"></a>
+<img alt="illustration image" border="0" data-original-height="74" data-original-width="465" height="100" src="../images/s640/Black_Magic.PNG" width="640"></a>
 </div>
 <br />
 A word of caution here: if you happen to use different sources of power, beware of ground loops. I highly recommend only 1 source of power (either the USB TTY/UART or onboard Micro USB. This could be particularly important if they are on different physical computers, using a USB hub, etc.
@@ -368,7 +367,7 @@ But even with that - I was completely unable to use dfu-util to program the Blue
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/ST_64K.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="525" data-original-width="404" height="320" src="../images/s320/ST_64K.PNG" width="246"></a>
+<img alt="illustration image" border="0" data-original-height="525" data-original-width="404" height="320" src="../images/s320/ST_64K.PNG" width="246"></a>
 </div>
 <br />
 However on the next screen, apparently you can force it into 128K mode:
@@ -377,7 +376,7 @@ However on the next screen, apparently you can force it into 128K mode:
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/Force_128K.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="528" data-original-width="406" height="320" src="../images/s320/Force_128K.PNG" width="246"></a>
+<img alt="illustration image" border="0" data-original-height="528" data-original-width="406" height="320" src="../images/s320/Force_128K.PNG" width="246"></a>
 </div>
 
 <div class="separator" style="clear: both; text-align: left;">
@@ -393,7 +392,7 @@ The select the blackmagic.bin file, click the "Erase necessary pages", select an
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/upload_BMP.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="527" data-original-width="404" height="320" src="../images/s320/upload_BMP.PNG" width="245"></a>
+<img alt="illustration image" border="0" data-original-height="527" data-original-width="404" height="320" src="../images/s320/upload_BMP.PNG" width="245"></a>
 </div>
 <br />
 If successful, you should see:
@@ -401,7 +400,7 @@ If successful, you should see:
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/BMP_Success.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="528" data-original-width="405" height="320" src="../images/s320/BMP_Success.PNG" width="245"></a>
+<img alt="illustration image" border="0" data-original-height="528" data-original-width="405" height="320" src="../images/s320/BMP_Success.PNG" width="245"></a>
 </div>
 <br />
 I should point out that several times I received a verify error at this last verify step (I was really convinced I had a 64K-only device). After trying again the next day - things started working immediately and I never again saw the verify error, even after doing a full erase and starting over. YMMV.
@@ -427,7 +426,7 @@ Debugging connections from Blue Pill board configured as a Black Magic Probe (mi
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/BluePill-BlackMagic.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="474" data-original-width="830" height="363" src="../images/s640/BluePill-BlackMagic.png" width="640"></a>
+<img alt="illustration image" border="0" data-original-height="474" data-original-width="830" height="363" src="../images/s640/BluePill-BlackMagic.png" width="640"></a>
 </div>
 <br />Connecting the Blue Pill Black Magic Probe to an 
 <a href="http://wiki.stm32duino.com/index.php?title=STM32_Smart_V2.0">STM Smart V2 board</a>
@@ -436,7 +435,7 @@ Debugging connections from Blue Pill board configured as a Black Magic Probe (mi
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/STM32_Smart_V2_Black_Magic.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="398" data-original-width="597" height="425" src="../images/s640/STM32_Smart_V2_Black_Magic.png" width="640"></a>
+<img alt="illustration image" border="0" data-original-height="398" data-original-width="597" height="425" src="../images/s640/STM32_Smart_V2_Black_Magic.png" width="640"></a>
 </div>
 <br />
 <br />

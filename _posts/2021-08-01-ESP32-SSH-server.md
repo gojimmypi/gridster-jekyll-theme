@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ESP32 SSH Server"
+description: "(draft / WIP v2) UPDATE: See my [ESP32 to UART SSH Server](https://github.com/gojimmypi/wolfssh/tree/ESP32_Development/examples/ESP32-SSH-Server) and"
 date: '2021-08-01'
 author: gojimmypi
 tags:

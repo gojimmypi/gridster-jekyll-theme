@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Updating adafruit.io ESP8266 MQTT code
+description: "While working on my flow and pressure project, I stumbled upon a notice that Adafruit planned to change the SSL info for adafruit.io . I had been using"
 date: '2017-07-16T10:23:00.003-07:00'
 author: gojimmypi
 tags:
@@ -21,12 +22,12 @@ While working on my flow and pressure project, I stumbled upon a notice that <a 
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/adafruitio_update_notice.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="278" data-original-width="769" height="143" src="../images/s400/adafruitio_update_notice.PNG" width="400"></a>
+<img alt="illustration image" border="0" data-original-height="278" data-original-width="769" height="143" src="../images/s400/adafruitio_update_notice.PNG" width="400"></a>
 </div>
 <br />I was hoping it was a simple matter of updating the 
 <a href="https://github.com/adafruit/Adafruit_IO_Arduino/blob/8ccd24687fc1edc0415d26cf05ac0dc930983332/src/AdafruitIO_Definitions.h#L64">SSL fingerprint</a>
  to a new value.<br />
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -41,7 +42,7 @@ No luck there, as the fingerprint did not change - but the declarative name did.
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/update-adafruitio.mqtt.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="761" data-original-width="797" height="381" src="../images/s400/update-adafruitio.mqtt.PNG" width="400"></a>
+<img alt="illustration image" border="0" data-original-height="761" data-original-width="797" height="381" src="../images/s400/update-adafruitio.mqtt.PNG" width="400"></a>
 </div>
 
 <div class="separator" style="clear: both; text-align: left;">
@@ -63,7 +64,7 @@ It didn't work. Not only does the connection still fail, but the needed code was
 . I have no such file on my entire system. Well, seems that the Arduino IDE was not successful in getting the really latest adafruit mqtt library.  <br />So the issue here is more than the MQTT library... I also needed to update the Adafruit Arduino IO (listed immediately above in the screen snip). Again exit / restart Visual Studio.  
 
 </div>
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -85,7 +86,7 @@ Seems that the latest Adafruit MQTT also needs the new (apparently experimental 
 
 <div class="separator" style="clear: both; text-align: left;">
 <a href="../images/s1600/adafruitio_outtage.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="577" data-original-width="870" height="265" src="../images/s400/adafruitio_outtage.PNG" width="400"></a>
+<img alt="illustration image" border="0" data-original-height="577" data-original-width="870" height="265" src="../images/s400/adafruitio_outtage.PNG" width="400"></a>
 </div>
 <br />
 End of story for today on this topic. Hopefully more documentation and examples will be available soon.

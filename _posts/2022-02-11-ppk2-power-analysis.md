@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "PPK2 Power Analysis"
+description: "As part of my [homework](https://github.com/gojimmypi/IoT_BBQ/blob/main/Assignments/Exercise_10.md) and [class project](https://github.com/gojimmypi/IoT_BB"
 date: '2022-02-11'
 author: gojimmypi
 tags:

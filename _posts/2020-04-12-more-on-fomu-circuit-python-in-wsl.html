@@ -1,6 +1,7 @@
 ---
 layout: post
 title: More on FOMU Circuit Python in WSL.
+description: "After the previous pains of getting Circuit Python to just build for the FOMU, it is time to move on to more interesting things.... actually putting it on"
 date: '2020-04-12T17:24:00.000-07:00'
 author: gojimmypi
 tags: 
@@ -146,7 +147,7 @@ litex_term --serial-boot --kernel firmware.bin /dev/ttyS15</code></pre>
 <br />My specific memory chip on my ULX3S is a&nbsp;
 <a href="https://github.com/enjoy-digital/litedram/blob/64c2be5d63d388f98ddd0585ed13254ec048a122/litedram/modules.py#L183">AS4C32M16SB</a>
 .&nbsp;I did at least learn how to do a memory check:<br />
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -164,7 +165,7 @@ $WORKSPACE/ulx3s-examples/bin/ujprog.exe ulx3s_85f_memtest_32MB_190MHz_300deg.bi
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/good_memory_test.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="600" data-original-width="1200" height="160" src="../images/s320/good_memory_test.jpg" width="320"></a>
+<img alt="illustration image" border="0" data-original-height="600" data-original-width="1200" height="160" src="../images/s320/good_memory_test.jpg" width="320"></a>
 </div>
 <br />
 The top line is not used. The middle line is the number of memory tests completed. The red bottom line is the number of errors.
@@ -176,7 +177,7 @@ A bad memory test, say when a 64MB test is loaded for a 32MB chip, looks like th
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/bad_memory_test.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="600" data-original-width="1200" height="160" src="../images/s320/bad_memory_test.jpg" width="320"></a>
+<img alt="illustration image" border="0" data-original-height="600" data-original-width="1200" height="160" src="../images/s320/bad_memory_test.jpg" width="320"></a>
 </div>
 <br />The 64MB test blinks onboard LEDs like 
 <a href="https://twitter.com/gojimmypi/status/1249451852103483392?s=20">this</a>

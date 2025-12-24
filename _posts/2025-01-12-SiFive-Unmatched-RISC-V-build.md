@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "SiFive Unmatched RISC-V Build"
+description: "This is a blog about my SiFive HiFive Unmatched build. Components used: * [HiFive Unmatched Rev B Freedom HF105-001, Mouser 115-HF105-001](https://www.mous"
 date: '2025-1-12'
 author: gojimmypi
 tags:

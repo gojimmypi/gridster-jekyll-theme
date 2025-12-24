@@ -4,10 +4,22 @@
 <style>
     html {
         background-color: #111111;
+        visibility: hidden;
     }
 
     html[data-theme="light"] {
         background-color: #ffffff;
+    }
+
+    /* Critical: prevent material sidebar flash before CSS tokens load */
+    .material-sidebar {
+        background-color: #f0f1f3;
+        color: #111111;
+    }
+
+    html[data-theme="dark"] .material-sidebar {
+        background-color: #2b2b2b;
+        color: #e7eaf0;
     }
 
     html.theme-preload *, html.theme-preload *::before, html.theme-preload *::after {
@@ -62,41 +74,39 @@
 <script>
     (function () {
         var key = "theme";
-        var saved = null;
-
-        try {
-            saved = localStorage.getItem(key);
-        } catch (e) {
-            saved = null;
-        }
-
+        var savedTheme = null;
         var theme = "dark";
 
-        if (saved === "dark" || saved === "light") {
-            theme = saved;
+        try {
+            savedTheme = localStorage.getItem(key);
+        } catch (e) {
+            savedTheme = null;
+        }
+
+        if (savedTheme === "dark" || savedTheme === "light") {
+            theme = savedTheme;
         } else if (window.matchMedia) {
             theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            try {
+                localStorage.setItem(key, theme);
+            } catch (e2) {
+            }
         }
 
         var root = document.documentElement;
 
         root.classList.add("theme-preload");
 
-        /* One source of truth for CSS */
-        root.setAttribute("data-theme", theme);
+        root.style.backgroundColor = (theme === "dark") ? "#111111" : "#ffffff";
 
-        /* Back-compat for existing JS/CSS that expects html.dark or html.light */
         root.classList.remove("dark");
         root.classList.remove("light");
         root.classList.add(theme);
 
-        /* Let browser UI follow */
-        root.style.setProperty("color-scheme", theme);
+        /* Ensure the attribute exists before first paint (sidebar uses it) */
+        root.setAttribute("data-theme", theme);
 
-        /* remove preload ASAP (after first paint) */
-        //window.setTimeout(function () {
-        //    root.classList.remove("theme-preload");
-        //}, 0);
+        root.style.setProperty("color-scheme", theme);
     })();
 </script>
 
@@ -107,10 +117,10 @@
 {%- if site.page_debug -%}<!-- see https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/?utm_source=lighthouse&utm_medium=devtools -->{%- endif -%}
 <meta name="theme-color" content="#333333" />
 
-<script type="text/javascript" src="{{ '/js/jquery-2.2.2.min.js' | relative_url }}"></script>
+<script src="{{ '/js/jquery-3.7.1.min.js' | relative_url }}"></script>
 
 {% if jekyll.environment != "development" %}
-<script type="text/javascript">
+<script>
 </script>
 {% endif %}
 
@@ -121,21 +131,20 @@
 {% endif %}
 
 {% if site.usefallback == null or site.usefallback == true %}
-<script type="text/javascript">
+<script>
     {% include _fallback.min.js %}
 </script>
 
-<script type="text/javascript">
+<script>
 fallback.load({
 
     main: "{{ site.baseurl | replace: '//', '/' }}/css/main.css?v={% if site.github.build_revision %}{{ site.github.build_revision }}{% else %}{{ site.time | date: '%s' }}{% endif %}",
 
     jQuery: [
         {% if jekyll.environment != "development" %}
-        "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js",
-        "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
         {% endif %}
-        "{{ site.baseurl | replace: '//', '/' }}/js/jquery-2.2.2.min.js"
+        "{{ site.baseurl | replace: '//', '/' }}/js/jquery-3.7.1.min.js"
     ],
 
     Materialize: [
@@ -180,18 +189,21 @@ fallback.load({
 {% else %}
 <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}?v={% if site.github.build_revision %}{{ site.github.build_revision }}{% else %}{{ site.time | date: '%s' }}{% endif %}">
 
-{%- if site.page_debug -%}<!--script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script moved to above -->{%- endif -%}
-
-<script type="text/javascript" src="{{ '/scripts/jquery.toc.js' | relative_url }}"></script>
-<script type="text/javascript" src="{{ '/scripts/infinite/1-jquery.jscroll.js' | relative_url }}"></script>
-<script type="text/javascript" src="{{ '/scripts/global/2-imagelightbox.js' | relative_url }}"></script>
-<script type="text/javascript" src="{{ '/scripts/global/scripts.js' | relative_url }}"></script>
-<script type="text/javascript" src="{{ '/js/materialize.min.js' | relative_url }}"></script>
-<script type="text/javascript" src="{{ '/scripts/infinite/init.js' | relative_url }}?forceversion=2"></script>
+<script src="{{ '/scripts/jquery.toc.js' | relative_url }}"></script>
+<script src="{{ '/scripts/infinite/1-jquery.jscroll.js' | relative_url }}"></script>
+<script src="{{ '/scripts/global/2-imagelightbox.js' | relative_url }}?forceversion=2"></script>
+<script src="{{ '/scripts/global/scripts.js' | relative_url }}"></script>
+<script src="{{ '/js/materialize.min.js' | relative_url }}"></script>
+<script src="{{ '/scripts/infinite/init.js' | relative_url }}?forceversion=2"></script>
 {% endif %}
 
+<script>
+    window.SITE_BASEURL = "{{ site.baseurl | replace: '//', '/' }}";
+</script>
+<script src="{{ '/js/search.js' | relative_url }}" defer></script>
+
 {% if page.sidebar_toc %}
-<script type="text/javascript">
+<script>
     fallback.ready(function () {
         $('#post-content').toc({
             renderIn: '#renderTOC',
@@ -221,12 +233,12 @@ fallback.load({
 
 {%- if site.page_debug -%}<!-- Google Analytics. Put the ID in _config.yml -->{%- endif -%}
 {% if jekyll.environment != "development" %}
-<script type="text/javascript">
+<script>
 </script>
 {% endif %}
 
 {%- if site.page_debug -%}<!-- Load the user's last selected theme for the lamp -->{%- endif -%}
-<script type="text/javascript">
+<script>
     {% include _dark_mode.js %}
 </script>
 
@@ -234,51 +246,64 @@ fallback.load({
 
 {%- if site.page_debug -%}<!-- Site Infos -->{%- endif -%}
 
-{%- assign has_title = false -%}
-{%- if page.title and page.title != blank -%}
-    {%- assign has_title = true -%}
-{%- endif -%}
 
-{%- assign has_desc = false -%}
-{%- if page.description and page.description != blank -%}
-    {%- assign has_desc = true -%}
-{%- endif -%}
+{%- comment -%}
+Pretty title only.
+- We emit our own title element.
+- We let jekyll-seo-tag emit everything else (canonical/OG/Twitter/JSON-LD),
+  but disable its title output to avoid duplicates.
+{%- endcomment -%}
 
-{%- if has_title and has_desc -%}
-    {%- if site.page_debug -%}<!-- 1 -->{%- endif -%}
-    {%- seo title=true description=false -%}
-    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 155 }}">
-{%- elsif has_title and has_desc == false -%}
-    {%- if site.page_debug -%}<!-- 2 -->{%- endif -%}
-    {%- assign site_name = site.name | default: site.title | default: "" -%}
-    {%- assign raw_title = page.title | strip_html | normalize_whitespace -%}
-    {%- assign full_title = raw_title -%}
-    {%- if site_name != "" -%}
-        {%- assign full_title = raw_title -%}
-    {%- endif -%}
+{%- assign site_name = site.name | default: site.title | default: "" -%}
+{%- assign raw_title = page.title | default: "" | strip_html | normalize_whitespace -%}
 
-    {%- seo title=false -%}
-
-    {%- if full_title.size > 60 -%}
-        {%- if site.page_debug -%}<!-- 2a -->{%- endif -%}
-        <title>{{ raw_title | truncatewords: 8, "" }}{% if site_name != "" %} | {{ site_name }}{% endif %}</title>
+{%- assign pretty_title = "" -%}
+{%- if raw_title != "" -%}
+    {%- if page.type == "tag" -%}
+        {%- assign pretty_title = raw_title | append: " Keyword Tagged Pages" -%}
     {%- else -%}
-        {%- if site.page_debug -%}<!-- 2b -->{%- endif -%}
-        {%- if page.type == "tag" -%}
-        <title>{{ full_title }} Keyword Tagged Pages</title>
-        {%- else -%}
-        <title>{{ full_title }}</title>
-        {%- endif -%}
+        {%- assign pretty_title = raw_title -%}
     {%- endif -%}
-{%- elsif has_title == false and has_desc -%}
-    {%- if site.page_debug -%}<!-- 3 -->{%- endif -%}
-    {%- seo title=false description=false -%}
-    <title>{{ site.name | default: site.title | default: "Untitled" }}</title>
-    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 155 }}">
+
+    {%- if site_name != "" -%}
+        {%- assign pretty_title = pretty_title | append: " | " | append: site_name -%}
+    {%- endif -%}
 {%- else -%}
-    {%- if site.page_debug -%}<!-- 4 -->{%- endif -%}
-    {%- seo title=false -%}
-    <title>{{ site.name | default: site.title | default: "Untitled" }}</title>
+    {%- assign pretty_title = site_name -%}
+    {%- if pretty_title == "" -%}
+        {%- assign pretty_title = "Untitled" -%}
+    {%- endif -%}
 {%- endif -%}
+
+{%- if site.page_debug -%}<!-- pretty_title={{ pretty_title }} -->{%- endif -%}
+
+
+{%- comment -%}
+Ensure og:image exists.
+Priority: page.image -> page.thumbnail (migrated posts) -> site.image
+Always emit absolute URLs.
+{%- endcomment -%}
+
+{%- assign resolved_image = "" -%}
+{%- if page.image and page.image != blank -%}
+    {%- assign resolved_image = page.image -%}
+{%- elsif page.thumbnail and page.thumbnail != blank -%}
+    {%- assign resolved_image = page.thumbnail -%}
+{%- elsif site.image and site.image != blank -%}
+    {%- assign resolved_image = site.image -%}
+{%- endif -%}
+
+{%- seo title=false -%}
+
+{%- if resolved_image != "" -%}
+<meta property="og:image" content="{{ resolved_image | absolute_url }}">
+<meta property="og:image:secure_url" content="{{ resolved_image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ resolved_image | absolute_url }}">
+{%- endif -%}
+
+<title>{{ pretty_title }}</title>
+
+
 
 {% include favicon.html %}

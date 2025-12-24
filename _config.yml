@@ -2,44 +2,58 @@
 #
 # Site Settings. Available in Liquid using the "site." prefix
 title: gojimmypi
-preview_site: true # Do not edit. This is the preview site
+copyright_owner: "gojimmypi"     # put your copyright info here excluding the (c) sign. It will appear in the footer
+copyright_year:  "2015-2025"     # normally visible, hidden on narrow screens in footer
+
+description: "Embedded, FPGA, wolfSSL, ESP32, Arduino, and hardware projects."
+domain: gojimmypi.github.io      # If you want to force HTTPS, put down the domain without the http: e.g. example.com
+
+preview_site: true               # Do not edit. This is the preview site
+
 canonical_site_url: https://gojimmypi.github.io # preview links will redirect here
-ahrefs_analytics: true # optionally enable ahrefs, see _includes/head.html
-google_analytics: true
-description: "blog"
-domain: gojimmypi.github.io #If you want to force HTTPS, put down the domain without the http: e.g. example.com
-url: https://gojimmypi.github.io #place url
-baseurl: /gridster-jekyll-theme #place folder name if site is served in subfolder, NO trailing slash! (pair of double quotes if root)
+url: https://gojimmypi.github.io # place url
+baseurl: /gridster-jekyll-theme  # place folder name if site is served in subfolder, NO trailing slash! (pair of double quotes if root)
 github_baseurl: https://github.com/gojimmypi/gridster-jekyll-theme/ # required for the github-corner links
+
+ahrefs_analytics: true           # optionally enable ahrefs, see _includes/head.html
+google_analytics: false          # optionally enable google analytics, see _includes/head.html
+
 usefallback: false
 
-page_debug: true # pages may display diagnostics and breadcrumbs
+logo: /images/gojimmypi.svg
+image: /images/gojimmypi.jpg
 
-author: #For jekyll-feed
+page_debug: true                 # pages may display diagnostics and breadcrumbs
+
+author: # For jekyll-feed
   name: gojimmypi
-  email: gojimmypi@gmail.com #Also used in nav
   uri: https://gojimmypi.github.io/about/
-  twitter: "#" #name only. for jekyll-seo-tag, temporary fix to the incompatibility with site.data.authors
+  email: gojimmypi@gmail.com # Also used in nav
+  twitter: gojimmypi # name only. for jekyll-seo-tag, temporary fix to the incompatibility with site.data.authors
 # tumblr: "#"
 pinterest: "https://fi.pinterest.com/gojimmypi/"
 # instagram: "#"
-twitter: # for both nav & jekyll-seo-tag
-  username: "gojimmypi" #name only
-mastodon: # for both nav & jekyll-seo-tag
-  username: "gojimmypi" #name only
-# facebook: # for both nav & jekyll-seo-tag
-#   publisher: "#" #full link
+twitter:              # for both nav & jekyll-seo-tag
+  username: gojimmypi #name only
+mastodon:             # for both nav & jekyll-seo-tag
+  username: gojimmypi #name only
+# facebook:           # for both nav & jekyll-seo-tag
+#   publisher: "      #" #full link
 youtube: "https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg"
 # vimeo: "#"
 # soundcloud: "#"
 social: # for jekyll-seo-tag
-  links: # put all the social links excluding twitter and facebook here as an array: ["link1", "link2"]
+  links: # put all the social links
+    - https://github.com/gojimmypi
+    - https://twitter.com/gojimmypi
+    - https://hackaday.social/@gojimmypi
+    - https://www.youtube.com/channel/UCR01egMbYgXQGJaocNEDEwg
+    - https://fi.pinterest.com/gojimmypi/
 # google verification: https://support.google.com/webmasters/answer/9008080?hl=en
 # https://search.google.com/search-console/ownership
 # gojimmypi uses \google2135ab0ce8568db2.html
 # google_site_verification: "FdDTVMkMmUJFE1F3mACjcq7jWt3mwyEpb3E09WMctTA" # gojimmypi verified FdDT...
 # Site Setup Infos
-copyright: "2015-2025 gojimmypi" # put your copyright info here excluding the (c) sign. It will appears in the footer
 # disqus: gojimmypi # disqus id in the form of <<id>>.disqus.com... ID only!
 # analytics: "UA-33794695-2" # Google Analytics ID; UA-33794695-2 from Gridster
 # cse: "004435532597611518746:uxyjmivw31u" #Google Custom Search Engine id ("cx" variables) Gridster  is 004435532597611518746:uxyjmivw31u
@@ -51,50 +65,101 @@ typekitid: "" #Put your TypeKit Kit ID here. mit7aeg is the Gridster template
 permalink: /:categories/:title/
 paginate: 8
 paginate_path: /page/:num/
-infinite_scroll: true #change to false if you want to use pagination
-sidebar_toc: true #true if you want the collapsible TOC appears in the sidebar. Once it is turned on site-wide, it can be setup per page. See defaults below.
-math: true #true if you want amsthm. Once it is turned on site-wide, it can be setup per page. See defaults below. See https://github.com/ickc/multimarkdown-amsthm-css
-tags_dir: /tags #All tags summary page
+infinite_scroll: true # change to false if you want to use pagination
+sidebar_toc: true     # true if you want the collapsible TOC appears in the sidebar. Once it is turned on site-wide, it can be setup per page. See defaults below.
+math: true            # true if you want amsthm. Once it is turned on site-wide, it can be setup per page. See defaults below. See https://github.com/ickc/multimarkdown-amsthm-css
+
+tags_dir: /tags       # All tags summary page
 tag_dir: /tag
-categories_dir: /categories  #All categories summary page
+
+categories_dir: /categories       # All categories summary page
 category_dir: /category
-authors_dir: /about #ALL authors summary page, a.k.a. about
+authors_dir: /about               # ALL authors summary page, a.k.a. about
 author_dir: /author
 author_title_prefix: 'Posted by ' # only used my the author plugin. See README to see how to do it manually
 author_default_avatar: /profile-pic.jpg
 archive_dir: /archive
 media_folder: /media
+
 rss: /feed.xml #For nav. The path is fixed by jekyll-feed; omitting this will result in no RSS icon in nav.
+
 # Jekyll Setup
 full_rebuild: true
 encoding: utf-8
+
 # HTML TEXT
 global_html:
     single_right_arrow: ">"
     double_right_arrow: ">>"
     single_left_arrow:  "<"
     double_left_arrow:  "<<"
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      sidebar: true #true for sidebar false for none
-      sidebar_type: "material" #"material" or "classic"
-      sidebar_position: "left" #"left" or "right"
-      sidebar_toc: false
-      type: "standard"
-      homedisplay: "featimg"
-      comments: false
+
+# SEO settings
+seo:
+  description: false # this probably does not do what we would want, but leaving it anyhow. Be sure to add description from matter to posts
 excerpt_separator: "<!-- more -->"
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      sidebar: true
+      sidebar_type: material
+      sidebar_position: left
+      sidebar_toc: false
+      type: standard
+      homedisplay: featimg
+      comments: false
+      seo_description_max_words: 25
+
 markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
   input: GFM
   hard_wrap: false
-exclude: [.git, .gitignore, .sass-cache, package.json, gruntfile.js, node_modules, README.md, jekyllbuild, Gemfile, Gemfile.lock, preview, img, LICENCE, Organizational Overview.*]
+
+exclude:
+  - .git
+  - .gitignore
+  - .sass-cache
+  - .vs
+  - _drafts
+  - drafts
+  - package.json
+  - gruntfile.js
+  - node_modules
+  - README.md
+  - jekyllbuild
+  - Gemfile
+  - Gemfile.lock
+  - preview
+  - img
+  - LICENCE
+  - Organizational Overview.*
+
+  # Jekyll output (already ignored, but harmless to list)
+  - _site
+
+  # Never exclude generated / copied artifacts when generating tags with jekyll-archives
+  # - tag
+  # - _tag
+
+  # Backup / editor artifacts (explicit)
+  - "*.bak"
+  - "**/*.bak"
+  - "*.BAK"
+  - "**/*.BAK"
+
+  # Common editor / OS cruft (safe, optional but recommended)
+  - "*~"
+  - "**/*~"
+  - "*.swp"
+  - "**/*.swp"
+  - "*.tmp"
+  - "**/*.tmp"
+  - ".DS_Store"
+  - "**/.DS_Store"
 
 # a list of supported GitHub plugins: https://pages.github.com/versions/
 plugins:
@@ -125,8 +190,8 @@ jekyll-archives:
     tag: tag_index
     year: archive_index
   permalinks:
-    category: '/category/:name/' #should be in tag_dir above
-    tag: '/tag/:name/'  #should be in category_dir above
+    category: '/category/:name/' # should be in tag_dir above
+    tag: '/tag/:name/'           # should be in category_dir above
     year: '/archive/:year/'
 
 # Compress CSS and HTMLs

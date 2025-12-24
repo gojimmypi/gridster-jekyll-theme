@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RISC-V Circuit Python on ULX3S starting with the Hacker FOMU as an example
+description: "Some notes on setting up a soft RISC-V CPU to run Circuit Python. I started with the ambitious idea of wanting Circuit Python to work on the Radiona"
 date: '2020-03-08T08:39:00.002-07:00'
 author: gojimmypi
 tags:
@@ -38,7 +39,7 @@ First, I'd like to extend my thanks to Tim "mithro" Ansell for giving me a pair 
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/my_fomu.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="413" data-original-width="406" height="320" src="../images/s320/my_fomu.PNG" width="313"></a>
+<img alt="illustration image" border="0" data-original-height="413" data-original-width="406" height="320" src="../images/s320/my_fomu.PNG" width="313"></a>
 </div>
 <br />
 <br />The 
@@ -48,7 +49,7 @@ First, I'd like to extend my thanks to Tim "mithro" Ansell for giving me a pair 
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/adafruit_fomu.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="389" data-original-width="335" height="320" src="../images/s320/adafruit_fomu.PNG" width="275"></a>
+<img alt="illustration image" border="0" data-original-height="389" data-original-width="335" height="320" src="../images/s320/adafruit_fomu.PNG" width="275"></a>
 </div>
 <br />I started following along the 
 <a href="https://github.com/timvideos/litex-buildenv/wiki/Getting-started-with-FOMU-(an-FPGA-in-your-USB-port)">timvideos getting started</a>
@@ -60,7 +61,7 @@ First, I'd like to extend my thanks to Tim "mithro" Ansell for giving me a pair 
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/fomu_initial_version.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="200" data-original-width="659" height="116" src="../images/s400/fomu_initial_version.PNG" width="400"></a>
+<img alt="illustration image" border="0" data-original-height="200" data-original-width="659" height="116" src="../images/s400/fomu_initial_version.PNG" width="400"></a>
 </div>
 <br />
 <br />I also ordered an even more robust, known-good CircuitPython board, the 
@@ -90,7 +91,7 @@ Update: it seems that Ubuntu only "forgets" the IP address assignment if the VM 
 
 <div class="separator" style="clear: both; text-align: center;">
 <a href="../images/s1600/Screenshot_from_2020-03-04_07-47-06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img border="0" data-original-height="818" data-original-width="747" height="400" src="../images/s400/Screenshot_from_2020-03-04_07-47-06.png" width="365"></a>
+<img alt="illustration image" border="0" data-original-height="818" data-original-width="747" height="400" src="../images/s400/Screenshot_from_2020-03-04_07-47-06.png" width="365"></a>
 </div>
 <br />
 
@@ -259,7 +260,7 @@ PATH=/opt/riscv32i/bin:$PATH</code></pre>
 <br />
 Once the RISC-V toolchain is installed, there's some sample code in the picosoc directory. Fortunately rxrbln has already made some modifications in the Makefile for the ULX3S. The C code is compiled with:
 <br />
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -270,7 +271,7 @@ make ulx3s_fw.img</code></pre>
 <br />
 To upload the code to the ULX3S:
 <br />
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -280,7 +281,7 @@ make ulx3sprog</code></pre>
 <br />
 <br />
 Note from the Makefile there are 2 key steps: #1 to put the ulx3s.bit soft CPU onto the FPGA, then #2 put the firmware into FLASH memory: 
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 
@@ -293,7 +294,7 @@ Note from the Makefile there are 2 key steps: #1 to put the ulx3s.bit soft CPU o
 <code class="highlight">/usr/local/bin/ujprog</code> however the rxrbln Makefile expects it to be <code class="highlight">
 /usr/src/f32c-ujprog/ujprog/ujprog</code><br />
 so we'll just create a quick symlink 
-<code class="highlight"></code><br />
+
 
 {% include code_header.html %}
 

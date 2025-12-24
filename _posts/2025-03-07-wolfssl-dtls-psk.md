@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "wolfSSL DTLS PSK"
+description: "Some notes on using PSK. Rebuild wolfSSL, create static shared library in `$HOME/wolfssl-install-psk`. ```bash make clean make distclean rm -rf"
 date: '2025-03-07'
 author: gojimmypi
 tags:

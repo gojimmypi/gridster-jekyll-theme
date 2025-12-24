@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "SiFive HiFive Unmatched Ubuntu NVMe SSD Boot"
+description: "Some notes on setting up the SiFive Unmatched RISC-V to boot from an NVMe SSD. ## Download Ubuntu Image Download [cdimage.ubuntu.com/releases/24.10/release"
 date: '2025-02-17'
 author: gojimmypi
 tags:
