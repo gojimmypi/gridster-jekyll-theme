@@ -13,4 +13,5 @@ jobs:
 
       - name: Verify archive stub pages exist
         run: |
+          bundle exec github-pages versions
           bash ./gen_year_archives.sh --check
