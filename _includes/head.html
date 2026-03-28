@@ -1,11 +1,12 @@
-{% if site.baseurl == "/gridster-jekyll-theme" %}
-<!-- the gridster-jekyll-theme is typically a copy of the root for testing. google indexer complains of duplicates, so disable: -->
-<meta name="robots" content="noindex, nofollow">
-{% endif %}
+{%- if site.page_debug -%}<!-- BEGIN file: /_includes/head.html -->{%- endif -%}
 
-{%- if site.page_debug -%}<!-- file: /_includes/head.html -->{%- endif -%}
+{%- if site.baseurl == "/gridster-jekyll-theme" -%}
+    <!-- the gridster-jekyll-theme is typically a copy of the root for testing. google indexer complains of duplicates, so disable: -->
+    <meta name="robots" content="noindex, nofollow">
+{%- endif -%}
 
 {%- if site.page_debug -%}<!-- helper to avoid page-load flash -->{%- endif -%}
+
 <style>
     html {
         background-color: #111111;
@@ -312,3 +313,4 @@ Always emit absolute URLs.
 
 
 {% include favicon.html %}
+{%- if site.page_debug -%}<!-- END file: /_includes/head.html -->{%- endif -%}
